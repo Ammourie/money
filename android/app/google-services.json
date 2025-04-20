@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "863425147036",
-    "project_id": "starter-6c0bd",
-    "storage_bucket": "starter-6c0bd.appspot.com"
+    "project_number": "470049118469",
+    "project_id": "ammourie-portfolio",
+    "storage_bucket": "ammourie-portfolio.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:863425147036:android:719b710a0df70f32703d59",
+        "mobilesdk_app_id": "1:470049118469:android:b4ccac74af41651a7eff6c",
         "android_client_info": {
-          "package_name": "com.osoustech.starter"
+          "package_name": "com.osoustech.starterSlim"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCPd1aRGiLMcif8MQeGANZHEzKIo3OwoDo"
+          "current_key": "AIzaSyBPMoFUshdaM8-013H65Q58l-hDXURAjZ8"
         }
       ],
       "services": {
@@ -26,15 +26,34 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:863425147036:android:33a7b761231c0df1703d59",
+        "mobilesdk_app_id": "1:470049118469:android:863b823c384d97087eff6c",
         "android_client_info": {
-          "package_name": "com.osoustech.starterSlim"
+          "package_name": "com.test.socially"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCPd1aRGiLMcif8MQeGANZHEzKIo3OwoDo"
+          "current_key": "AIzaSyBPMoFUshdaM8-013H65Q58l-hDXURAjZ8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:470049118469:android:cdad53da075467617eff6c",
+        "android_client_info": {
+          "package_name": "dev.aladdine.portfolio"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPMoFUshdaM8-013H65Q58l-hDXURAjZ8"
         }
       ],
       "services": {

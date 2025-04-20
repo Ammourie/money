@@ -50,19 +50,19 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCPd1aRGiLMcif8MQeGANZHEzKIo3OwoDo',
-    appId: '1:863425147036:android:33a7b761231c0df1703d59',
-    messagingSenderId: '863425147036',
-    projectId: 'starter-6c0bd',
-    storageBucket: 'starter-6c0bd.appspot.com',
+    apiKey: 'AIzaSyBPMoFUshdaM8-013H65Q58l-hDXURAjZ8',
+    appId: '1:470049118469:android:b4ccac74af41651a7eff6c',
+    messagingSenderId: '470049118469',
+    projectId: 'ammourie-portfolio',
+    storageBucket: 'ammourie-portfolio.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCVpSDoTnZrfzQiQaXmWoTtjJid6440zE8',
-    appId: '1:863425147036:ios:eb116fea2f5fa697703d59',
-    messagingSenderId: '863425147036',
-    projectId: 'starter-6c0bd',
-    storageBucket: 'starter-6c0bd.appspot.com',
+    apiKey: 'AIzaSyAl81C_900YKb2rm-Rkqw1Id_RfDhvBVXQ',
+    appId: '1:470049118469:ios:60975b58abe923667eff6c',
+    messagingSenderId: '470049118469',
+    projectId: 'ammourie-portfolio',
+    storageBucket: 'ammourie-portfolio.firebasestorage.app',
     iosBundleId: 'com.osoustech.starterSlim',
   );
 

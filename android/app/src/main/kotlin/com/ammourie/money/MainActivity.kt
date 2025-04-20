@@ -1,4 +1,4 @@
-package com.osoustech.starterSlim
+package com.ammourie.money
 
 import io.flutter.embedding.android.FlutterActivity
 
