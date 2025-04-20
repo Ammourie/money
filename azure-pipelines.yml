@@ -1,0 +1,76 @@
+trigger:
+- develop
+
+pool:
+  name: 'Default'
+
+variables:
+  projectDirectory: './'
+  buildConfiguration: 'release'
+  buildStagingFolder: '/build/app/outputs/flutter-apk'
+  flutterBin: 'C:\\flutter\\bin'
+  androidSdkFolder: 'C:\\android\\sdk'
+  telegramChatId: '-1002142371659'
+
+steps:
+- task: SendTelegramNotification@0
+  displayName: Send Telegram Notification
+  inputs:
+    botToken: $(telegramBotId)
+    chats: $(telegramChatId)
+    taskStatus: false
+    teamUrl: false
+    message: '<b><u>Slim_Starter_App_Build</u></b> <i>$(Build.SourceBranch):</i> <blockquote expandable>✍ $(Build.SourceVersionMessage)</blockquote>'
+    buildNumber: false
+    buildQueuedBy: false
+
+#writing where the flutter command exist to the path env variable
+- powershell: Write-Host "##vso[task.setvariable variable=PATH;]${env:PATH};$(flutterBin);$(androidSdkFolder);";
+
+#accept all sdk manager licences
+- script: fvm use 3.22.2
+  displayName: 'Specify flutter version FVM'
+  workingDirectory: $(projectDirectory)
+
+
+#accept all sdk manager licences
+- script: fvm flutter doctor --android-licenses
+  continueOnError: true
+  displayName: 'Accepting the android sdk manager licences'
+  workingDirectory: $(androidSdkFolder)
+
+- script: fvm flutter pub get
+  displayName: 'Get packages'
+  workingDirectory: $(projectDirectory)
+
+- script: fvm flutter build apk --split-per-abi --release
+  displayName: 'Building project'
+  workingDirectory: $(projectDirectory)
+  env:
+    ANDROID_HOME: $(androidSdkFolder)
+
+- powershell: Mv "$(projectDirectory)$(buildStagingFolder)\app-armeabi-v7a-release.apk" "$(projectDirectory)$(buildStagingFolder)\starter-slim.apk";
+
+
+#Publishing The application
+- task: FtpUpload@2
+  displayName: 'Moving Application to server'
+  inputs:
+    serverEndpoint: Osous Deployment Server
+    rootDirectory: $(projectDirectory)$(buildStagingFolder)
+    filePatterns: |
+     **/*
+    remoteDirectory: /Starter/Admin
+    trustSSL: true
+    preservePaths: true
+
+- task: SendTelegramNotification@0
+  displayName: Send Telegram Notification
+  inputs:
+    botToken: $(telegramBotId)
+    chats: $(telegramChatId)
+    taskStatus: true
+    teamUrl: false
+    message: '<b><u>Slim_Starter_App_Build</u></b> <i>$(Build.SourceBranch):</i> <blockquote expandable>✍ $(Build.SourceVersionMessage)</blockquote>'
+    buildNumber: false
+    buildQueuedBy: false
