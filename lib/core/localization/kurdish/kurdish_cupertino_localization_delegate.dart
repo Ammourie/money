@@ -247,7 +247,6 @@ class KurdishCupertinoLocalizationsDelegate
     return SynchronousFuture<CupertinoLocalizations>(
       KurdishCupertinoLocalizations(
         localeName: localeName,
-        weekdayFormat: intl.DateFormat('EEEE', localeName),
         // The `intl` library's NumberFormat class is generated from CLDR data
         // (see https://github.com/dart-lang/intl/blob/master/lib/number_symbols_data.dart).
         // Unfortunately, there is no way to use a locale that isn't defined in
@@ -290,7 +289,6 @@ class KurdishCupertinoLocalizations extends GlobalCupertinoLocalizations {
     required super.singleDigitHourFormat,
     required super.singleDigitMinuteFormat,
     required super.singleDigitSecondFormat,
-    required super.weekdayFormat,
   });
 
 // #docregion Getters
