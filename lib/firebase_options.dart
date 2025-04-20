@@ -51,7 +51,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyBPMoFUshdaM8-013H65Q58l-hDXURAjZ8',
-    appId: '1:470049118469:android:b4ccac74af41651a7eff6c',
+    appId: '1:470049118469:android:682f7c74660d89ff7eff6c',
     messagingSenderId: '470049118469',
     projectId: 'ammourie-portfolio',
     storageBucket: 'ammourie-portfolio.firebasestorage.app',
@@ -59,11 +59,11 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyAl81C_900YKb2rm-Rkqw1Id_RfDhvBVXQ',
-    appId: '1:470049118469:ios:60975b58abe923667eff6c',
+    appId: '1:470049118469:ios:603aaf103390e16e7eff6c',
     messagingSenderId: '470049118469',
     projectId: 'ammourie-portfolio',
     storageBucket: 'ammourie-portfolio.firebasestorage.app',
-    iosBundleId: 'com.osoustech.starterSlim',
+    iosBundleId: 'com.ammourie.money',
   );
 
 }
