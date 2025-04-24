@@ -39,9 +39,9 @@ void main() async {
 Future<void> _initAppConfigs() async {
   WidgetsFlutterBinding.ensureInitialized();
   await LocalStorage.init();
-  if (AppSettings.enableBranchIO) {
-    BranchIODynamicLink.init();
-  }
+  // if (AppSettings.enableBranchIO) {
+  //   BranchIODynamicLink.init();
+  // }
 
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
 

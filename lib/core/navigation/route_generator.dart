@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
+import 'package:slim_starter_application/features/account/view/auth_view.dart';
 import 'package:slim_starter_application/features/blog/view/blog_list_view.dart';
 import 'package:swipeable_page_route/swipeable_page_route.dart';
 
@@ -35,6 +36,11 @@ class NavigationRoute {
         return _getRoute<LoginViewParam>(
           settings: settings,
           createScreen: (param) => LoginView(param: param),
+        );
+      case AuthView.routeName:
+        return _getRoute<AuthViewParam>(
+          settings: settings,
+          createScreen: (param) => AuthView(param: param),
         );
       case RegisterView.routeName:
         return _getRoute<RegisterViewParam>(

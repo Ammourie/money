@@ -131,6 +131,14 @@ dependencies:
   statusbarz: 1.0.14
   # Periodic callbacks in the background for both iOS and Android. Includes Android Headless implementation.
   background_fetch: 1.3.5
+  # Firebase Auth
+  firebase_auth: 5.1.4
+  # Google Sign In
+  google_sign_in: 6.2.2
+  # firebase database
+  cloud_firestore: 5.2.1
+ 
+
 
 dev_dependencies:
   flutter_test:

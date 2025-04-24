@@ -5,7 +5,7 @@ import '../../../core/navigation/nav.dart';
 import '../../../core/ui/custom_map/logic/location_wrapper.dart';
 import '../../../core/ui/dialogs/update_app_dialog.dart';
 import '../../../services/api_cubit/api_cubit.dart';
-import '../../account/view/login_view.dart';
+import '../../account/view/auth_view.dart';
 import '../../home/model/response/home_init_model.dart';
 import '../../home/view/app_main_view.dart';
 import '../view/splash_view.dart';
@@ -37,9 +37,13 @@ class SplashViewModel extends BaseViewModel<SplashViewParam> {
       Nav.off(AppMainView.routeName, arguments: AppMainViewParam());
     } else {
       Nav.off(
-        LoginView.routeName,
-        arguments: LoginViewParam(),
+        AuthView.routeName,
+        arguments: AuthViewParam(),
       );
+      // Nav.off(
+      //   LoginView.routeName,
+      //   arguments: LoginViewParam(),
+      // );
     }
 
     // Check if there is a new version.
