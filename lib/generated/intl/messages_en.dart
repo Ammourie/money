@@ -29,6 +29,8 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m3(permissionName) => "${permissionName} permission required!";
 
+  static String m4(user) => "Welcome ${user}";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "GrandAdminPrevilegesToThisAccount": MessageLookupByLibrary.simpleMessage(
@@ -70,6 +72,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "closeApp": MessageLookupByLibrary.simpleMessage("Close App"),
     "closed": MessageLookupByLibrary.simpleMessage("Closed"),
     "codeResent": MessageLookupByLibrary.simpleMessage("Code resent"),
+    "companyInc": MessageLookupByLibrary.simpleMessage("Company Inc."),
     "complaint": MessageLookupByLibrary.simpleMessage("Complaint"),
     "completeRegister": MessageLookupByLibrary.simpleMessage(
       "Complete Registration",
@@ -87,6 +90,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "createdAt": MessageLookupByLibrary.simpleMessage("Created At"),
     "dateOfBirth": MessageLookupByLibrary.simpleMessage("Date of birth"),
     "deleteAccount": MessageLookupByLibrary.simpleMessage("Delete Account"),
+    "deposit": MessageLookupByLibrary.simpleMessage("Deposit"),
     "dialogUpdateMessage": MessageLookupByLibrary.simpleMessage(
       "For the best experience, update to the latest version to get new features and improvements.",
     ),
@@ -98,6 +102,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "editProfile": MessageLookupByLibrary.simpleMessage("Edit Profile"),
     "emailAddress": MessageLookupByLibrary.simpleMessage("Email Address"),
+    "emergencyFund": MessageLookupByLibrary.simpleMessage("Emergency Fund"),
     "empty": MessageLookupByLibrary.simpleMessage("Empty"),
     "emptyScreen": MessageLookupByLibrary.simpleMessage("This page is empty"),
     "enterCodeText": MessageLookupByLibrary.simpleMessage(
@@ -124,6 +129,13 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "faqs": MessageLookupByLibrary.simpleMessage("FAQs"),
     "female": MessageLookupByLibrary.simpleMessage("female"),
+    "financialProducts": MessageLookupByLibrary.simpleMessage(
+      "Financial Products",
+    ),
+    "fixedDeposit": MessageLookupByLibrary.simpleMessage("Fixed Deposit"),
+    "fixedDepositDescription": MessageLookupByLibrary.simpleMessage(
+      "Lock in 5.2% for 12 months with minimum deposit of \$1,000",
+    ),
     "forbidden": MessageLookupByLibrary.simpleMessage("Forbidden"),
     "generalErrorMessage": MessageLookupByLibrary.simpleMessage(
       "An error has occurred. Please try again later",
@@ -132,6 +144,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "getPokemons": MessageLookupByLibrary.simpleMessage("Get Pokemons"),
     "guetsMessage": MessageLookupByLibrary.simpleMessage(
       "Sorry, you are a guest, login to continue.",
+    ),
+    "highYieldSavings": MessageLookupByLibrary.simpleMessage(
+      "High Yield Savings",
+    ),
+    "highYieldSavingsDescription": MessageLookupByLibrary.simpleMessage(
+      "Earn up to 4.5% APY with our premium savings account",
     ),
     "homePage": MessageLookupByLibrary.simpleMessage("Home Page"),
     "iWantToAskAbout": MessageLookupByLibrary.simpleMessage(
@@ -151,8 +169,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "invalidPhoneNumber": MessageLookupByLibrary.simpleMessage(
       "Please enter a valid phone number ex: 7xx-xxx-xxx",
     ),
+    "investmentPortfolio": MessageLookupByLibrary.simpleMessage(
+      "Investment Portfolio",
+    ),
+    "investmentPortfolioDescription": MessageLookupByLibrary.simpleMessage(
+      "Start investing with as little as \$100",
+    ),
     "justLog": MessageLookupByLibrary.simpleMessage("Just Log"),
     "lastUpdated": MessageLookupByLibrary.simpleMessage("Last Updated"),
+    "learnMore": MessageLookupByLibrary.simpleMessage("Learn More"),
     "locationPermission": MessageLookupByLibrary.simpleMessage("Location"),
     "logOut": MessageLookupByLibrary.simpleMessage("Logout"),
     "login": MessageLookupByLibrary.simpleMessage("Login"),
@@ -162,6 +187,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "makeSureSpecificPermissionGranted": m0,
     "male": MessageLookupByLibrary.simpleMessage("male"),
     "mapPathError": MessageLookupByLibrary.simpleMessage("Couldn\'t find path"),
+    "more": MessageLookupByLibrary.simpleMessage("More"),
     "myMessage": MessageLookupByLibrary.simpleMessage("My message"),
     "myProfile": MessageLookupByLibrary.simpleMessage("My profile"),
     "myTickets": MessageLookupByLibrary.simpleMessage("My Tickets"),
@@ -179,6 +205,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Not valid response",
     ),
     "notifications": MessageLookupByLibrary.simpleMessage("Notifications"),
+    "ofGoalReached": MessageLookupByLibrary.simpleMessage("of goal reached"),
     "ok": MessageLookupByLibrary.simpleMessage("Ok"),
     "oopsErrorMessage": MessageLookupByLibrary.simpleMessage("OOPS !"),
     "openAppSettings": MessageLookupByLibrary.simpleMessage(
@@ -196,6 +223,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "The page has no content ..",
     ),
     "password": MessageLookupByLibrary.simpleMessage("Password"),
+    "payBills": MessageLookupByLibrary.simpleMessage("Pay Bills"),
     "pending": MessageLookupByLibrary.simpleMessage("Pending"),
     "permissionRequiredMessage": MessageLookupByLibrary.simpleMessage(
       "make sure to grant the previous permission to be able to use the app.",
@@ -210,6 +238,10 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "privacyPolicy": MessageLookupByLibrary.simpleMessage("Privacy Policy"),
     "question": MessageLookupByLibrary.simpleMessage("Question"),
+    "quickActions": MessageLookupByLibrary.simpleMessage("Quick Actions"),
+    "recentTransactions": MessageLookupByLibrary.simpleMessage(
+      "Recent Transactions",
+    ),
     "refresh": MessageLookupByLibrary.simpleMessage("Refresh"),
     "regularUser": MessageLookupByLibrary.simpleMessage("Regular User"),
     "reportError": MessageLookupByLibrary.simpleMessage(
@@ -219,14 +251,18 @@ class MessageLookup extends MessageLookupByLibrary {
     "responseError": MessageLookupByLibrary.simpleMessage(
       "An error happened while connecting to server, please try again later",
     ),
+    "restaurant": MessageLookupByLibrary.simpleMessage("Restaurant"),
     "retry": MessageLookupByLibrary.simpleMessage("Retry"),
     "role": MessageLookupByLibrary.simpleMessage("Role"),
+    "salary": MessageLookupByLibrary.simpleMessage("Salary"),
     "search": MessageLookupByLibrary.simpleMessage("Search"),
+    "seeAll": MessageLookupByLibrary.simpleMessage("See All"),
     "selectSubject": MessageLookupByLibrary.simpleMessage("Select subject"),
     "selectYourGender": MessageLookupByLibrary.simpleMessage(
       "Select your gender",
     ),
     "send": MessageLookupByLibrary.simpleMessage("Send"),
+    "shopping": MessageLookupByLibrary.simpleMessage("Shopping"),
     "signInToContinueToTheApplication": MessageLookupByLibrary.simpleMessage(
       "Sign In To Continue To The Application",
     ),
@@ -242,6 +278,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "suggesstion": MessageLookupByLibrary.simpleMessage("Suggesstion"),
     "surname": MessageLookupByLibrary.simpleMessage("Surname"),
     "switchTheme": MessageLookupByLibrary.simpleMessage("Switch theme"),
+    "target": MessageLookupByLibrary.simpleMessage("Target"),
     "termsAndConditions": MessageLookupByLibrary.simpleMessage(
       "Terms And Conditions",
     ),
@@ -265,6 +302,11 @@ class MessageLookup extends MessageLookupByLibrary {
       "Please write your concern and will reply during 24h",
     ),
     "ticketNumber": MessageLookupByLibrary.simpleMessage("Ticket Number"),
+    "today": MessageLookupByLibrary.simpleMessage("Today"),
+    "totalReceivables": MessageLookupByLibrary.simpleMessage(
+      "Total Receivables",
+    ),
+    "transfer": MessageLookupByLibrary.simpleMessage("Transfer"),
     "translationTest": MessageLookupByLibrary.simpleMessage("Translation Test"),
     "tryEnablingItFromYourPhoneSettings": MessageLookupByLibrary.simpleMessage(
       "Try enabling it from your phone settings",
@@ -291,7 +333,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "userRegisteration": MessageLookupByLibrary.simpleMessage(
       "User Registration",
     ),
-    "welcome": MessageLookupByLibrary.simpleMessage("Welcome"),
+    "vacationFund": MessageLookupByLibrary.simpleMessage("Vacation Fund"),
+    "welcome": m4,
+    "welcomeback": MessageLookupByLibrary.simpleMessage("Welcome Back"),
+    "yesterday": MessageLookupByLibrary.simpleMessage("Yesterday"),
+    "yourFinancialGoals": MessageLookupByLibrary.simpleMessage(
+      "Your Financial Goals",
+    ),
     "yourTicketSubmittedSuccessfully": MessageLookupByLibrary.simpleMessage(
       "Your ticket has been submitted successfully, we will contact you ASAP",
     ),

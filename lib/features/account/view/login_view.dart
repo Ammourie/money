@@ -105,7 +105,7 @@ class _LoginViewState extends State<LoginView> {
           children: [
             64.verticalSpace,
             Text(
-              S.of(context).welcome,
+              S.of(context).welcome(""),
               style: Theme.of(context).textTheme.bodyLarge!,
             ),
             64.verticalSpace,
@@ -129,7 +129,7 @@ class _LoginViewState extends State<LoginView> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  S.of(context).welcome,
+                  S.of(context).welcome(""),
                   style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                         fontSize: 120.sp,
                       ),

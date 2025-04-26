@@ -89,7 +89,7 @@ class AppConfig {
 
     // if (Device.get().isPhone) return const Size(1080, 1920);
 
-    return const Size(1080, 1920);
+    return const Size(720, 1280);
   }
 
   static void clearNotificationSystemCount() {

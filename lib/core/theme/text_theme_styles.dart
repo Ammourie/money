@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 /// Centralized the text styles that are used widely in app
 class TextThemeStyles {
-  static final _fontSizeDelta = 25.sp;
+  static final _fontSizeDelta = 12.sp;
 
   static final displayLarge = TextStyle(fontSize: 112.sp + _fontSizeDelta);
   static final displayMedium = TextStyle(fontSize: 56.sp + _fontSizeDelta);

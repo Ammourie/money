@@ -1,9 +1,13 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:provider/provider.dart';
+import 'package:slim_starter_application/core/common/app_config.dart';
+import 'package:slim_starter_application/features/account/model/response/user_model.dart';
 
 import '../../../core/common/view_model/base_view_model.dart';
 import '../../../core/constants/app/app_settings.dart';
 import '../../../core/navigation/nav.dart';
+import '../../../core/providers/session_data.dart';
 import '../../../core/ui/custom_map/logic/location_wrapper.dart';
 import '../../../core/ui/dialogs/update_app_dialog.dart';
 import '../../../services/api_cubit/api_cubit.dart';
@@ -63,6 +67,8 @@ class SplashViewModel extends BaseViewModel<SplashViewParam> {
           .get()
           .then((DocumentSnapshot snapshot) {
         if (snapshot.exists) {
+          AppConfig().appContext!.read<SessionData>().user =
+              UserModel.fromFirestore(snapshot);
           Nav.off(
             AppMainView.routeName,
             arguments: AppMainViewParam(),

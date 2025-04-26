@@ -371,7 +371,7 @@ class _AuthViewState extends State<AuthView> {
                   ),
                   const SizedBox(height: 30),
                   Text(
-                    S.current.welcome,
+                    S.current.welcome(""),
                     style: const TextStyle(
                       fontSize: 28,
                       fontWeight: FontWeight.bold,

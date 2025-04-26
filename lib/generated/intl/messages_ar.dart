@@ -30,6 +30,8 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m3(permissionName) =>
       "صلاحية الوصول لل${permissionName} مطلوبة!";
 
+  static String m4(user) => "أهلاً بك ${user}";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "GrandAdminPrevilegesToThisAccount": MessageLookupByLibrary.simpleMessage(
@@ -71,6 +73,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "closeApp": MessageLookupByLibrary.simpleMessage("إغلاق التطبيق"),
     "closed": MessageLookupByLibrary.simpleMessage("مغلق"),
     "codeResent": MessageLookupByLibrary.simpleMessage("تم إعادة إرسال الرمز"),
+    "companyInc": MessageLookupByLibrary.simpleMessage("الشركة المحدودة"),
     "complaint": MessageLookupByLibrary.simpleMessage("شكوى"),
     "completeRegister": MessageLookupByLibrary.simpleMessage("إكمال التسجيل"),
     "confirm": MessageLookupByLibrary.simpleMessage("تأكيد"),
@@ -90,6 +93,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "createdAt": MessageLookupByLibrary.simpleMessage("تم الإنشاء في"),
     "dateOfBirth": MessageLookupByLibrary.simpleMessage("تاريخ الميلاد"),
     "deleteAccount": MessageLookupByLibrary.simpleMessage("حذف الحساب"),
+    "deposit": MessageLookupByLibrary.simpleMessage("إيداع"),
     "dialogUpdateMessage": MessageLookupByLibrary.simpleMessage(
       "للحصول على أفضل تجربة ممكنة، يرجى تحديث التطبيق للتمتع بآخر الميزات",
     ),
@@ -99,6 +103,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "editProfile": MessageLookupByLibrary.simpleMessage("تعديل الملف الشخصي"),
     "emailAddress": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
+    "emergencyFund": MessageLookupByLibrary.simpleMessage("صندوق الطوارئ"),
     "empty": MessageLookupByLibrary.simpleMessage("لا يوجد معلومات لعرضها"),
     "emptyScreen": MessageLookupByLibrary.simpleMessage("هذه الصفحة فارغة"),
     "enterCodeText": MessageLookupByLibrary.simpleMessage(
@@ -125,6 +130,13 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "faqs": MessageLookupByLibrary.simpleMessage("الأسئلة الشائعة"),
     "female": MessageLookupByLibrary.simpleMessage("انثى"),
+    "financialProducts": MessageLookupByLibrary.simpleMessage(
+      "المنتجات المالية",
+    ),
+    "fixedDeposit": MessageLookupByLibrary.simpleMessage("وديعة ثابتة"),
+    "fixedDepositDescription": MessageLookupByLibrary.simpleMessage(
+      "احصل على 5.2% لمدة 12 شهرًا مع حد أدنى للإيداع قدره 1,000 دولار",
+    ),
     "forbidden": MessageLookupByLibrary.simpleMessage("لا يمكن الوصول الآن"),
     "generalErrorMessage": MessageLookupByLibrary.simpleMessage(
       "حدث خطأ ما. يرجى المحاولة لاحقاً",
@@ -133,6 +145,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "getPokemons": MessageLookupByLibrary.simpleMessage("البوكيمونات"),
     "guetsMessage": MessageLookupByLibrary.simpleMessage(
       "عذراً ، أنت في وضع الزائر ، سجل الدخول للمتابعة.",
+    ),
+    "highYieldSavings": MessageLookupByLibrary.simpleMessage(
+      "حساب توفير ذو عائد مرتفع",
+    ),
+    "highYieldSavingsDescription": MessageLookupByLibrary.simpleMessage(
+      "اربح حتى 4.5% عائد سنوي مع حساب التوفير المميز",
     ),
     "homePage": MessageLookupByLibrary.simpleMessage("الرئيسية"),
     "iWantToAskAbout": MessageLookupByLibrary.simpleMessage(
@@ -152,8 +170,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "invalidPhoneNumber": MessageLookupByLibrary.simpleMessage(
       "يرجى إدخال رقم هاتف صالح مثال 7xx-xxx-xxx",
     ),
+    "investmentPortfolio": MessageLookupByLibrary.simpleMessage(
+      "محفظة استثمارية",
+    ),
+    "investmentPortfolioDescription": MessageLookupByLibrary.simpleMessage(
+      "ابدأ الاستثمار بمبلغ لا يتجاوز 100 دولار",
+    ),
     "justLog": MessageLookupByLibrary.simpleMessage("السجل"),
     "lastUpdated": MessageLookupByLibrary.simpleMessage("آخر تحديث"),
+    "learnMore": MessageLookupByLibrary.simpleMessage("معرفة المزيد"),
     "locationPermission": MessageLookupByLibrary.simpleMessage("موقع"),
     "logOut": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
     "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
@@ -165,6 +190,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "mapPathError": MessageLookupByLibrary.simpleMessage(
       "لا نستطع تحديد الطريق",
     ),
+    "more": MessageLookupByLibrary.simpleMessage("المزيد"),
     "myMessage": MessageLookupByLibrary.simpleMessage("رسالتي"),
     "myProfile": MessageLookupByLibrary.simpleMessage("صفحتي الشخصية"),
     "myTickets": MessageLookupByLibrary.simpleMessage("تذاكري"),
@@ -182,6 +208,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "جواب المخدم غير مطابق",
     ),
     "notifications": MessageLookupByLibrary.simpleMessage("الإشعارات"),
+    "ofGoalReached": MessageLookupByLibrary.simpleMessage("من الهدف المحقق"),
     "ok": MessageLookupByLibrary.simpleMessage("موافق"),
     "oopsErrorMessage": MessageLookupByLibrary.simpleMessage("أوبس !"),
     "openAppSettings": MessageLookupByLibrary.simpleMessage(
@@ -197,6 +224,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "otpVerification": MessageLookupByLibrary.simpleMessage("رمز التحقق"),
     "pageEmpty": MessageLookupByLibrary.simpleMessage("لا يوجد محتوى لعرضه .."),
     "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
+    "payBills": MessageLookupByLibrary.simpleMessage("دفع الفواتير"),
     "pending": MessageLookupByLibrary.simpleMessage("بانتظار الموافقة"),
     "permissionRequiredMessage": MessageLookupByLibrary.simpleMessage(
       "يجب إعطاء صلاحية الوصول السابفة لتتمكن من استخدام التطبيق",
@@ -211,6 +239,10 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "privacyPolicy": MessageLookupByLibrary.simpleMessage("سياسة الخصوصية"),
     "question": MessageLookupByLibrary.simpleMessage("سؤال"),
+    "quickActions": MessageLookupByLibrary.simpleMessage("الإجراءات السريعة"),
+    "recentTransactions": MessageLookupByLibrary.simpleMessage(
+      "المعاملات الأخيرة",
+    ),
     "refresh": MessageLookupByLibrary.simpleMessage("تحديث"),
     "regularUser": MessageLookupByLibrary.simpleMessage("مستخدم عادي"),
     "reportError": MessageLookupByLibrary.simpleMessage(
@@ -220,12 +252,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "responseError": MessageLookupByLibrary.simpleMessage(
       "حدث خطأ أثناء الاتصال بالخادم ، يرجى المحاولة لاحقًا",
     ),
+    "restaurant": MessageLookupByLibrary.simpleMessage("مطعم"),
     "retry": MessageLookupByLibrary.simpleMessage("إعادة المحاولة"),
     "role": MessageLookupByLibrary.simpleMessage("الدور"),
+    "salary": MessageLookupByLibrary.simpleMessage("راتب"),
     "search": MessageLookupByLibrary.simpleMessage("بحث"),
+    "seeAll": MessageLookupByLibrary.simpleMessage("عرض الكل"),
     "selectSubject": MessageLookupByLibrary.simpleMessage("اختر الموضوع"),
     "selectYourGender": MessageLookupByLibrary.simpleMessage("اختر جنسك"),
     "send": MessageLookupByLibrary.simpleMessage("إرسال"),
+    "shopping": MessageLookupByLibrary.simpleMessage("تسوق"),
     "signInToContinueToTheApplication": MessageLookupByLibrary.simpleMessage(
       "تسجيل الدخول للمتابعة إلى التطبيق",
     ),
@@ -241,6 +277,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "suggesstion": MessageLookupByLibrary.simpleMessage("اقتراح"),
     "surname": MessageLookupByLibrary.simpleMessage("الكنية"),
     "switchTheme": MessageLookupByLibrary.simpleMessage("تغيير وضع الالوان"),
+    "target": MessageLookupByLibrary.simpleMessage("الهدف"),
     "termsAndConditions": MessageLookupByLibrary.simpleMessage(
       "الشروط والأحكام",
     ),
@@ -264,6 +301,11 @@ class MessageLookup extends MessageLookupByLibrary {
       "الرجاء كتابة مشكلتك وسنرد خلال 24 ساعة",
     ),
     "ticketNumber": MessageLookupByLibrary.simpleMessage("رقم التذكرة"),
+    "today": MessageLookupByLibrary.simpleMessage("اليوم"),
+    "totalReceivables": MessageLookupByLibrary.simpleMessage(
+      "إجمالي المستحقات",
+    ),
+    "transfer": MessageLookupByLibrary.simpleMessage("تحويل"),
     "translationTest": MessageLookupByLibrary.simpleMessage("اختبار الترجمة"),
     "tryEnablingItFromYourPhoneSettings": MessageLookupByLibrary.simpleMessage(
       "حاول تشغيلها من إعدادات جهازك",
@@ -288,7 +330,13 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "userName": MessageLookupByLibrary.simpleMessage("اسم المستخدم"),
     "userRegisteration": MessageLookupByLibrary.simpleMessage("تسجيل المستخدم"),
-    "welcome": MessageLookupByLibrary.simpleMessage("أهلاً بك"),
+    "vacationFund": MessageLookupByLibrary.simpleMessage("صندوق الإجازات"),
+    "welcome": m4,
+    "welcomeback": MessageLookupByLibrary.simpleMessage("مرحباً بك"),
+    "yesterday": MessageLookupByLibrary.simpleMessage("الأمس"),
+    "yourFinancialGoals": MessageLookupByLibrary.simpleMessage(
+      "أهدافك المالية",
+    ),
     "yourTicketSubmittedSuccessfully": MessageLookupByLibrary.simpleMessage(
       "تم إرسال الرسالة بنجاح، سوف نتواصل معك بأسرع وقت ممكن",
     ),

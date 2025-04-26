@@ -9,7 +9,6 @@ import 'package:provider/provider.dart';
 import '../../../core/common/text_formatters/iq_number_formatter.dart';
 import '../../../core/common/validators.dart';
 import '../../../core/constants/app/app_constants.dart';
-import '../../../core/constants/enums/gender_enum.dart';
 import '../../../core/constants/enums/otp_request_type.dart';
 import '../../../core/providers/session_data.dart';
 import '../../../core/ui/dialogs/otp_dialog.dart';

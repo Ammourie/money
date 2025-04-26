@@ -245,9 +245,14 @@ class S {
     return Intl.message('Login', name: 'login', desc: '', args: []);
   }
 
-  /// `Welcome`
-  String get welcome {
-    return Intl.message('Welcome', name: 'welcome', desc: '', args: []);
+  /// `Welcome {user}`
+  String welcome(Object user) {
+    return Intl.message(
+      'Welcome $user',
+      name: 'welcome',
+      desc: '',
+      args: [user],
+    );
   }
 
   /// `Press twice to exit`
@@ -1289,6 +1294,221 @@ class S {
       args: [],
     );
   }
+
+  /// `Welcome Back`
+  String get welcomeback {
+    return Intl.message(
+      'Welcome Back',
+      name: 'welcomeback',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Total Receivables`
+  String get totalReceivables {
+    return Intl.message(
+      'Total Receivables',
+      name: 'totalReceivables',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Quick Actions`
+  String get quickActions {
+    return Intl.message(
+      'Quick Actions',
+      name: 'quickActions',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Deposit`
+  String get deposit {
+    return Intl.message('Deposit', name: 'deposit', desc: '', args: []);
+  }
+
+  /// `Transfer`
+  String get transfer {
+    return Intl.message('Transfer', name: 'transfer', desc: '', args: []);
+  }
+
+  /// `Pay Bills`
+  String get payBills {
+    return Intl.message('Pay Bills', name: 'payBills', desc: '', args: []);
+  }
+
+  /// `More`
+  String get more {
+    return Intl.message('More', name: 'more', desc: '', args: []);
+  }
+
+  /// `Financial Products`
+  String get financialProducts {
+    return Intl.message(
+      'Financial Products',
+      name: 'financialProducts',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `High Yield Savings`
+  String get highYieldSavings {
+    return Intl.message(
+      'High Yield Savings',
+      name: 'highYieldSavings',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Earn up to 4.5% APY with our premium savings account`
+  String get highYieldSavingsDescription {
+    return Intl.message(
+      'Earn up to 4.5% APY with our premium savings account',
+      name: 'highYieldSavingsDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Fixed Deposit`
+  String get fixedDeposit {
+    return Intl.message(
+      'Fixed Deposit',
+      name: 'fixedDeposit',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Lock in 5.2% for 12 months with minimum deposit of $1,000`
+  String get fixedDepositDescription {
+    return Intl.message(
+      'Lock in 5.2% for 12 months with minimum deposit of \$1,000',
+      name: 'fixedDepositDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Investment Portfolio`
+  String get investmentPortfolio {
+    return Intl.message(
+      'Investment Portfolio',
+      name: 'investmentPortfolio',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Start investing with as little as $100`
+  String get investmentPortfolioDescription {
+    return Intl.message(
+      'Start investing with as little as \$100',
+      name: 'investmentPortfolioDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Recent Transactions`
+  String get recentTransactions {
+    return Intl.message(
+      'Recent Transactions',
+      name: 'recentTransactions',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `See All`
+  String get seeAll {
+    return Intl.message('See All', name: 'seeAll', desc: '', args: []);
+  }
+
+  /// `Shopping`
+  String get shopping {
+    return Intl.message('Shopping', name: 'shopping', desc: '', args: []);
+  }
+
+  /// `Today`
+  String get today {
+    return Intl.message('Today', name: 'today', desc: '', args: []);
+  }
+
+  /// `Salary`
+  String get salary {
+    return Intl.message('Salary', name: 'salary', desc: '', args: []);
+  }
+
+  /// `Company Inc.`
+  String get companyInc {
+    return Intl.message('Company Inc.', name: 'companyInc', desc: '', args: []);
+  }
+
+  /// `Yesterday`
+  String get yesterday {
+    return Intl.message('Yesterday', name: 'yesterday', desc: '', args: []);
+  }
+
+  /// `Restaurant`
+  String get restaurant {
+    return Intl.message('Restaurant', name: 'restaurant', desc: '', args: []);
+  }
+
+  /// `Your Financial Goals`
+  String get yourFinancialGoals {
+    return Intl.message(
+      'Your Financial Goals',
+      name: 'yourFinancialGoals',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Vacation Fund`
+  String get vacationFund {
+    return Intl.message(
+      'Vacation Fund',
+      name: 'vacationFund',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Emergency Fund`
+  String get emergencyFund {
+    return Intl.message(
+      'Emergency Fund',
+      name: 'emergencyFund',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Target`
+  String get target {
+    return Intl.message('Target', name: 'target', desc: '', args: []);
+  }
+
+  /// `of goal reached`
+  String get ofGoalReached {
+    return Intl.message(
+      'of goal reached',
+      name: 'ofGoalReached',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Learn More`
+  String get learnMore {
+    return Intl.message('Learn More', name: 'learnMore', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
@@ -1298,7 +1518,6 @@ class AppLocalizationDelegate extends LocalizationsDelegate<S> {
     return const <Locale>[
       Locale.fromSubtags(languageCode: 'en'),
       Locale.fromSubtags(languageCode: 'ar'),
-      Locale.fromSubtags(languageCode: 'ku'),
     ];
   }
 

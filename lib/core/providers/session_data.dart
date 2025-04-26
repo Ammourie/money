@@ -1,13 +1,14 @@
 import 'package:flutter/foundation.dart';
 
 import '../../features/account/model/response/profile_model.dart';
+import '../../features/account/model/response/user_model.dart';
 import '../../features/home/model/response/home_init_model.dart';
 import '../constants/enums/gender_enum.dart';
 
 class SessionData extends ChangeNotifier {
   ProfileModel? profile;
   HomeInitModel? homeInit;
-
+  UserModel? user;
   void updateProfile({
     String? firstName,
     String? lastName,

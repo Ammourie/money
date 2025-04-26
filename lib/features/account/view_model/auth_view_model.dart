@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:slim_starter_application/core/common/app_config.dart';
 import 'package:slim_starter_application/core/common/validators.dart';
+import 'package:slim_starter_application/core/providers/session_data.dart';
 import 'package:slim_starter_application/features/account/model/response/user_model.dart';
 import 'package:slim_starter_application/features/home/view/app_main_view.dart';
 import 'dart:async';
@@ -68,7 +71,7 @@ class AuthViewModel extends BaseViewModel<AuthViewParam> {
         _isRegistrationComplete = true;
         _isLoading = false;
         notifyListeners();
-
+        AppConfig().appContext!.read<SessionData>().user = _userData;
         // Navigate to home screen when profile is complete
         // _navigateToHomeIfProfileComplete();
       } else if (_user!.displayName != null) {
