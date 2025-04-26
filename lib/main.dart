@@ -13,7 +13,6 @@ import 'core/common/local_storage.dart';
 import 'core/constants/app/app_constants.dart';
 import 'core/constants/app/app_settings.dart';
 import 'core/constants/enums/app_options_enum.dart';
-import 'core/dynamic_link/branch_io_dynamic_link.dart';
 import 'core/errors/error_global_handler/catcher_handler.dart';
 import 'core/errors/error_global_handler/email_manual_handler.dart';
 import 'core/errors/error_global_handler/report.dart';
@@ -30,8 +29,8 @@ import 'services/api.dart';
 void main() async {
   await _initAppConfigs();
 
+ 
   runApp(const App());
-
  
   AppConfig.clearNotificationSystemCount();
 }

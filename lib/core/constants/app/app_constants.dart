@@ -57,6 +57,11 @@ class AppConstants {
   static const APP_LOGO = "assets/images/png/app_logo.png";
   static const APP_FLUTTER_MARKER = "assets/images/png/flutter_marker.png";
   static const APP_USER_MARKER = "assets/images/png/user_marker.png";
+  //TODO: add this asset
+  static const AVATAR_PLACEHOLDER = 'assets/images/avatar_placeholder.png';
+  //TODO : fix this also
+  static const google_Icon =
+      'https://www.citypng.com/public/uploads/preview/google-logo-icon-gsuite-hd-701751694791470gzbayltphh.png';
 
   /// Svg
   static const SVG_IMAGE_PLACEHOLDER =

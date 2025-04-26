@@ -49,7 +49,7 @@ class Validators {
     // Only store the actual digits
     final newPhone = phone.replaceAll(RegExp("[^0-9]"), "");
     return newPhone.isNotEmpty &&
-        ((newPhone.startsWith('7') && newPhone.length == 10));
+        ((newPhone.startsWith('09') && newPhone.length == 10));
   }
 
   static bool isNumeric(String s) {
