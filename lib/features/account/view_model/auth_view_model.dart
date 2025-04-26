@@ -70,7 +70,7 @@ class AuthViewModel extends BaseViewModel<AuthViewParam> {
         notifyListeners();
 
         // Navigate to home screen when profile is complete
-        _navigateToHomeIfProfileComplete();
+        // _navigateToHomeIfProfileComplete();
       } else if (_user!.displayName != null) {
         // New user, pre-fill with Google data
         fullNameController.text = _user!.displayName!;

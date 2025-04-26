@@ -123,8 +123,7 @@ class ProfileViewModel extends BaseViewModel<ProfileViewParam> {
         _isLoading = false;
         notifyListeners();
 
-        // // Navigate to home screen when profile is complete
-        // _navigateToHomeIfProfileComplete();
+  
       } else if (_user!.displayName != null) {
         // New user, pre-fill with Google data
         fullNameController.text = _user!.displayName!;
@@ -288,8 +287,6 @@ class ProfileViewModel extends BaseViewModel<ProfileViewParam> {
       _isLoading = false;
       notifyListeners();
 
-      // // Navigate to home after successful profile update
-      // _navigateToHomeIfProfileComplete();
     } catch (e) {
       _isLoading = false;
       _errorMessage = 'Update failed: ${e.toString()}';
@@ -329,8 +326,6 @@ class ProfileViewModel extends BaseViewModel<ProfileViewParam> {
       _userData = newUser;
       _isLoading = false;
       notifyListeners();
-
-     
     } catch (e) {
       _isLoading = false;
       _errorMessage = 'Registration failed: ${e.toString()}';

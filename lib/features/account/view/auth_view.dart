@@ -355,80 +355,82 @@ class _AuthViewState extends State<AuthView> {
   }
 
   Widget _buildSignInScreen() {
-    return Consumer<AuthViewModel>(
-      builder: (context, viewModel, child) {
-        return Center(
-          child: Padding(
-            padding: const EdgeInsets.all(30.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Icon(
-                  Icons.account_circle,
-                  size: 100,
-                  color: Colors.blue,
-                ),
-                const SizedBox(height: 30),
-                Text(
-                  S.current.welcome,
-                  style: const TextStyle(
-                    fontSize: 28,
-                    fontWeight: FontWeight.bold,
+    return SingleChildScrollView(
+      child: Consumer<AuthViewModel>(
+        builder: (context, viewModel, child) {
+          return Center(
+            child: Padding(
+              padding: const EdgeInsets.all(30.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Icon(
+                    Icons.account_circle,
+                    size: 100,
+                    color: Colors.blue,
                   ),
-                ),
-                const SizedBox(height: 10),
-                Text(
-                  S.current.signInToContinueToTheApplication,
-                  style: TextStyle(
-                    fontSize: 16,
-                    color: Colors.grey,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-                const SizedBox(height: 40),
-                if (viewModel.errorMessage != null)
-                  Container(
-                    padding: const EdgeInsets.all(10),
-                    margin: const EdgeInsets.only(bottom: 20),
-                    decoration: BoxDecoration(
-                      color: Colors.red[50],
-                      borderRadius: BorderRadius.circular(5),
-                      border: Border.all(color: Colors.red),
-                    ),
-                    child: Text(
-                      viewModel.errorMessage!,
-                      style: const TextStyle(color: Colors.red),
-                      textAlign: TextAlign.center,
+                  const SizedBox(height: 30),
+                  Text(
+                    S.current.welcome,
+                    style: const TextStyle(
+                      fontSize: 28,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
-                ElevatedButton.icon(
-                  icon: Image.network(
-                    AppConstants.google_Icon,
-                    height: 24.0,
+                  const SizedBox(height: 10),
+                  Text(
+                    S.current.signInToContinueToTheApplication,
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.grey,
+                    ),
+                    textAlign: TextAlign.center,
                   ),
-                  label: Text(S.current.signInWithGoogle),
-                  onPressed: viewModel.signInWithGoogle,
-                  style: ElevatedButton.styleFrom(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 24, vertical: 12),
-                    minimumSize: const Size(double.infinity, 50),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
+                  const SizedBox(height: 40),
+                  if (viewModel.errorMessage != null)
+                    Container(
+                      padding: const EdgeInsets.all(10),
+                      margin: const EdgeInsets.only(bottom: 20),
+                      decoration: BoxDecoration(
+                        color: Colors.red[50],
+                        borderRadius: BorderRadius.circular(5),
+                        border: Border.all(color: Colors.red),
+                      ),
+                      child: Text(
+                        viewModel.errorMessage!,
+                        style: const TextStyle(color: Colors.red),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                  ElevatedButton.icon(
+                    icon: Image.network(
+                      AppConstants.google_Icon,
+                      height: 24.0,
+                    ),
+                    label: Text(S.current.signInWithGoogle),
+                    onPressed: viewModel.signInWithGoogle,
+                    style: ElevatedButton.styleFrom(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 24, vertical: 12),
+                      minimumSize: const Size(double.infinity, 50),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
                     ),
                   ),
-                ),
-                // const SizedBox(height: 20),
-                // TextButton(
-                //   onPressed: () {
-                //     // TODO: Implement other authentication methods if needed
-                //   },
-                //   child: const Text('Other Sign In Options'),
-                // ),
-              ],
+                  // const SizedBox(height: 20),
+                  // TextButton(
+                  //   onPressed: () {
+                  //     // TODO: Implement other authentication methods if needed
+                  //   },
+                  //   child: const Text('Other Sign In Options'),
+                  // ),
+                ],
+              ),
             ),
-          ),
-        );
-      },
+          );
+        },
+      ),
     );
   }
 }
