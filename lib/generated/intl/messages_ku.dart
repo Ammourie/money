@@ -32,11 +32,18 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "GrandAdminPrevilegesToThisAccount": MessageLookupByLibrary.simpleMessage(
+      "منح صلاحيات المدير لهذا الحساب",
+    ),
     "aboutUs": MessageLookupByLibrary.simpleMessage("معلومات عنا"),
     "accessDenied": MessageLookupByLibrary.simpleMessage("تم رفض الوصول!"),
+    "accountInformation": MessageLookupByLibrary.simpleMessage(
+      "معلومات الحساب",
+    ),
     "accountNotVerifiedErrorMessage": MessageLookupByLibrary.simpleMessage(
       "دڵنیابوونەوە لە ئەكاونتەكە نەكرا",
     ),
+    "admin": MessageLookupByLibrary.simpleMessage("مدير"),
     "adminReply": MessageLookupByLibrary.simpleMessage("رد الإدارة"),
     "apply": MessageLookupByLibrary.simpleMessage("گۆڕین"),
     "areYouSure": MessageLookupByLibrary.simpleMessage("هل انت متأكد؟"),
@@ -44,6 +51,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "blogs": MessageLookupByLibrary.simpleMessage("المدونات"),
     "cameraPermission": MessageLookupByLibrary.simpleMessage("كاميرا"),
     "cancel": MessageLookupByLibrary.simpleMessage("هەڵوەشاندنەوە"),
+    "cancelAndSignOut": MessageLookupByLibrary.simpleMessage(
+      "إلغاء وتسجيل الخروج",
+    ),
     "cancelErrorMessage": MessageLookupByLibrary.simpleMessage(
       "پرۆسەكە هەڵوەشێنرایەوە",
     ),
@@ -62,6 +72,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "closed": MessageLookupByLibrary.simpleMessage("مغلق"),
     "codeResent": MessageLookupByLibrary.simpleMessage("تم إعادة إرسال الرمز"),
     "complaint": MessageLookupByLibrary.simpleMessage("شكوى"),
+    "completeRegister": MessageLookupByLibrary.simpleMessage("إكمال التسجيل"),
     "confirm": MessageLookupByLibrary.simpleMessage("دووپاتكردنەوە"),
     "confirmPassword": MessageLookupByLibrary.simpleMessage(
       "دووپاتكردنەوەی وشەی تێپەڕ",
@@ -76,6 +87,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "ماوەی دانیشتن كۆتایی هات",
     ),
     "contactUs": MessageLookupByLibrary.simpleMessage("تواصل معنا"),
+    "createdAt": MessageLookupByLibrary.simpleMessage("تم الإنشاء في"),
     "dateOfBirth": MessageLookupByLibrary.simpleMessage("تاريخ الميلاد"),
     "deleteAccount": MessageLookupByLibrary.simpleMessage("حذف الحساب"),
     "dialogUpdateMessage": MessageLookupByLibrary.simpleMessage(
@@ -87,6 +99,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "didnotReceiveAnyCode": MessageLookupByLibrary.simpleMessage(
       "ئایا هیچ کۆدێکت وەرنەگرت؟",
     ),
+    "editProfile": MessageLookupByLibrary.simpleMessage("تعديل الملف الشخصي"),
     "emailAddress": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
     "empty": MessageLookupByLibrary.simpleMessage(
       "هیچ زانیارییەك بۆ خستنەڕوو نییە",
@@ -134,6 +147,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "invalidConfirmPassword": MessageLookupByLibrary.simpleMessage(
       "وشەی تێپەڕی نوێ و دووپاتكردنەوەی، وەكیەك نین",
     ),
+    "invalidName": MessageLookupByLibrary.simpleMessage("الاسم غير صالح"),
     "invalidPassword": MessageLookupByLibrary.simpleMessage(
       "پێویستە درێژیی وشەی تێپەڕ بە لای كەمەوە لە پێنج پیت پێک بێت",
     ),
@@ -141,6 +155,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "تكایە ژمارە تەلەفۆنێكی شیاو داخیل بكە وەكوو7xx-xxx-xxxx",
     ),
     "justLog": MessageLookupByLibrary.simpleMessage("السجل"),
+    "lastUpdated": MessageLookupByLibrary.simpleMessage("آخر تحديث"),
     "locationPermission": MessageLookupByLibrary.simpleMessage("موقع"),
     "logOut": MessageLookupByLibrary.simpleMessage("چوونە دەرەوە"),
     "login": MessageLookupByLibrary.simpleMessage("چوونە ژوورەوە"),
@@ -174,6 +189,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "openAppSettings": MessageLookupByLibrary.simpleMessage(
       "فتح إعدادات التطبيق",
     ),
+    "optional": MessageLookupByLibrary.simpleMessage("اختياري"),
     "optionalUpdateMessage": MessageLookupByLibrary.simpleMessage(
       "بەرنامەکە نوێکردنەوەی تازەی بۆ هاتووە. تکایە بەرنامەکات نوێبکەوە بۆ بە دەستهێاننی باشترین بەرەوپێشچوون و  تایبەتمەندییە نوێیەکان.",
     ),
@@ -195,12 +211,14 @@ class MessageLookup extends MessageLookupByLibrary {
       "صلاحية الوصول مطلوبة",
     ),
     "phone": MessageLookupByLibrary.simpleMessage("ژمارەی تەلەفۆن"),
+    "pleaseWait": MessageLookupByLibrary.simpleMessage("الرجاء الانتظار"),
     "pressTwiceToExit": MessageLookupByLibrary.simpleMessage(
       "بۆ دەرچوون دوو جار كلیك بكە",
     ),
     "privacyPolicy": MessageLookupByLibrary.simpleMessage("سياسة الخصوصية"),
     "question": MessageLookupByLibrary.simpleMessage("سؤال"),
     "refresh": MessageLookupByLibrary.simpleMessage("نوێكردنەوە"),
+    "regularUser": MessageLookupByLibrary.simpleMessage("مستخدم عادي"),
     "reportError": MessageLookupByLibrary.simpleMessage(
       "هەڵەیەك ڕووی دا، تكایە كلیك لەسەر ناردن بكە بۆ هاوكاریكردنمان لە چارەسەری گرفتەكە",
     ),
@@ -209,10 +227,18 @@ class MessageLookup extends MessageLookupByLibrary {
       "هەڵەیەك لە كاتی پەیوەندی بە سێرڤەرەوە ڕووی دا، تكایە دواتر هەوڵدەوە",
     ),
     "retry": MessageLookupByLibrary.simpleMessage("دووبارە هەوڵدانەوە"),
+    "role": MessageLookupByLibrary.simpleMessage("الدور"),
     "search": MessageLookupByLibrary.simpleMessage("Search"),
     "selectSubject": MessageLookupByLibrary.simpleMessage("اختر الموضوع"),
     "selectYourGender": MessageLookupByLibrary.simpleMessage("اختر جنسك"),
     "send": MessageLookupByLibrary.simpleMessage("ناردن"),
+    "signInToContinueToTheApplication": MessageLookupByLibrary.simpleMessage(
+      "تسجيل الدخول للمتابعة إلى التطبيق",
+    ),
+    "signInWithGoogle": MessageLookupByLibrary.simpleMessage(
+      "تسجيل الدخول باستخدام جوجل",
+    ),
+    "signOut": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
     "signUp": MessageLookupByLibrary.simpleMessage("تۆماركردنی ئەكاونت"),
     "specificPermissionRequired": m3,
     "submit": MessageLookupByLibrary.simpleMessage("إرسال"),
@@ -264,10 +290,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "updatedSuccessfully": MessageLookupByLibrary.simpleMessage(
       "تم التحديث بنجاح",
     ),
+    "user": MessageLookupByLibrary.simpleMessage("المستخدم"),
     "userDoesNotExist": MessageLookupByLibrary.simpleMessage(
       "المستخدم غير موجود",
     ),
     "userName": MessageLookupByLibrary.simpleMessage("ناوی بەكارهێنەر"),
+    "userRegisteration": MessageLookupByLibrary.simpleMessage("تسجيل المستخدم"),
     "welcome": MessageLookupByLibrary.simpleMessage("بەخێربێیت"),
     "yourTicketSubmittedSuccessfully": MessageLookupByLibrary.simpleMessage(
       "تم إرسال الرسالة بنجاح، سوف نتواصل معك بأسرع وقت ممكن",

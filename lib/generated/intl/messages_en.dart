@@ -31,11 +31,18 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "GrandAdminPrevilegesToThisAccount": MessageLookupByLibrary.simpleMessage(
+      "Grant Admin Privileges To This Account",
+    ),
     "aboutUs": MessageLookupByLibrary.simpleMessage("About US"),
     "accessDenied": MessageLookupByLibrary.simpleMessage("Access Denied!"),
+    "accountInformation": MessageLookupByLibrary.simpleMessage(
+      "Account Information",
+    ),
     "accountNotVerifiedErrorMessage": MessageLookupByLibrary.simpleMessage(
       "Account Not Verified",
     ),
+    "admin": MessageLookupByLibrary.simpleMessage("Admin"),
     "adminReply": MessageLookupByLibrary.simpleMessage("Admin Reply"),
     "apply": MessageLookupByLibrary.simpleMessage("Apply"),
     "areYouSure": MessageLookupByLibrary.simpleMessage("Are you sure?"),
@@ -43,6 +50,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "blogs": MessageLookupByLibrary.simpleMessage("Blogs"),
     "cameraPermission": MessageLookupByLibrary.simpleMessage("Camera"),
     "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
+    "cancelAndSignOut": MessageLookupByLibrary.simpleMessage(
+      "Cancel And Sign Out",
+    ),
     "cancelErrorMessage": MessageLookupByLibrary.simpleMessage(
       "Operation has been cancelled",
     ),
@@ -61,6 +71,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "closed": MessageLookupByLibrary.simpleMessage("Closed"),
     "codeResent": MessageLookupByLibrary.simpleMessage("Code resent"),
     "complaint": MessageLookupByLibrary.simpleMessage("Complaint"),
+    "completeRegister": MessageLookupByLibrary.simpleMessage(
+      "Complete Registration",
+    ),
     "confirm": MessageLookupByLibrary.simpleMessage("Confirm"),
     "confirmPassword": MessageLookupByLibrary.simpleMessage("Confirm Password"),
     "conflictError": MessageLookupByLibrary.simpleMessage("Conflict Error"),
@@ -71,6 +84,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Connection time out",
     ),
     "contactUs": MessageLookupByLibrary.simpleMessage("Contact US"),
+    "createdAt": MessageLookupByLibrary.simpleMessage("Created At"),
     "dateOfBirth": MessageLookupByLibrary.simpleMessage("Date of birth"),
     "deleteAccount": MessageLookupByLibrary.simpleMessage("Delete Account"),
     "dialogUpdateMessage": MessageLookupByLibrary.simpleMessage(
@@ -82,6 +96,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "didnotReceiveAnyCode": MessageLookupByLibrary.simpleMessage(
       "Didn\'t you receive any code?",
     ),
+    "editProfile": MessageLookupByLibrary.simpleMessage("Edit Profile"),
     "emailAddress": MessageLookupByLibrary.simpleMessage("Email Address"),
     "empty": MessageLookupByLibrary.simpleMessage("Empty"),
     "emptyScreen": MessageLookupByLibrary.simpleMessage("This page is empty"),
@@ -129,6 +144,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "invalidConfirmPassword": MessageLookupByLibrary.simpleMessage(
       "Password and confirm password doesn\'t match",
     ),
+    "invalidName": MessageLookupByLibrary.simpleMessage("Invalid Name"),
     "invalidPassword": MessageLookupByLibrary.simpleMessage(
       "Must be at least 8 characters long",
     ),
@@ -136,6 +152,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Please enter a valid phone number ex: 7xx-xxx-xxx",
     ),
     "justLog": MessageLookupByLibrary.simpleMessage("Just Log"),
+    "lastUpdated": MessageLookupByLibrary.simpleMessage("Last Updated"),
     "locationPermission": MessageLookupByLibrary.simpleMessage("Location"),
     "logOut": MessageLookupByLibrary.simpleMessage("Logout"),
     "login": MessageLookupByLibrary.simpleMessage("Login"),
@@ -167,6 +184,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "openAppSettings": MessageLookupByLibrary.simpleMessage(
       "Open App Settings",
     ),
+    "optional": MessageLookupByLibrary.simpleMessage("Optional"),
     "optionalUpdateMessage": MessageLookupByLibrary.simpleMessage(
       "There is a new version for this app. Update to get new features and improvements",
     ),
@@ -186,12 +204,14 @@ class MessageLookup extends MessageLookupByLibrary {
       "The previous permission is required!",
     ),
     "phone": MessageLookupByLibrary.simpleMessage("Phone Number"),
+    "pleaseWait": MessageLookupByLibrary.simpleMessage("Please Wait"),
     "pressTwiceToExit": MessageLookupByLibrary.simpleMessage(
       "Press twice to exit",
     ),
     "privacyPolicy": MessageLookupByLibrary.simpleMessage("Privacy Policy"),
     "question": MessageLookupByLibrary.simpleMessage("Question"),
     "refresh": MessageLookupByLibrary.simpleMessage("Refresh"),
+    "regularUser": MessageLookupByLibrary.simpleMessage("Regular User"),
     "reportError": MessageLookupByLibrary.simpleMessage(
       "An error has been occurred, please click send to help us fixing the problem",
     ),
@@ -200,12 +220,20 @@ class MessageLookup extends MessageLookupByLibrary {
       "An error happened while connecting to server, please try again later",
     ),
     "retry": MessageLookupByLibrary.simpleMessage("Retry"),
+    "role": MessageLookupByLibrary.simpleMessage("Role"),
     "search": MessageLookupByLibrary.simpleMessage("Search"),
     "selectSubject": MessageLookupByLibrary.simpleMessage("Select subject"),
     "selectYourGender": MessageLookupByLibrary.simpleMessage(
       "Select your gender",
     ),
     "send": MessageLookupByLibrary.simpleMessage("Send"),
+    "signInToContinueToTheApplication": MessageLookupByLibrary.simpleMessage(
+      "Sign In To Continue To The Application",
+    ),
+    "signInWithGoogle": MessageLookupByLibrary.simpleMessage(
+      "Sign In With Google",
+    ),
+    "signOut": MessageLookupByLibrary.simpleMessage("Sign Out"),
     "signUp": MessageLookupByLibrary.simpleMessage("Signup"),
     "specificPermissionRequired": m3,
     "submit": MessageLookupByLibrary.simpleMessage("Submit"),
@@ -255,10 +283,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "updatedSuccessfully": MessageLookupByLibrary.simpleMessage(
       "Updated Successfully",
     ),
+    "user": MessageLookupByLibrary.simpleMessage("User"),
     "userDoesNotExist": MessageLookupByLibrary.simpleMessage(
       "User doesn\'t exist",
     ),
     "userName": MessageLookupByLibrary.simpleMessage("User name"),
+    "userRegisteration": MessageLookupByLibrary.simpleMessage(
+      "User Registration",
+    ),
     "welcome": MessageLookupByLibrary.simpleMessage("Welcome"),
     "yourTicketSubmittedSuccessfully": MessageLookupByLibrary.simpleMessage(
       "Your ticket has been submitted successfully, we will contact you ASAP",

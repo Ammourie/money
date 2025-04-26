@@ -1,4 +1,6 @@
-import '../../../core/common/local_storage.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
 import '../../../core/common/view_model/base_view_model.dart';
 import '../../../core/constants/app/app_settings.dart';
 import '../../../core/navigation/nav.dart';
@@ -12,7 +14,7 @@ import '../view/splash_view.dart';
 
 class SplashViewModel extends BaseViewModel<SplashViewParam> {
   SplashViewModel(super.param);
-  bool canGo = false;
+  bool canGo = true;
   HomeInitModel? homeInit;
 
   final splashCubit = ApiCubit();
@@ -33,17 +35,44 @@ class SplashViewModel extends BaseViewModel<SplashViewParam> {
   }
 
   void handleNavigation() async {
-    if (LocalStorage.hasToken) {
-      Nav.off(AppMainView.routeName, arguments: AppMainViewParam());
-    } else {
+    // if (LocalStorage.hasToken) {
+    //   Nav.off(AppMainView.routeName, arguments: AppMainViewParam());
+    // } else {
+    //   Nav.off(
+    //     AuthView.routeName,
+    //     arguments: AuthViewParam(),
+    //   );
+    //   // Nav.off(
+    //   //   LoginView.routeName,
+    //   //   arguments: LoginViewParam(),
+    //   // );
+    // }
+
+    final FirebaseAuth _auth = FirebaseAuth.instance;
+    final _user = _auth.currentUser;
+    if (_user == null) {
       Nav.off(
         AuthView.routeName,
         arguments: AuthViewParam(),
       );
-      // Nav.off(
-      //   LoginView.routeName,
-      //   arguments: LoginViewParam(),
-      // );
+    } else {
+      final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+      _firestore
+          .collection('pro_users')
+          .doc(_user.uid)
+          .get()
+          .then((DocumentSnapshot snapshot) {
+        if (snapshot.exists) {
+          Nav.off(
+            AppMainView.routeName,
+            arguments: AppMainViewParam(),
+          );
+        } else
+          Nav.off(
+            AuthView.routeName,
+            arguments: AuthViewParam(),
+          );
+      });
     }
 
     // Check if there is a new version.

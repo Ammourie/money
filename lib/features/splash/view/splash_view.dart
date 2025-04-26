@@ -35,9 +35,9 @@ class _SplashViewState extends State<SplashView> {
   void initState() {
     super.initState();
     vm = SplashViewModel(widget.param);
-    vm.getSplash();
+    // vm.getSplash();
 
-    Future.delayed(const Duration(seconds: 4), () {
+    Future.delayed(const Duration(seconds: 2), () {
       if (vm.canGo) {
         vm.outFromSplash();
       } else {

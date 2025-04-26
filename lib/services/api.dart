@@ -1,6 +1,14 @@
+// ignore_for_file: unused_field
+
+import 'dart:developer';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:injectable/injectable.dart';
 
 import '../core/common/type_validators.dart';
+import '../core/constants/enums/error_code_type.dart';
 import '../core/constants/enums/http_method.dart';
 import '../core/datasources/remote_data_source.dart';
 import '../core/errors/app_errors.dart';
@@ -40,6 +48,9 @@ import '../features/tickets/model/response/ticket_model.dart';
 
 @lazySingleton
 class Api extends RemoteDataSource {
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final GoogleSignIn _googleSignIn = GoogleSignIn();
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   // Home
   Future<Result<AppErrors, HomeInitModel>> homeInit(HomeInitParam params) {
     return request(
@@ -267,5 +278,61 @@ class Api extends RemoteDataSource {
       url: APIUrls.BLOG_DETAILS,
       queryParameters: params.toMap(),
     );
+  }
+
+  Future<Result<AppErrors, UserCredential>> signInWithGoogle() async {
+    log('Starting Google Sign-In process', name: 'firebase-log');
+    try {
+      // Trigger the Google Sign-In flow
+      log('Triggering Google Sign-In flow', name: 'firebase-log');
+      final GoogleSignInAccount? googleUser = await _googleSignIn.signIn();
+
+      if (googleUser == null) {
+        // User canceled the sign-in flow
+        log('Google Sign-In canceled by user', name: 'firebase-log');
+        return Result.error(
+          const InternalServerWithDataError(
+            500,
+            message: 'Sign in canceled',
+            type: ErrorCodeType.Unkown,
+          ),
+        );
+      }
+
+      log('Google Sign-In successful for user: ${googleUser.email}',
+          name: 'firebase-log');
+
+      // Obtain the auth details from the request
+      log('Obtaining auth details', name: 'firebase-log');
+      final GoogleSignInAuthentication googleAuth =
+          await googleUser.authentication;
+
+      // Create a new credential for Firebase
+      log('Creating Firebase credential', name: 'firebase-log');
+      final OAuthCredential credential = GoogleAuthProvider.credential(
+        accessToken: googleAuth.accessToken,
+        idToken: googleAuth.idToken,
+      );
+
+      // Sign in to Firebase with the Google credential
+      log('Signing in to Firebase with Google credential',
+          name: 'firebase-log');
+      final UserCredential userCredential =
+          await _auth.signInWithCredential(credential);
+
+      log('Firebase sign-in successful for user: ${userCredential.user?.uid}',
+          name: 'firebase-log');
+
+      return Result.data(userCredential);
+    } catch (e) {
+      log('Sign-in error: $e', name: 'firebase-log');
+      return Result.error(
+        const InternalServerWithDataError(
+          500,
+          message: 'Sign in failed',
+          type: ErrorCodeType.Unkown,
+        ),
+      );
+    }
   }
 }

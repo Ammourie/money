@@ -32,11 +32,18 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "GrandAdminPrevilegesToThisAccount": MessageLookupByLibrary.simpleMessage(
+      "منح صلاحيات المدير لهذا الحساب",
+    ),
     "aboutUs": MessageLookupByLibrary.simpleMessage("معلومات عنا"),
     "accessDenied": MessageLookupByLibrary.simpleMessage("تم رفض الوصول!"),
+    "accountInformation": MessageLookupByLibrary.simpleMessage(
+      "معلومات الحساب",
+    ),
     "accountNotVerifiedErrorMessage": MessageLookupByLibrary.simpleMessage(
       "لم يتم التحقق من الحساب",
     ),
+    "admin": MessageLookupByLibrary.simpleMessage("مدير"),
     "adminReply": MessageLookupByLibrary.simpleMessage("رد الإدارة"),
     "apply": MessageLookupByLibrary.simpleMessage("تغيير"),
     "areYouSure": MessageLookupByLibrary.simpleMessage("هل انت متأكد؟"),
@@ -44,6 +51,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "blogs": MessageLookupByLibrary.simpleMessage("المدونات"),
     "cameraPermission": MessageLookupByLibrary.simpleMessage("كاميرا"),
     "cancel": MessageLookupByLibrary.simpleMessage("إلغاء"),
+    "cancelAndSignOut": MessageLookupByLibrary.simpleMessage(
+      "إلغاء وتسجيل الخروج",
+    ),
     "cancelErrorMessage": MessageLookupByLibrary.simpleMessage(
       "تم إلغاء العملية",
     ),
@@ -62,6 +72,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "closed": MessageLookupByLibrary.simpleMessage("مغلق"),
     "codeResent": MessageLookupByLibrary.simpleMessage("تم إعادة إرسال الرمز"),
     "complaint": MessageLookupByLibrary.simpleMessage("شكوى"),
+    "completeRegister": MessageLookupByLibrary.simpleMessage("إكمال التسجيل"),
     "confirm": MessageLookupByLibrary.simpleMessage("تأكيد"),
     "confirmPassword": MessageLookupByLibrary.simpleMessage(
       "تأكيد كلمة المرور",
@@ -76,6 +87,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "انتهت مدة الجلسة",
     ),
     "contactUs": MessageLookupByLibrary.simpleMessage("تواصل معنا"),
+    "createdAt": MessageLookupByLibrary.simpleMessage("تم الإنشاء في"),
     "dateOfBirth": MessageLookupByLibrary.simpleMessage("تاريخ الميلاد"),
     "deleteAccount": MessageLookupByLibrary.simpleMessage("حذف الحساب"),
     "dialogUpdateMessage": MessageLookupByLibrary.simpleMessage(
@@ -85,6 +97,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "didnotReceiveAnyCode": MessageLookupByLibrary.simpleMessage(
       "لم يتم إرسال الكود؟",
     ),
+    "editProfile": MessageLookupByLibrary.simpleMessage("تعديل الملف الشخصي"),
     "emailAddress": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
     "empty": MessageLookupByLibrary.simpleMessage("لا يوجد معلومات لعرضها"),
     "emptyScreen": MessageLookupByLibrary.simpleMessage("هذه الصفحة فارغة"),
@@ -132,6 +145,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "invalidConfirmPassword": MessageLookupByLibrary.simpleMessage(
       "كلمة السر وتأكيد كلمة السر غير متطابقتين",
     ),
+    "invalidName": MessageLookupByLibrary.simpleMessage("الاسم غير صالح"),
     "invalidPassword": MessageLookupByLibrary.simpleMessage(
       "يجب أن تكون بطول 8 محارف على الأق",
     ),
@@ -139,6 +153,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "يرجى إدخال رقم هاتف صالح مثال 7xx-xxx-xxx",
     ),
     "justLog": MessageLookupByLibrary.simpleMessage("السجل"),
+    "lastUpdated": MessageLookupByLibrary.simpleMessage("آخر تحديث"),
     "locationPermission": MessageLookupByLibrary.simpleMessage("موقع"),
     "logOut": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
     "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
@@ -172,6 +187,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "openAppSettings": MessageLookupByLibrary.simpleMessage(
       "فتح إعدادات التطبيق",
     ),
+    "optional": MessageLookupByLibrary.simpleMessage("اختياري"),
     "optionalUpdateMessage": MessageLookupByLibrary.simpleMessage(
       "يوجد نسخة جديدة من هذا التطبيق. يرجى التحديث للتمتع بآخر الميزات",
     ),
@@ -189,12 +205,14 @@ class MessageLookup extends MessageLookupByLibrary {
       "صلاحية الوصول مطلوبة",
     ),
     "phone": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
+    "pleaseWait": MessageLookupByLibrary.simpleMessage("الرجاء الانتظار"),
     "pressTwiceToExit": MessageLookupByLibrary.simpleMessage(
       "إضغط مرتين للخروج",
     ),
     "privacyPolicy": MessageLookupByLibrary.simpleMessage("سياسة الخصوصية"),
     "question": MessageLookupByLibrary.simpleMessage("سؤال"),
     "refresh": MessageLookupByLibrary.simpleMessage("تحديث"),
+    "regularUser": MessageLookupByLibrary.simpleMessage("مستخدم عادي"),
     "reportError": MessageLookupByLibrary.simpleMessage(
       "حدث خطأ ما، الرجاء الضغط على إرسال لمساعدتنا بحل المشكلة",
     ),
@@ -203,10 +221,18 @@ class MessageLookup extends MessageLookupByLibrary {
       "حدث خطأ أثناء الاتصال بالخادم ، يرجى المحاولة لاحقًا",
     ),
     "retry": MessageLookupByLibrary.simpleMessage("إعادة المحاولة"),
+    "role": MessageLookupByLibrary.simpleMessage("الدور"),
     "search": MessageLookupByLibrary.simpleMessage("بحث"),
     "selectSubject": MessageLookupByLibrary.simpleMessage("اختر الموضوع"),
     "selectYourGender": MessageLookupByLibrary.simpleMessage("اختر جنسك"),
     "send": MessageLookupByLibrary.simpleMessage("إرسال"),
+    "signInToContinueToTheApplication": MessageLookupByLibrary.simpleMessage(
+      "تسجيل الدخول للمتابعة إلى التطبيق",
+    ),
+    "signInWithGoogle": MessageLookupByLibrary.simpleMessage(
+      "تسجيل الدخول باستخدام جوجل",
+    ),
+    "signOut": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
     "signUp": MessageLookupByLibrary.simpleMessage("تسجيل حساب"),
     "specificPermissionRequired": m3,
     "submit": MessageLookupByLibrary.simpleMessage("إرسال"),
@@ -256,10 +282,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "updatedSuccessfully": MessageLookupByLibrary.simpleMessage(
       "تم التحديث بنجاح",
     ),
+    "user": MessageLookupByLibrary.simpleMessage("المستخدم"),
     "userDoesNotExist": MessageLookupByLibrary.simpleMessage(
       "المستخدم غير موجود",
     ),
     "userName": MessageLookupByLibrary.simpleMessage("اسم المستخدم"),
+    "userRegisteration": MessageLookupByLibrary.simpleMessage("تسجيل المستخدم"),
     "welcome": MessageLookupByLibrary.simpleMessage("أهلاً بك"),
     "yourTicketSubmittedSuccessfully": MessageLookupByLibrary.simpleMessage(
       "تم إرسال الرسالة بنجاح، سوف نتواصل معك بأسرع وقت ممكن",

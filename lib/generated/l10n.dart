@@ -1144,6 +1144,151 @@ class S {
   String get blogs {
     return Intl.message('Blogs', name: 'blogs', desc: '', args: []);
   }
+
+  /// `User Registration`
+  String get userRegisteration {
+    return Intl.message(
+      'User Registration',
+      name: 'userRegisteration',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign Out`
+  String get signOut {
+    return Intl.message('Sign Out', name: 'signOut', desc: '', args: []);
+  }
+
+  /// `Please Wait`
+  String get pleaseWait {
+    return Intl.message('Please Wait', name: 'pleaseWait', desc: '', args: []);
+  }
+
+  /// `User`
+  String get user {
+    return Intl.message('User', name: 'user', desc: '', args: []);
+  }
+
+  /// `Account Information`
+  String get accountInformation {
+    return Intl.message(
+      'Account Information',
+      name: 'accountInformation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Role`
+  String get role {
+    return Intl.message('Role', name: 'role', desc: '', args: []);
+  }
+
+  /// `Admin`
+  String get admin {
+    return Intl.message('Admin', name: 'admin', desc: '', args: []);
+  }
+
+  /// `Regular User`
+  String get regularUser {
+    return Intl.message(
+      'Regular User',
+      name: 'regularUser',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Created At`
+  String get createdAt {
+    return Intl.message('Created At', name: 'createdAt', desc: '', args: []);
+  }
+
+  /// `Last Updated`
+  String get lastUpdated {
+    return Intl.message(
+      'Last Updated',
+      name: 'lastUpdated',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Edit Profile`
+  String get editProfile {
+    return Intl.message(
+      'Edit Profile',
+      name: 'editProfile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Complete Registration`
+  String get completeRegister {
+    return Intl.message(
+      'Complete Registration',
+      name: 'completeRegister',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Optional`
+  String get optional {
+    return Intl.message('Optional', name: 'optional', desc: '', args: []);
+  }
+
+  /// `Grant Admin Privileges To This Account`
+  String get GrandAdminPrevilegesToThisAccount {
+    return Intl.message(
+      'Grant Admin Privileges To This Account',
+      name: 'GrandAdminPrevilegesToThisAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cancel And Sign Out`
+  String get cancelAndSignOut {
+    return Intl.message(
+      'Cancel And Sign Out',
+      name: 'cancelAndSignOut',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign In To Continue To The Application`
+  String get signInToContinueToTheApplication {
+    return Intl.message(
+      'Sign In To Continue To The Application',
+      name: 'signInToContinueToTheApplication',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign In With Google`
+  String get signInWithGoogle {
+    return Intl.message(
+      'Sign In With Google',
+      name: 'signInWithGoogle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Invalid Name`
+  String get invalidName {
+    return Intl.message(
+      'Invalid Name',
+      name: 'invalidName',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
