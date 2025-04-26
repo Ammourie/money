@@ -183,5 +183,22 @@
   "target": "الهدف",
   "ofGoalReached": "من الهدف المحقق",
   "learnMore": "معرفة المزيد",
-  "paymentRecord": "تسجيل الدفع"
+  "paymentRecord": "تسجيل الدفع",
+  "paymentInformation": "معلومات الدفع",
+  "totalAmount": "المبلغ الإجمالي",
+  "payment": "الدفع",
+  "customer": "العميل",
+  "addNewCustomer": "إضافة عميل جديد",
+  "serviceDetails": "تفاصيل الخدمة",
+  "additionalInformation": "معلومات إضافية",
+  "submitPaymentRecord": "تقديم سجل الدفع",
+  "selectCustomer": "اختيار العميل",
+  "serviceName": "اسم الخدمة",
+  "serviceCost": "تكلفة الخدمة",
+  "serviceDate": "تاريخ الخدمة",
+  "notes": "ملاحظات",
+  "customerName": "اسم العميل",
+  "phoneNumber": "رقم الهاتف",
+  "addCustomer": "إضافة عميل",
+  "invalidAmount": "يجب أن يكون المبلغ عدداً صحيحاً"
 }

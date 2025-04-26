@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:intl/intl.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../generated/l10n.dart';
 import '../view_model/payment_record_view_model.dart';
 import '../model/response/customer_model.dart';
@@ -15,300 +16,329 @@ class PaymentRecordViewContent extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: Colors.grey.shade100,
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: theme.primaryColor,
-        foregroundColor: Colors.white,
-        title: Text(
-          S.current.paymentRecord,
-          style: theme.textTheme.titleLarge?.copyWith(
-            color: Colors.white,
-            fontWeight: FontWeight.w600,
-          ),
-        ),
-        centerTitle: true,
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(
-            bottom: Radius.circular(20),
-          ),
-        ),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.info_outline),
-            onPressed: () {
-              // Show information about payments
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text('Payment information')),
-              );
-            },
-          ),
-        ],
-      ),
-      body: Stack(
-        children: [
-          ListView(
-            padding: const EdgeInsets.only(top: 20, bottom: 100),
-            children: [
-              // Amount Card
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: Card(
-                  elevation: 3,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(16),
-                  ),
-                  child: Container(
-                    padding: const EdgeInsets.all(20),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(16),
-                      gradient: LinearGradient(
-                        colors: [
-                          theme.primaryColor,
-                          theme.primaryColor.withOpacity(0.7),
-                        ],
-                        begin: Alignment.topLeft,
-                        end: Alignment.bottomRight,
-                      ),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Total Amount',
-                          style: TextStyle(
-                            color: Colors.white70,
-                            fontSize: 14,
-                          ),
-                        ),
-                        const SizedBox(height: 8),
-                        Row(
-                          children: [
-                            Text(
-                              '\$${viewModel.serviceCost.toStringAsFixed(2)}',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 32,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            const Spacer(),
-                            Container(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 12,
-                                vertical: 6,
-                              ),
-                              decoration: BoxDecoration(
-                                color: Colors.white.withOpacity(0.2),
-                                borderRadius: BorderRadius.circular(20),
-                              ),
-                              child: Text(
-                                'Payment',
-                                style: TextStyle(color: Colors.white),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-
-              const SizedBox(height: 24),
-
-              // Customer Section
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: Text(
-                  'Customer',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18,
-                    color: theme.primaryColor,
-                  ),
-                ),
-              ),
-              const SizedBox(height: 12),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: Card(
-                  elevation: 2,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(16),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(16),
-                    child: Column(
-                      children: [
-                        _buildCustomerDropdown(context, viewModel),
-                        const SizedBox(height: 16),
-                        OutlinedButton.icon(
-                          onPressed: () =>
-                              _showAddCustomerDialog(context, viewModel),
-                          icon:
-                              Icon(Icons.person_add, color: theme.primaryColor),
-                          label: Text('Add New Customer'),
-                          style: OutlinedButton.styleFrom(
-                            padding: const EdgeInsets.symmetric(vertical: 12,horizontal: 12),
-                            side: BorderSide(color: theme.primaryColor),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-
-              const SizedBox(height: 24),
-
-              // Service Details Section
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: Text(
-                  'Service Details',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18,
-                    color: theme.primaryColor,
-                  ),
-                ),
-              ),
-              const SizedBox(height: 12),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: Card(
-                  elevation: 2,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(16),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(16),
-                    child: Column(
-                      children: [
-                        _buildServiceNameField(context, viewModel),
-                        const SizedBox(height: 16),
-                        _buildServiceCostField(context, viewModel),
-                        const SizedBox(height: 16),
-                        _buildServiceDateField(context, viewModel),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-
-              const SizedBox(height: 24),
-
-              // Additional Info Section
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: Text(
-                  'Additional Information',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18,
-                    color: theme.primaryColor,
-                  ),
-                ),
-              ),
-              const SizedBox(height: 12),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: Card(
-                  elevation: 2,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(16),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(16),
-                    child: _buildNotesField(context, viewModel),
-                  ),
-                ),
-              ),
-
-              const SizedBox(height: 40),
-            ],
-          ),
-
-          // Bottom action button
-          Positioned(
-            bottom: 0,
-            left: 0,
-            right: 0,
-            child: Container(
-              padding: const EdgeInsets.all(16),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.05),
-                    blurRadius: 10,
-                    offset: const Offset(0, -5),
-                  ),
-                ],
-              ),
-              child: SafeArea(
-                child: ElevatedButton(
-                  onPressed: viewModel.submitPaymentRecord,
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: theme.primaryColor,
-                    foregroundColor: Colors.white,
-                    padding: const EdgeInsets.symmetric(vertical: 16),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(16),
-                    ),
-                    elevation: 3,
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(Icons.check_circle),
-                      const SizedBox(width: 8),
-                      Text(
-                        'Submit Payment Record',
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
+      appBar: _buildAppBar(context, theme),
+      body: Form(
+        key: viewModel.formkey,
+        child: Stack(
+          children: [
+            ListView(
+              padding: EdgeInsets.only(top: 20.h, bottom: 100.h),
+              children: [
+                _buildAmountCard(context, viewModel, theme),
+                32.verticalSpace,
+                _buildCustomerSection(context, viewModel, theme),
+                32.verticalSpace,
+                _buildServiceDetailsSection(context, viewModel, theme),
+                32.verticalSpace,
+                _buildAdditionalInfoSection(context, viewModel, theme),
+                40.verticalSpace,
+              ],
             ),
-          ),
-        ],
+            _buildBottomActionButton(context, viewModel, theme),
+          ],
+        ),
       ),
     );
   }
 
-  Widget _buildCustomerDropdown(
-      BuildContext context, PaymentRecordViewModel viewModel) {
-    return DropdownButtonFormField<CustomerModel>(
-      decoration: InputDecoration(
-        labelText: 'Select Customer',
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(color: Colors.grey.shade300),
+  AppBar _buildAppBar(BuildContext context, ThemeData theme) {
+    return AppBar(
+      elevation: 0,
+      backgroundColor: theme.primaryColor,
+      foregroundColor: Colors.white,
+      title: Text(
+        S.current.paymentRecord,
+        style: theme.textTheme.titleLarge?.copyWith(
+          color: Colors.white,
+          fontWeight: FontWeight.w600,
         ),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(color: Colors.grey.shade300),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
-          borderSide:
-              BorderSide(color: Theme.of(context).primaryColor, width: 2),
-        ),
-        filled: true,
-        fillColor: Colors.grey.shade50,
-        prefixIcon: Icon(Icons.person,
-            color: Theme.of(context).primaryColor.withOpacity(0.7)),
-        contentPadding:
-            const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
       ),
+      centerTitle: true,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(
+          bottom: Radius.circular(20.r),
+        ),
+      ),
+      actions: [
+        IconButton(
+          icon: const Icon(Icons.info_outline),
+          onPressed: () {
+            // Show information about payments
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(content: Text(S.current.paymentInformation)),
+            );
+          },
+        ),
+      ],
+    );
+  }
+
+  Widget _buildAmountCard(
+      BuildContext context, PaymentRecordViewModel viewModel, ThemeData theme) {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 16.w),
+      child: Card(
+        elevation: 3,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(16.r),
+        ),
+        child: Container(
+          padding: EdgeInsets.all(32.r),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(16.r),
+            gradient: LinearGradient(
+              colors: [
+                theme.primaryColor,
+                theme.primaryColor.withOpacity(0.7),
+              ],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                S.current.totalAmount,
+                style:
+                    theme.textTheme.titleMedium?.copyWith(color: Colors.white),
+              ),
+              SizedBox(height: 8.h),
+              Row(
+                children: [
+                  //TODO: dollar sign fix later
+                  Text(
+                    '\$${viewModel.serviceCost.toStringAsFixed(2)}',
+                    style: theme.textTheme.titleLarge?.copyWith(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const Spacer(),
+                  Container(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 32.w,
+                      vertical: 12.h,
+                    ),
+                    decoration: BoxDecoration(
+                      color: Colors.white.withOpacity(0.2),
+                      borderRadius: BorderRadius.circular(20.r),
+                    ),
+                    child: Text(
+                      S.current.payment,
+                      style: theme.textTheme.titleSmall
+                          ?.copyWith(color: Colors.white),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Text _buildSectionName(String title, ThemeData theme) {
+    return Text(
+      title,
+      style: theme.textTheme.titleSmall
+          ?.copyWith(color: theme.primaryColor, fontWeight: FontWeight.w600),
+    );
+  }
+
+  Widget _buildCustomerSection(
+      BuildContext context, PaymentRecordViewModel viewModel, ThemeData theme) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 20.w),
+          child: _buildSectionName(S.current.customer, theme),
+        ),
+        SizedBox(height: 12.h),
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 16.w),
+          child: Card(
+            elevation: 2,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(16.r),
+            ),
+            child: Padding(
+              padding: EdgeInsets.all(16.r),
+              child: Column(
+                children: [
+                  _buildCustomerDropdown(context, viewModel),
+                  32.verticalSpace,
+                  OutlinedButton.icon(
+                    onPressed: () => _showAddCustomerDialog(context, viewModel),
+                    icon: Icon(Icons.person_add, color: theme.primaryColor),
+                    label: Text(S.current.addNewCustomer),
+                    style: OutlinedButton.styleFrom(
+                      padding: EdgeInsets.symmetric(
+                          vertical: 12.h, horizontal: 12.w),
+                      side: BorderSide(color: theme.primaryColor),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12.r),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildServiceDetailsSection(
+      BuildContext context, PaymentRecordViewModel viewModel, ThemeData theme) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 20.w),
+          child: _buildSectionName(S.current.serviceDetails, theme),
+        ),
+        SizedBox(height: 12.h),
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 16.w),
+          child: Card(
+            elevation: 2,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(16.r),
+            ),
+            child: Padding(
+              padding: EdgeInsets.all(16.r),
+              child: Column(
+                children: [
+                  _buildServiceNameField(context, viewModel),
+                  32.verticalSpace,
+                  _buildServiceCostField(context, viewModel),
+                  32.verticalSpace,
+                  _buildServiceDateField(context, viewModel),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildAdditionalInfoSection(
+      BuildContext context, PaymentRecordViewModel viewModel, ThemeData theme) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 20.w),
+          child: _buildSectionName(S.current.additionalInformation, theme),
+        ),
+        SizedBox(height: 12.h),
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 16.w),
+          child: Card(
+            elevation: 2,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(16.r),
+            ),
+            child: Padding(
+              padding: EdgeInsets.all(16.r),
+              child: _buildNotesField(context, viewModel),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildBottomActionButton(
+      BuildContext context, PaymentRecordViewModel viewModel, ThemeData theme) {
+    return Positioned(
+      bottom: 0,
+      left: 0,
+      right: 0,
+      child: Container(
+        padding: EdgeInsets.all(16.r),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.05),
+              blurRadius: 10,
+              offset: const Offset(0, -5),
+            ),
+          ],
+        ),
+        child: SafeArea(
+          child: ElevatedButton(
+            onPressed: viewModel.submitPaymentRecord,
+            style: ElevatedButton.styleFrom(
+              backgroundColor: theme.primaryColor,
+              foregroundColor: Colors.white,
+              padding: EdgeInsets.symmetric(vertical: 16.h),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16.r),
+              ),
+              elevation: 3,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Icon(Icons.check_circle),
+                8.horizontalSpace,
+                Text(
+                  S.current.submitPaymentRecord,
+                  style: theme.textTheme.labelLarge?.copyWith(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  InputDecoration _getInputDecoration(
+      BuildContext context, String labelText, IconData? icon) {
+    final textTheme = Theme.of(context).textTheme;
+
+    return InputDecoration(
+      labelText: labelText,
+      labelStyle: textTheme.labelLarge?.copyWith(fontSize: 28.sp),
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(12.r),
+        borderSide: BorderSide(color: Colors.grey.shade300),
+      ),
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(12.r),
+        borderSide: BorderSide(color: Colors.grey.shade300),
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(12.r),
+        borderSide: BorderSide(color: Theme.of(context).primaryColor, width: 2),
+      ),
+      filled: true,
+      fillColor: Colors.grey.shade50,
+      prefixIcon:
+          Icon(icon, color: Theme.of(context).primaryColor.withOpacity(0.7)),
+      contentPadding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
+    );
+  }
+
+  Widget _buildCustomerDropdown(
+    BuildContext context,
+    PaymentRecordViewModel viewModel,
+  ) {
+    final textTheme = Theme.of(context).textTheme;
+    return DropdownButtonFormField<CustomerModel>(
+      decoration:
+          _getInputDecoration(context, S.current.selectCustomer, Icons.person),
       value: viewModel.selectedCustomer,
       selectedItemBuilder: (BuildContext context) {
         return viewModel.customers.map<Widget>((CustomerModel customer) {
@@ -335,7 +365,7 @@ class PaymentRecordViewContent extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(width: 12),
+              12.horizontalSpace,
               Flexible(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -343,14 +373,13 @@ class PaymentRecordViewContent extends StatelessWidget {
                   children: [
                     Text(
                       customer.name,
-                      style: TextStyle(fontWeight: FontWeight.w500),
+                      style: textTheme.titleSmall,
                       overflow: TextOverflow.ellipsis,
                     ),
                     if (customer.phone.isNotEmpty)
                       Text(
                         customer.phone,
-                        style: TextStyle(
-                          fontSize: 12,
+                        style: textTheme.labelSmall?.copyWith(
                           color: Colors.grey.shade600,
                         ),
                         overflow: TextOverflow.ellipsis,
@@ -370,69 +399,53 @@ class PaymentRecordViewContent extends StatelessWidget {
       icon: Icon(Icons.arrow_drop_down, color: Theme.of(context).primaryColor),
       isExpanded: true,
       dropdownColor: Colors.white,
+      validator: (value) {
+        if (value == null) {
+          return S.current.errorEmptyField;
+        }
+        return null;
+      },
+      autovalidateMode: AutovalidateMode.onUserInteraction,
     );
   }
 
   Widget _buildServiceNameField(
       BuildContext context, PaymentRecordViewModel viewModel) {
     return TextFormField(
-      decoration: InputDecoration(
-        labelText: 'Service Name',
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(color: Colors.grey.shade300),
-        ),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(color: Colors.grey.shade300),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
-          borderSide:
-              BorderSide(color: Theme.of(context).primaryColor, width: 2),
-        ),
-        filled: true,
-        fillColor: Colors.grey.shade50,
-        prefixIcon: Icon(Icons.home_repair_service,
-            color: Theme.of(context).primaryColor.withOpacity(0.7)),
-        contentPadding:
-            const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-      ),
+      decoration: _getInputDecoration(
+          context, S.current.serviceName, Icons.home_repair_service),
       onChanged: viewModel.setServiceName,
+      validator: (value) {
+        if (value == null || value.isEmpty) {
+          return S.current.errorEmptyField;
+        }
+        return null;
+      },
+      autovalidateMode: AutovalidateMode.onUserInteraction,
     );
   }
 
   Widget _buildServiceCostField(
       BuildContext context, PaymentRecordViewModel viewModel) {
     return TextFormField(
-      decoration: InputDecoration(
-        labelText: 'Service Cost',
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(color: Colors.grey.shade300),
-        ),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(color: Colors.grey.shade300),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
-          borderSide:
-              BorderSide(color: Theme.of(context).primaryColor, width: 2),
-        ),
-        filled: true,
-        fillColor: Colors.grey.shade50,
-        prefixIcon: Icon(Icons.attach_money,
-            color: Theme.of(context).primaryColor.withOpacity(0.7)),
-        contentPadding:
-            const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-      ),
+      decoration: _getInputDecoration(
+          context, S.current.serviceCost, Icons.attach_money),
       keyboardType: const TextInputType.numberWithOptions(decimal: true),
       onChanged: (value) {
         if (value.isNotEmpty) {
           viewModel.setServiceCost(double.tryParse(value) ?? 0.0);
         }
       },
+      validator: (value) {
+        if (value == null || value.isEmpty) {
+          return S.current.errorEmptyField;
+        }
+        if (double.tryParse(value) == null) {
+          return S.current.invalidAmount;
+        }
+        return null;
+      },
+      autovalidateMode: AutovalidateMode.onUserInteraction,
     );
   }
 
@@ -461,37 +474,38 @@ class PaymentRecordViewContent extends StatelessWidget {
           viewModel.setServiceDate(selectedDate);
         }
       },
-      child: InputDecorator(
-        decoration: InputDecoration(
-          labelText: 'Service Date',
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(12),
-            borderSide: BorderSide(color: Colors.grey.shade300),
-          ),
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(12),
-            borderSide: BorderSide(color: Colors.grey.shade300),
-          ),
-          filled: true,
-          fillColor: Colors.grey.shade50,
-          prefixIcon: Icon(Icons.calendar_today,
-              color: Theme.of(context).primaryColor.withOpacity(0.7)),
-          contentPadding:
-              const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              DateFormat('MMM dd, yyyy').format(viewModel.serviceDate),
-              style: TextStyle(color: Theme.of(context).colorScheme.onSurface),
+      child: FormField<DateTime>(
+        initialValue: viewModel.serviceDate,
+        validator: (value) {
+          if (value == null) {
+            return S.current.serviceDate;
+          }
+          return null;
+        },
+        builder: (FormFieldState<DateTime> state) {
+          return InputDecorator(
+            decoration: _getInputDecoration(
+                    context, S.current.serviceDate, Icons.calendar_today)
+                .copyWith(
+              errorText: state.errorText,
             ),
-            Icon(
-              Icons.arrow_drop_down,
-              color: Theme.of(context).primaryColor,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  DateFormat.yMMMEd().format(viewModel.serviceDate),
+                  style:
+                      TextStyle(color: Theme.of(context).colorScheme.onSurface),
+                ),
+                Icon(
+                  Icons.arrow_drop_down,
+                  color: Theme.of(context).primaryColor,
+                ),
+              ],
             ),
-          ],
-        ),
+          );
+        },
+        autovalidateMode: AutovalidateMode.onUserInteraction,
       ),
     );
   }
@@ -499,28 +513,9 @@ class PaymentRecordViewContent extends StatelessWidget {
   Widget _buildNotesField(
       BuildContext context, PaymentRecordViewModel viewModel) {
     return TextFormField(
-      decoration: InputDecoration(
-        labelText: 'Notes',
+      decoration:
+          _getInputDecoration(context, S.current.notes, Icons.note).copyWith(
         alignLabelWithHint: true,
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(color: Colors.grey.shade300),
-        ),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(color: Colors.grey.shade300),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
-          borderSide:
-              BorderSide(color: Theme.of(context).primaryColor, width: 2),
-        ),
-        filled: true,
-        fillColor: Colors.grey.shade50,
-        prefixIcon: Icon(Icons.note,
-            color: Theme.of(context).primaryColor.withOpacity(0.7)),
-        contentPadding:
-            const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
       ),
       maxLines: 4,
       onChanged: viewModel.setNotes,
@@ -531,6 +526,7 @@ class PaymentRecordViewContent extends StatelessWidget {
       BuildContext context, PaymentRecordViewModel viewModel) {
     String name = '';
     String phone = '';
+    final formKey = GlobalKey<FormState>();
 
     showDialog(
       context: context,
@@ -539,48 +535,65 @@ class PaymentRecordViewContent extends StatelessWidget {
           title: Row(
             children: [
               Icon(Icons.person_add, color: Theme.of(context).primaryColor),
-              const SizedBox(width: 12),
-              Text('Add New Customer'),
+              12.horizontalSpace,
+              Text(S.current.addNewCustomer),
             ],
           ),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(20.r),
           ),
           content: SingleChildScrollView(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                TextField(
-                  decoration: InputDecoration(
-                    labelText: 'Customer Name',
-                    prefixIcon: const Icon(Icons.person),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12),
+            child: Form(
+              key: formKey,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  TextFormField(
+                    decoration: InputDecoration(
+                      labelText: S.current.customerName,
+                      prefixIcon: const Icon(Icons.person),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12.r),
+                      ),
+                      contentPadding: EdgeInsets.symmetric(
+                          horizontal: 16.w, vertical: 16.h),
                     ),
-                    contentPadding: const EdgeInsets.symmetric(
-                        horizontal: 16, vertical: 16),
+                    onChanged: (value) {
+                      name = value;
+                    },
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return S.current.customerName;
+                      }
+                      return null;
+                    },
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
                   ),
-                  onChanged: (value) {
-                    name = value;
-                  },
-                ),
-                const SizedBox(height: 16),
-                TextField(
-                  decoration: InputDecoration(
-                    labelText: 'Phone Number',
-                    prefixIcon: const Icon(Icons.phone),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12),
+                  32.verticalSpace,
+                  TextFormField(
+                    decoration: InputDecoration(
+                      labelText: S.current.phoneNumber,
+                      prefixIcon: const Icon(Icons.phone),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12.r),
+                      ),
+                      contentPadding: EdgeInsets.symmetric(
+                          horizontal: 16.w, vertical: 16.h),
                     ),
-                    contentPadding: const EdgeInsets.symmetric(
-                        horizontal: 16, vertical: 16),
+                    keyboardType: TextInputType.phone,
+                    onChanged: (value) {
+                      phone = value;
+                    },
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return S.current.phoneNumber;
+                      }
+                      return null;
+                    },
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
                   ),
-                  keyboardType: TextInputType.phone,
-                  onChanged: (value) {
-                    phone = value;
-                  },
-                ),
-              ],
+                ],
+              ),
             ),
           ),
           actions: [
@@ -589,13 +602,13 @@ class PaymentRecordViewContent extends StatelessWidget {
                 Navigator.of(context).pop();
               },
               child: Text(
-                'Cancel',
+                S.current.cancel,
                 style: TextStyle(color: Colors.grey.shade700),
               ),
             ),
             ElevatedButton(
               onPressed: () {
-                if (name.isNotEmpty) {
+                if (formKey.currentState!.validate()) {
                   // Create a new customer
                   final newCustomer = CustomerModel(
                     id: DateTime.now().millisecondsSinceEpoch.toString(),
@@ -609,11 +622,11 @@ class PaymentRecordViewContent extends StatelessWidget {
               },
               style: ElevatedButton.styleFrom(
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
+                  borderRadius: BorderRadius.circular(12.r),
                 ),
                 backgroundColor: Theme.of(context).primaryColor,
               ),
-              child: const Text('Add Customer'),
+              child: Text(S.current.addCustomer),
             ),
           ],
         );

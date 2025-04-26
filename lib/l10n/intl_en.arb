@@ -183,5 +183,22 @@
   "target": "Target",
   "ofGoalReached": "of goal reached",
   "learnMore": "Learn More",
-  "paymentRecord": "Payment Record"
+  "paymentRecord": "Payment Record",
+  "paymentInformation": "Payment Information",
+  "totalAmount": "Total Amount",
+  "payment": "Payment",
+  "customer": "Customer",
+  "addNewCustomer": "Add New Customer",
+  "serviceDetails": "Service Details",
+  "additionalInformation": "Additional Information",
+  "submitPaymentRecord": "Submit Payment Record",
+  "selectCustomer": "Select Customer",
+  "serviceName": "Service Name",
+  "serviceCost": "Service Cost",
+  "serviceDate": "Service Date",
+  "notes": "Notes",
+  "customerName": "Customer Name",
+  "phoneNumber": "Phone Number",
+  "addCustomer": "Add Customer",
+  "invalidAmount": "Amount must be a valid number"
 }

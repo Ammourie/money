@@ -1519,6 +1519,161 @@ class S {
       args: [],
     );
   }
+
+  /// `Payment Information`
+  String get paymentInformation {
+    return Intl.message(
+      'Payment Information',
+      name: 'paymentInformation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Total Amount`
+  String get totalAmount {
+    return Intl.message(
+      'Total Amount',
+      name: 'totalAmount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Payment`
+  String get payment {
+    return Intl.message('Payment', name: 'payment', desc: '', args: []);
+  }
+
+  /// `Customer`
+  String get customer {
+    return Intl.message('Customer', name: 'customer', desc: '', args: []);
+  }
+
+  /// `Add New Customer`
+  String get addNewCustomer {
+    return Intl.message(
+      'Add New Customer',
+      name: 'addNewCustomer',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Service Details`
+  String get serviceDetails {
+    return Intl.message(
+      'Service Details',
+      name: 'serviceDetails',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Additional Information`
+  String get additionalInformation {
+    return Intl.message(
+      'Additional Information',
+      name: 'additionalInformation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Submit Payment Record`
+  String get submitPaymentRecord {
+    return Intl.message(
+      'Submit Payment Record',
+      name: 'submitPaymentRecord',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select Customer`
+  String get selectCustomer {
+    return Intl.message(
+      'Select Customer',
+      name: 'selectCustomer',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Service Name`
+  String get serviceName {
+    return Intl.message(
+      'Service Name',
+      name: 'serviceName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Service Cost`
+  String get serviceCost {
+    return Intl.message(
+      'Service Cost',
+      name: 'serviceCost',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Service Date`
+  String get serviceDate {
+    return Intl.message(
+      'Service Date',
+      name: 'serviceDate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Notes`
+  String get notes {
+    return Intl.message('Notes', name: 'notes', desc: '', args: []);
+  }
+
+  /// `Customer Name`
+  String get customerName {
+    return Intl.message(
+      'Customer Name',
+      name: 'customerName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Phone Number`
+  String get phoneNumber {
+    return Intl.message(
+      'Phone Number',
+      name: 'phoneNumber',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add Customer`
+  String get addCustomer {
+    return Intl.message(
+      'Add Customer',
+      name: 'addCustomer',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Amount must be a valid number`
+  String get invalidAmount {
+    return Intl.message(
+      'Amount must be a valid number',
+      name: 'invalidAmount',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

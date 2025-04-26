@@ -1,4 +1,6 @@
+import 'package:flutter/material.dart';
 import 'package:slim_starter_application/core/common/view_model/base_view_model.dart';
+import 'package:slim_starter_application/core/ui/snackbars/show_snackbar.dart';
 import '../model/response/payment_record_model.dart';
 import '../model/response/customer_model.dart';
 import 'package:intl/intl.dart';
@@ -18,7 +20,7 @@ class PaymentRecordViewModel extends BaseViewModel<PaymentRecordViewParam> {
   double _serviceCost = 0.0;
   DateTime _serviceDate = DateTime.now();
   String _notes = '';
-
+  final formkey = GlobalKey<FormState>();
   PaymentRecordViewModel(this.param) : super(param) {
     _init();
   }
@@ -71,32 +73,34 @@ class PaymentRecordViewModel extends BaseViewModel<PaymentRecordViewParam> {
 
   void submitPaymentRecord() {
     if (_selectedCustomer == null) {
-      print("Error: No customer selected");
+      showSnackbar("Error: No customer selected");
       return;
     }
+    if (formkey.currentState!.validate()) {
+      final paymentRecord = PaymentRecordModel(
+        id: DateTime.now().millisecondsSinceEpoch.toString(),
+        customerId: _selectedCustomer!.id,
+        customerName: _selectedCustomer!.name,
+        serviceName: _serviceName,
+        serviceCost: _serviceCost,
+        serviceDate: _serviceDate,
+        notes: _notes,
+        createdAt: DateTime.now(),
+      );
 
-    final paymentRecord = PaymentRecordModel(
-      id: DateTime.now().millisecondsSinceEpoch.toString(),
-      customerId: _selectedCustomer!.id,
-      customerName: _selectedCustomer!.name,
-      serviceName: _serviceName,
-      serviceCost: _serviceCost,
-      serviceDate: _serviceDate,
-      notes: _notes,
-      createdAt: DateTime.now(),
-    );
-
-    // For now, just print the data
-    print("Payment Record Submitted:");
-    print("Customer: ${paymentRecord.customerName}");
-    print("Service: ${paymentRecord.serviceName}");
-    print("Cost: \$${paymentRecord.serviceCost}");
-    print(
-        "Date: ${DateFormat('yyyy-MM-dd').format(paymentRecord.serviceDate)}");
-    print("Notes: ${paymentRecord.notes}");
+      // For now, just print the data
+      print("Payment Record Submitted:");
+      print("Customer: ${paymentRecord.customerName}");
+      print("Service: ${paymentRecord.serviceName}");
+      print("Cost: \$${paymentRecord.serviceCost}");
+      print(
+          "Date: ${DateFormat('yyyy-MM-dd').format(paymentRecord.serviceDate)}");
+      print("Notes: ${paymentRecord.notes}");
+    }
   }
 
+  @override
   void closeModel() {
-    // Clean up resources
+    this.dispose();
   }
 }

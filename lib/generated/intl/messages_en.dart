@@ -44,6 +44,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "accountNotVerifiedErrorMessage": MessageLookupByLibrary.simpleMessage(
       "Account Not Verified",
     ),
+    "addCustomer": MessageLookupByLibrary.simpleMessage("Add Customer"),
+    "addNewCustomer": MessageLookupByLibrary.simpleMessage("Add New Customer"),
+    "additionalInformation": MessageLookupByLibrary.simpleMessage(
+      "Additional Information",
+    ),
     "admin": MessageLookupByLibrary.simpleMessage("Admin"),
     "adminReply": MessageLookupByLibrary.simpleMessage("Admin Reply"),
     "apply": MessageLookupByLibrary.simpleMessage("Apply"),
@@ -88,6 +93,8 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "contactUs": MessageLookupByLibrary.simpleMessage("Contact US"),
     "createdAt": MessageLookupByLibrary.simpleMessage("Created At"),
+    "customer": MessageLookupByLibrary.simpleMessage("Customer"),
+    "customerName": MessageLookupByLibrary.simpleMessage("Customer Name"),
     "dateOfBirth": MessageLookupByLibrary.simpleMessage("Date of birth"),
     "deleteAccount": MessageLookupByLibrary.simpleMessage("Delete Account"),
     "deposit": MessageLookupByLibrary.simpleMessage("Deposit"),
@@ -159,6 +166,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "internalServerErrorMessage": MessageLookupByLibrary.simpleMessage(
       "The server encountered an internal error or misconfigurtion and was unable to complete your request.",
     ),
+    "invalidAmount": MessageLookupByLibrary.simpleMessage(
+      "Amount must be a valid number",
+    ),
     "invalidConfirmPassword": MessageLookupByLibrary.simpleMessage(
       "Password and confirm password doesn\'t match",
     ),
@@ -204,6 +214,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "notValidResponse": MessageLookupByLibrary.simpleMessage(
       "Not valid response",
     ),
+    "notes": MessageLookupByLibrary.simpleMessage("Notes"),
     "notifications": MessageLookupByLibrary.simpleMessage("Notifications"),
     "ofGoalReached": MessageLookupByLibrary.simpleMessage("of goal reached"),
     "ok": MessageLookupByLibrary.simpleMessage("Ok"),
@@ -224,6 +235,10 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "password": MessageLookupByLibrary.simpleMessage("Password"),
     "payBills": MessageLookupByLibrary.simpleMessage("Pay Bills"),
+    "payment": MessageLookupByLibrary.simpleMessage("Payment"),
+    "paymentInformation": MessageLookupByLibrary.simpleMessage(
+      "Payment Information",
+    ),
     "paymentRecord": MessageLookupByLibrary.simpleMessage("Payment Record"),
     "pending": MessageLookupByLibrary.simpleMessage("Pending"),
     "permissionRequiredMessage": MessageLookupByLibrary.simpleMessage(
@@ -233,6 +248,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "The previous permission is required!",
     ),
     "phone": MessageLookupByLibrary.simpleMessage("Phone Number"),
+    "phoneNumber": MessageLookupByLibrary.simpleMessage("Phone Number"),
     "pleaseWait": MessageLookupByLibrary.simpleMessage("Please Wait"),
     "pressTwiceToExit": MessageLookupByLibrary.simpleMessage(
       "Press twice to exit",
@@ -258,11 +274,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "salary": MessageLookupByLibrary.simpleMessage("Salary"),
     "search": MessageLookupByLibrary.simpleMessage("Search"),
     "seeAll": MessageLookupByLibrary.simpleMessage("See All"),
+    "selectCustomer": MessageLookupByLibrary.simpleMessage("Select Customer"),
     "selectSubject": MessageLookupByLibrary.simpleMessage("Select subject"),
     "selectYourGender": MessageLookupByLibrary.simpleMessage(
       "Select your gender",
     ),
     "send": MessageLookupByLibrary.simpleMessage("Send"),
+    "serviceCost": MessageLookupByLibrary.simpleMessage("Service Cost"),
+    "serviceDate": MessageLookupByLibrary.simpleMessage("Service Date"),
+    "serviceDetails": MessageLookupByLibrary.simpleMessage("Service Details"),
+    "serviceName": MessageLookupByLibrary.simpleMessage("Service Name"),
     "shopping": MessageLookupByLibrary.simpleMessage("Shopping"),
     "signInToContinueToTheApplication": MessageLookupByLibrary.simpleMessage(
       "Sign In To Continue To The Application",
@@ -274,6 +295,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "signUp": MessageLookupByLibrary.simpleMessage("Signup"),
     "specificPermissionRequired": m3,
     "submit": MessageLookupByLibrary.simpleMessage("Submit"),
+    "submitPaymentRecord": MessageLookupByLibrary.simpleMessage(
+      "Submit Payment Record",
+    ),
     "submitTicket": MessageLookupByLibrary.simpleMessage("Submit Ticket"),
     "submittedAt": MessageLookupByLibrary.simpleMessage("Submitted at"),
     "suggesstion": MessageLookupByLibrary.simpleMessage("Suggesstion"),
@@ -304,6 +328,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "ticketNumber": MessageLookupByLibrary.simpleMessage("Ticket Number"),
     "today": MessageLookupByLibrary.simpleMessage("Today"),
+    "totalAmount": MessageLookupByLibrary.simpleMessage("Total Amount"),
     "totalReceivables": MessageLookupByLibrary.simpleMessage(
       "Total Receivables",
     ),

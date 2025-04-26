@@ -45,6 +45,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "accountNotVerifiedErrorMessage": MessageLookupByLibrary.simpleMessage(
       "لم يتم التحقق من الحساب",
     ),
+    "addCustomer": MessageLookupByLibrary.simpleMessage("إضافة عميل"),
+    "addNewCustomer": MessageLookupByLibrary.simpleMessage("إضافة عميل جديد"),
+    "additionalInformation": MessageLookupByLibrary.simpleMessage(
+      "معلومات إضافية",
+    ),
     "admin": MessageLookupByLibrary.simpleMessage("مدير"),
     "adminReply": MessageLookupByLibrary.simpleMessage("رد الإدارة"),
     "apply": MessageLookupByLibrary.simpleMessage("تغيير"),
@@ -91,6 +96,8 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "contactUs": MessageLookupByLibrary.simpleMessage("تواصل معنا"),
     "createdAt": MessageLookupByLibrary.simpleMessage("تم الإنشاء في"),
+    "customer": MessageLookupByLibrary.simpleMessage("العميل"),
+    "customerName": MessageLookupByLibrary.simpleMessage("اسم العميل"),
     "dateOfBirth": MessageLookupByLibrary.simpleMessage("تاريخ الميلاد"),
     "deleteAccount": MessageLookupByLibrary.simpleMessage("حذف الحساب"),
     "deposit": MessageLookupByLibrary.simpleMessage("إيداع"),
@@ -160,6 +167,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "internalServerErrorMessage": MessageLookupByLibrary.simpleMessage(
       "واجه الخادم خطأ أو تهيئة خاطئة ولم يتمكن من إكمال طلبك سيتم إصلاح المشكلة في أقرب وقت.",
     ),
+    "invalidAmount": MessageLookupByLibrary.simpleMessage(
+      "يجب أن يكون المبلغ عدداً صحيحاً",
+    ),
     "invalidConfirmPassword": MessageLookupByLibrary.simpleMessage(
       "كلمة السر وتأكيد كلمة السر غير متطابقتين",
     ),
@@ -207,6 +217,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "notValidResponse": MessageLookupByLibrary.simpleMessage(
       "جواب المخدم غير مطابق",
     ),
+    "notes": MessageLookupByLibrary.simpleMessage("ملاحظات"),
     "notifications": MessageLookupByLibrary.simpleMessage("الإشعارات"),
     "ofGoalReached": MessageLookupByLibrary.simpleMessage("من الهدف المحقق"),
     "ok": MessageLookupByLibrary.simpleMessage("موافق"),
@@ -225,6 +236,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "pageEmpty": MessageLookupByLibrary.simpleMessage("لا يوجد محتوى لعرضه .."),
     "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
     "payBills": MessageLookupByLibrary.simpleMessage("دفع الفواتير"),
+    "payment": MessageLookupByLibrary.simpleMessage("الدفع"),
+    "paymentInformation": MessageLookupByLibrary.simpleMessage("معلومات الدفع"),
     "paymentRecord": MessageLookupByLibrary.simpleMessage("تسجيل الدفع"),
     "pending": MessageLookupByLibrary.simpleMessage("بانتظار الموافقة"),
     "permissionRequiredMessage": MessageLookupByLibrary.simpleMessage(
@@ -234,6 +247,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "صلاحية الوصول مطلوبة",
     ),
     "phone": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
+    "phoneNumber": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
     "pleaseWait": MessageLookupByLibrary.simpleMessage("الرجاء الانتظار"),
     "pressTwiceToExit": MessageLookupByLibrary.simpleMessage(
       "إضغط مرتين للخروج",
@@ -259,9 +273,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "salary": MessageLookupByLibrary.simpleMessage("راتب"),
     "search": MessageLookupByLibrary.simpleMessage("بحث"),
     "seeAll": MessageLookupByLibrary.simpleMessage("عرض الكل"),
+    "selectCustomer": MessageLookupByLibrary.simpleMessage("اختيار العميل"),
     "selectSubject": MessageLookupByLibrary.simpleMessage("اختر الموضوع"),
     "selectYourGender": MessageLookupByLibrary.simpleMessage("اختر جنسك"),
     "send": MessageLookupByLibrary.simpleMessage("إرسال"),
+    "serviceCost": MessageLookupByLibrary.simpleMessage("تكلفة الخدمة"),
+    "serviceDate": MessageLookupByLibrary.simpleMessage("تاريخ الخدمة"),
+    "serviceDetails": MessageLookupByLibrary.simpleMessage("تفاصيل الخدمة"),
+    "serviceName": MessageLookupByLibrary.simpleMessage("اسم الخدمة"),
     "shopping": MessageLookupByLibrary.simpleMessage("تسوق"),
     "signInToContinueToTheApplication": MessageLookupByLibrary.simpleMessage(
       "تسجيل الدخول للمتابعة إلى التطبيق",
@@ -273,6 +292,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "signUp": MessageLookupByLibrary.simpleMessage("تسجيل حساب"),
     "specificPermissionRequired": m3,
     "submit": MessageLookupByLibrary.simpleMessage("إرسال"),
+    "submitPaymentRecord": MessageLookupByLibrary.simpleMessage(
+      "تقديم سجل الدفع",
+    ),
     "submitTicket": MessageLookupByLibrary.simpleMessage("إرسال التذكرة"),
     "submittedAt": MessageLookupByLibrary.simpleMessage("تم الإرسال في"),
     "suggesstion": MessageLookupByLibrary.simpleMessage("اقتراح"),
@@ -303,6 +325,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "ticketNumber": MessageLookupByLibrary.simpleMessage("رقم التذكرة"),
     "today": MessageLookupByLibrary.simpleMessage("اليوم"),
+    "totalAmount": MessageLookupByLibrary.simpleMessage("المبلغ الإجمالي"),
     "totalReceivables": MessageLookupByLibrary.simpleMessage(
       "إجمالي المستحقات",
     ),
