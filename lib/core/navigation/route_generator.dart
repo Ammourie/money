@@ -17,6 +17,7 @@ import '../../features/more/view/faqs_view.dart';
 import '../../features/more/view/privacy_policy_view.dart';
 import '../../features/more/view/terms_and_conditions_view.dart';
 import '../../features/notification/view/notification_list_view.dart';
+import '../../features/payment_records/view/payment_record_view.dart';
 import '../../features/tickets/view/ticket_details_view.dart';
 import '../../features/tickets/view/ticket_list_view.dart';
 import '../constants/enums/route_type.dart';
@@ -36,6 +37,11 @@ class NavigationRoute {
         return _getRoute<LoginViewParam>(
           settings: settings,
           createScreen: (param) => LoginView(param: param),
+        );
+      case PaymentRecordView.routeName:
+        return _getRoute<PaymentRecordViewParam>(
+          settings: settings,
+          createScreen: (param) => PaymentRecordView(param: param),
         );
       case AuthView.routeName:
         return _getRoute<AuthViewParam>(

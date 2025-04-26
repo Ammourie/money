@@ -4,10 +4,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:provider/provider.dart';
+import 'package:slim_starter_application/core/ui/show_toast.dart';
 import 'package:slim_starter_application/features/home/view/widgets/profile_image.dart';
+import 'package:slim_starter_application/features/payment_records/view/payment_record_view.dart';
 
 import '../../../../core/ui/clippers/theme_circle_clipper.dart';
 import '../../../../generated/l10n.dart';
+import '../../../core/navigation/nav.dart';
 import '../../../core/providers/session_data.dart';
 import '../../../core/ui/error_ui/error_viewer/error_viewer.dart';
 import '../../../core/ui/widgets/custom_scaffold.dart';
@@ -218,10 +221,21 @@ class _HomeViewContentState extends State<HomeViewContent> {
             children: [
               _buildActionButton(
                 context,
-                icon: Icons.account_balance_wallet,
-                label: S.current.deposit,
-                onTap: () {},
+                icon: Icons.receipt,
+                label: S.current.paymentRecord,
+                onTap: () {
+                  Nav.to(
+                    PaymentRecordView.routeName,
+                    arguments: PaymentRecordViewParam(),
+                  );
+                },
               ),
+              // _buildActionButton(
+              //   context,
+              //   icon: Icons.account_balance_wallet,
+              //   label: S.current.deposit,
+              //   onTap: () {},
+              // ),
               _buildActionButton(
                 context,
                 icon: Icons.compare_arrows,
@@ -238,7 +252,9 @@ class _HomeViewContentState extends State<HomeViewContent> {
                 context,
                 icon: Icons.more_horiz,
                 label: S.current.more,
-                onTap: () {},
+                onTap: () {
+                  showToast("Coming soon!!");
+                },
               ),
             ],
           ),
@@ -854,5 +870,3 @@ class _HomeViewContentState extends State<HomeViewContent> {
   HomeViewModel provider(BuildContext context, {bool listen = true}) =>
       Provider.of<HomeViewModel>(context, listen: listen);
 }
-
-

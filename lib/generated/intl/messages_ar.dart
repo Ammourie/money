@@ -225,6 +225,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "pageEmpty": MessageLookupByLibrary.simpleMessage("لا يوجد محتوى لعرضه .."),
     "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
     "payBills": MessageLookupByLibrary.simpleMessage("دفع الفواتير"),
+    "paymentRecord": MessageLookupByLibrary.simpleMessage("تسجيل الدفع"),
     "pending": MessageLookupByLibrary.simpleMessage("بانتظار الموافقة"),
     "permissionRequiredMessage": MessageLookupByLibrary.simpleMessage(
       "يجب إعطاء صلاحية الوصول السابفة لتتمكن من استخدام التطبيق",

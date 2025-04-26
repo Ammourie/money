@@ -224,6 +224,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "password": MessageLookupByLibrary.simpleMessage("Password"),
     "payBills": MessageLookupByLibrary.simpleMessage("Pay Bills"),
+    "paymentRecord": MessageLookupByLibrary.simpleMessage("Payment Record"),
     "pending": MessageLookupByLibrary.simpleMessage("Pending"),
     "permissionRequiredMessage": MessageLookupByLibrary.simpleMessage(
       "make sure to grant the previous permission to be able to use the app.",

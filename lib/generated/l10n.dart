@@ -1509,6 +1509,16 @@ class S {
   String get learnMore {
     return Intl.message('Learn More', name: 'learnMore', desc: '', args: []);
   }
+
+  /// `Payment Record`
+  String get paymentRecord {
+    return Intl.message(
+      'Payment Record',
+      name: 'paymentRecord',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

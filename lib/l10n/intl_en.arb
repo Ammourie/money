@@ -182,5 +182,6 @@
   "emergencyFund": "Emergency Fund",
   "target": "Target",
   "ofGoalReached": "of goal reached",
-  "learnMore": "Learn More"
+  "learnMore": "Learn More",
+  "paymentRecord": "Payment Record"
 }

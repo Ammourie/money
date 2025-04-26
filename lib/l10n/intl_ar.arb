@@ -182,5 +182,6 @@
   "emergencyFund": "صندوق الطوارئ",
   "target": "الهدف",
   "ofGoalReached": "من الهدف المحقق",
-  "learnMore": "معرفة المزيد"
+  "learnMore": "معرفة المزيد",
+  "paymentRecord": "تسجيل الدفع"
 }
