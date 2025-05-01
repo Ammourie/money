@@ -169,6 +169,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "أريد الاستفسار عن ...",
     ),
     "ignoreForNow": MessageLookupByLibrary.simpleMessage("تجاهل"),
+    "income": MessageLookupByLibrary.simpleMessage("وارد"),
     "internalServerErrorMessage": MessageLookupByLibrary.simpleMessage(
       "واجه الخادم خطأ أو تهيئة خاطئة ولم يتمكن من إكمال طلبك سيتم إصلاح المشكلة في أقرب وقت.",
     ),
@@ -239,12 +240,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "or": MessageLookupByLibrary.simpleMessage("أو"),
     "otpText": m2,
     "otpVerification": MessageLookupByLibrary.simpleMessage("رمز التحقق"),
+    "outcome": MessageLookupByLibrary.simpleMessage("صادر"),
     "pageEmpty": MessageLookupByLibrary.simpleMessage("لا يوجد محتوى لعرضه .."),
     "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
     "payBills": MessageLookupByLibrary.simpleMessage("دفع الفواتير"),
     "payment": MessageLookupByLibrary.simpleMessage("الدفع"),
     "paymentInformation": MessageLookupByLibrary.simpleMessage("معلومات الدفع"),
     "paymentRecord": MessageLookupByLibrary.simpleMessage("تسجيل الدفع"),
+    "paymentType": MessageLookupByLibrary.simpleMessage("نوع الدفع"),
     "pending": MessageLookupByLibrary.simpleMessage("بانتظار الموافقة"),
     "permissionRequiredMessage": MessageLookupByLibrary.simpleMessage(
       "يجب إعطاء صلاحية الوصول السابفة لتتمكن من استخدام التطبيق",

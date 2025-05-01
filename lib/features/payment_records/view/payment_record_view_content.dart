@@ -1,3 +1,4 @@
+import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:intl/intl.dart';
@@ -5,6 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../generated/l10n.dart';
 import '../view_model/payment_record_view_model.dart';
 import '../model/response/customer_model.dart';
+import '../model/enums/payment_type.dart';
 
 class PaymentRecordViewContent extends StatelessWidget {
   const PaymentRecordViewContent({Key? key}) : super(key: key);
@@ -228,6 +230,8 @@ class PaymentRecordViewContent extends StatelessWidget {
               padding: EdgeInsets.all(16.r),
               child: Column(
                 children: [
+                  _buildPaymentTypeDropdown(context, viewModel),
+                  32.verticalSpace,
                   _buildServiceNameField(context, viewModel),
                   32.verticalSpace,
                   _buildServiceCostField(context, viewModel),
@@ -572,6 +576,49 @@ class PaymentRecordViewContent extends StatelessWidget {
       textInputAction: TextInputAction.done,
       maxLines: 4,
       enabled: !viewModel.isSubmitting,
+    );
+  }
+
+  Widget _buildPaymentTypeDropdown(
+      BuildContext context, PaymentRecordViewModel viewModel) {
+    return DropdownButtonFormField<PaymentType>(
+      decoration: _getInputDecoration(
+          context, S.current.paymentType, Icons.payments),
+      value: viewModel.paymentType,
+      items: PaymentType.values.map((type) {
+        return DropdownMenuItem<PaymentType>(
+          value: type,
+          child: Row(
+            children: [
+              Transform.rotate(
+                angle: type == PaymentType.income ? math.pi : 0,
+                child: Icon(
+                   Icons.arrow_outward,
+                  color: type == PaymentType.income
+                      ? Colors.green
+                      : Colors.red,
+                ),
+              ),
+              8.horizontalSpace,
+              Text(type.displayName),
+            ],
+          ),
+        );
+      }).toList(),
+      onChanged: viewModel.isSubmitting
+          ? null
+          : (type) {
+              if (type != null) {
+                viewModel.setPaymentType(type);
+              }
+            },
+      validator: (value) {
+        if (value == null) {
+          return S.current.errorEmptyField;
+        }
+        return null;
+      },
+      autovalidateMode: AutovalidateMode.onUserInteraction,
     );
   }
 

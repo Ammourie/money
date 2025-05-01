@@ -10,6 +10,7 @@ import 'package:slim_starter_application/features/home/view/app_main_view.dart';
 
 import '../../../core/common/app_config.dart';
 import '../../../core/constants/enums/success_dialog_type.dart';
+import '../model/enums/payment_type.dart';
 import '../model/response/customer_model.dart';
 import '../model/response/payment_record_model.dart';
 import '../view/payment_record_view.dart';
@@ -26,6 +27,7 @@ class PaymentRecordViewModel extends BaseViewModel<PaymentRecordViewParam> {
 
   CustomerModel? _selectedCustomer;
   DateTime _serviceDate = DateTime.now();
+  PaymentType _paymentType = PaymentType.income;
   final formkey = GlobalKey<FormState>();
 
   // Controllers
@@ -57,6 +59,7 @@ class PaymentRecordViewModel extends BaseViewModel<PaymentRecordViewParam> {
   bool get isLoadingCustomers => _isLoadingCustomers;
   bool get isSubmitting => _isSubmitting;
   bool get isAddingCustomer => _isAddingCustomer;
+  PaymentType get paymentType => _paymentType;
 
   // Setters
   void setSelectedCustomer(CustomerModel customer) {
@@ -66,6 +69,11 @@ class PaymentRecordViewModel extends BaseViewModel<PaymentRecordViewParam> {
 
   void setServiceDate(DateTime date) {
     _serviceDate = date;
+    notifyListeners();
+  }
+
+  void setPaymentType(PaymentType type) {
+    _paymentType = type;
     notifyListeners();
   }
 
@@ -79,6 +87,7 @@ class PaymentRecordViewModel extends BaseViewModel<PaymentRecordViewParam> {
     serviceNameController.clear();
     serviceCostController.clear();
     _serviceDate = DateTime.now();
+    _paymentType = PaymentType.outcome;
     notesController.clear();
     formkey.currentState?.reset();
     notifyListeners();
@@ -189,6 +198,7 @@ class PaymentRecordViewModel extends BaseViewModel<PaymentRecordViewParam> {
           serviceDate: _serviceDate,
           notes: notes,
           createdAt: DateTime.now(),
+          paymentType: _paymentType,
         );
 
         log('Created payment record model', name: 'submitPaymentRecord');

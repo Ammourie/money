@@ -205,5 +205,9 @@
   "addNewCustomerBelow": "إضافة عميل جديد",
   "discardChanges": "إلغاء التغييرات",
   "unsavedChangesConfirmation": "لديك تغييرات غير محفوظة. هل أنت متأكد أنك تريد إلغاءها؟",
-  "discard": "إلغاء"
+  "discard": "إلغاء",
+  "income": "وارد",
+  "outcome": "صادر",
+  "paymentType": "نوع الدفع",
+  "unkown":"غير معروف"
 }

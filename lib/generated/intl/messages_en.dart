@@ -168,6 +168,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "I want to ask about ...",
     ),
     "ignoreForNow": MessageLookupByLibrary.simpleMessage("Ignore"),
+    "income": MessageLookupByLibrary.simpleMessage("Income"),
     "internalServerErrorMessage": MessageLookupByLibrary.simpleMessage(
       "The server encountered an internal error or misconfigurtion and was unable to complete your request.",
     ),
@@ -238,6 +239,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "or": MessageLookupByLibrary.simpleMessage("Or"),
     "otpText": m2,
     "otpVerification": MessageLookupByLibrary.simpleMessage("OTP Verification"),
+    "outcome": MessageLookupByLibrary.simpleMessage("Outcome"),
     "pageEmpty": MessageLookupByLibrary.simpleMessage(
       "The page has no content ..",
     ),
@@ -248,6 +250,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Payment Information",
     ),
     "paymentRecord": MessageLookupByLibrary.simpleMessage("Payment Record"),
+    "paymentType": MessageLookupByLibrary.simpleMessage("Payment Type"),
     "pending": MessageLookupByLibrary.simpleMessage("Pending"),
     "permissionRequiredMessage": MessageLookupByLibrary.simpleMessage(
       "make sure to grant the previous permission to be able to use the app.",
@@ -347,6 +350,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "type": MessageLookupByLibrary.simpleMessage("Type"),
     "unauthorized": MessageLookupByLibrary.simpleMessage("Unauthorized"),
+    "unknown": MessageLookupByLibrary.simpleMessage("Unknown"),
     "unknownError": MessageLookupByLibrary.simpleMessage(
       "Unknown error occurred, please try again",
     ),

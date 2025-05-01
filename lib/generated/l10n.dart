@@ -1719,6 +1719,31 @@ class S {
   String get discard {
     return Intl.message('Discard', name: 'discard', desc: '', args: []);
   }
+
+  /// `Income`
+  String get income {
+    return Intl.message('Income', name: 'income', desc: '', args: []);
+  }
+
+  /// `Outcome`
+  String get outcome {
+    return Intl.message('Outcome', name: 'outcome', desc: '', args: []);
+  }
+
+  /// `Payment Type`
+  String get paymentType {
+    return Intl.message(
+      'Payment Type',
+      name: 'paymentType',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Unknown`
+  String get unknown {
+    return Intl.message('Unknown', name: 'unknown', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

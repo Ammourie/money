@@ -205,5 +205,9 @@
   "addNewCustomerBelow": "Add New Customer Below",
   "discardChanges": "Discard Changes",
   "unsavedChangesConfirmation": "You have unsaved changes. Are you sure you want to discard them?",
-  "discard": "Discard"
+  "discard": "Discard",
+  "income": "Income",
+  "outcome": "Outcome",
+  "paymentType": "Payment Type",
+  "unknown": "Unknown"
 }

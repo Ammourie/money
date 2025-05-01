@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:slim_starter_application/core/common/type_validators.dart';
 import 'package:slim_starter_application/core/models/base_model.dart';
 
+import '../enums/payment_type.dart';
 import 'customer_model.dart';
 
 class PaymentRecordModel extends BaseModel {
@@ -12,6 +13,7 @@ class PaymentRecordModel extends BaseModel {
   final DateTime serviceDate;
   final String notes;
   final DateTime createdAt;
+  final PaymentType paymentType;
 
   PaymentRecordModel({
     required this.id,
@@ -21,6 +23,7 @@ class PaymentRecordModel extends BaseModel {
     required this.serviceDate,
     required this.notes,
     required this.createdAt,
+    required this.paymentType,
   });
 
   Map<String, dynamic> toMap() {
@@ -32,6 +35,7 @@ class PaymentRecordModel extends BaseModel {
       'serviceDate': Timestamp.fromDate(serviceDate),
       'notes': notes,
       'createdAt': Timestamp.fromDate(createdAt),
+      'paymentType': paymentType.value,
     };
   }
 
@@ -48,6 +52,7 @@ class PaymentRecordModel extends BaseModel {
       serviceDate: (data['serviceDate'] as Timestamp).toDate(),
       notes: stringV(data['notes']),
       createdAt: (data['createdAt'] as Timestamp).toDate(),
+      paymentType: PaymentType.fromValue(numV(data['paymentType'])),
     );
   }
 }
