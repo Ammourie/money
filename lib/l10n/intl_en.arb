@@ -200,5 +200,10 @@
   "customerName": "Customer Name",
   "phoneNumber": "Phone Number",
   "addCustomer": "Add Customer",
-  "invalidAmount": "Amount must be a valid number"
+  "invalidAmount": "Amount must be a valid number",
+  "noCustomersFound": "No customers found",
+  "addNewCustomerBelow": "Add New Customer Below",
+  "discardChanges": "Discard Changes",
+  "unsavedChangesConfirmation": "You have unsaved changes. Are you sure you want to discard them?",
+  "discard": "Discard"
 }

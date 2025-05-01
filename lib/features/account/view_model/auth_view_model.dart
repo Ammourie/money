@@ -247,7 +247,7 @@ class AuthViewModel extends BaseViewModel<AuthViewParam> {
       _userData = newUser;
       _isLoading = false;
       notifyListeners();
-
+      
       // Navigate to home after successful registration
       _navigateToHomeIfProfileComplete();
     } catch (e) {

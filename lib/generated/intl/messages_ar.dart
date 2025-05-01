@@ -47,6 +47,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "addCustomer": MessageLookupByLibrary.simpleMessage("إضافة عميل"),
     "addNewCustomer": MessageLookupByLibrary.simpleMessage("إضافة عميل جديد"),
+    "addNewCustomerBelow": MessageLookupByLibrary.simpleMessage(
+      "إضافة عميل جديد",
+    ),
     "additionalInformation": MessageLookupByLibrary.simpleMessage(
       "معلومات إضافية",
     ),
@@ -108,6 +111,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "didnotReceiveAnyCode": MessageLookupByLibrary.simpleMessage(
       "لم يتم إرسال الكود؟",
     ),
+    "discard": MessageLookupByLibrary.simpleMessage("إلغاء"),
+    "discardChanges": MessageLookupByLibrary.simpleMessage("إلغاء التغييرات"),
     "editProfile": MessageLookupByLibrary.simpleMessage("تعديل الملف الشخصي"),
     "emailAddress": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
     "emergencyFund": MessageLookupByLibrary.simpleMessage("صندوق الطوارئ"),
@@ -207,6 +212,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "name": MessageLookupByLibrary.simpleMessage("الاسم"),
     "newPhoneNumber": MessageLookupByLibrary.simpleMessage("رقم الهاتف الجديد"),
     "newTicket": MessageLookupByLibrary.simpleMessage("تذكرة جديدة"),
+    "noCustomersFound": MessageLookupByLibrary.simpleMessage("لا يوجد عملاء"),
     "noDataRefresher": MessageLookupByLibrary.simpleMessage(
       "لم يعد يوجد بيانات",
     ),
@@ -338,6 +344,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "unauthorized": MessageLookupByLibrary.simpleMessage("غير مخول لك بالوصول"),
     "unknownError": MessageLookupByLibrary.simpleMessage(
       "حدث خطأ غير معروف، الرجاء إعادة المحاولة",
+    ),
+    "unsavedChangesConfirmation": MessageLookupByLibrary.simpleMessage(
+      "لديك تغييرات غير محفوظة. هل أنت متأكد أنك تريد إلغاءها؟",
     ),
     "update": MessageLookupByLibrary.simpleMessage("تحديث"),
     "updateMessage": MessageLookupByLibrary.simpleMessage(

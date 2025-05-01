@@ -30,4 +30,11 @@ class CustomerModel extends BaseModel {
       phone: stringV(data['phone']),
     );
   }
+  factory CustomerModel.fromMap(Map<String, dynamic> data) {
+    return CustomerModel(
+      id: stringV(data['id']),
+      name: stringV(data['name']),
+      phone: stringV(data['phone']),
+    );
+  }
 }

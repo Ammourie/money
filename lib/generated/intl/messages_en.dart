@@ -46,6 +46,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "addCustomer": MessageLookupByLibrary.simpleMessage("Add Customer"),
     "addNewCustomer": MessageLookupByLibrary.simpleMessage("Add New Customer"),
+    "addNewCustomerBelow": MessageLookupByLibrary.simpleMessage(
+      "Add New Customer Below",
+    ),
     "additionalInformation": MessageLookupByLibrary.simpleMessage(
       "Additional Information",
     ),
@@ -107,6 +110,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "didnotReceiveAnyCode": MessageLookupByLibrary.simpleMessage(
       "Didn\'t you receive any code?",
     ),
+    "discard": MessageLookupByLibrary.simpleMessage("Discard"),
+    "discardChanges": MessageLookupByLibrary.simpleMessage("Discard Changes"),
     "editProfile": MessageLookupByLibrary.simpleMessage("Edit Profile"),
     "emailAddress": MessageLookupByLibrary.simpleMessage("Email Address"),
     "emergencyFund": MessageLookupByLibrary.simpleMessage("Emergency Fund"),
@@ -204,6 +209,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "name": MessageLookupByLibrary.simpleMessage("Name"),
     "newPhoneNumber": MessageLookupByLibrary.simpleMessage("New phone number"),
     "newTicket": MessageLookupByLibrary.simpleMessage("New Ticket"),
+    "noCustomersFound": MessageLookupByLibrary.simpleMessage(
+      "No customers found",
+    ),
     "noDataRefresher": MessageLookupByLibrary.simpleMessage("No data"),
     "noNotifications": MessageLookupByLibrary.simpleMessage(
       "No notifications yet",
@@ -341,6 +349,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "unauthorized": MessageLookupByLibrary.simpleMessage("Unauthorized"),
     "unknownError": MessageLookupByLibrary.simpleMessage(
       "Unknown error occurred, please try again",
+    ),
+    "unsavedChangesConfirmation": MessageLookupByLibrary.simpleMessage(
+      "You have unsaved changes. Are you sure you want to discard them?",
     ),
     "update": MessageLookupByLibrary.simpleMessage("Update"),
     "updateMessage": MessageLookupByLibrary.simpleMessage(

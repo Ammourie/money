@@ -41,6 +41,14 @@ class PaymentRecordViewContent extends StatelessWidget {
     );
   }
 
+  Widget _buildLoadingIndicator(ThemeData theme) {
+    return Center(
+      child: CircularProgressIndicator(
+        color: theme.primaryColor,
+      ),
+    );
+  }
+
   AppBar _buildAppBar(BuildContext context, ThemeData theme) {
     return AppBar(
       elevation: 0,
@@ -168,10 +176,17 @@ class PaymentRecordViewContent extends StatelessWidget {
               padding: EdgeInsets.all(16.r),
               child: Column(
                 children: [
-                  _buildCustomerDropdown(context, viewModel),
+                  viewModel.isLoadingCustomers
+                      ? SizedBox(
+                          height: 60.h,
+                          child: _buildLoadingIndicator(theme),
+                        )
+                      : _buildCustomerDropdown(context, viewModel),
                   32.verticalSpace,
                   OutlinedButton.icon(
-                    onPressed: () => _showAddCustomerDialog(context, viewModel),
+                    onPressed: viewModel.isSubmitting
+                        ? null
+                        : () => _showAddCustomerDialog(context, viewModel),
                     icon: Icon(Icons.person_add, color: theme.primaryColor),
                     label: Text(S.current.addNewCustomer),
                     style: OutlinedButton.styleFrom(
@@ -274,7 +289,8 @@ class PaymentRecordViewContent extends StatelessWidget {
         ),
         child: SafeArea(
           child: ElevatedButton(
-            onPressed: viewModel.submitPaymentRecord,
+            onPressed:
+                viewModel.isSubmitting ? null : viewModel.submitPaymentRecord,
             style: ElevatedButton.styleFrom(
               backgroundColor: theme.primaryColor,
               foregroundColor: Colors.white,
@@ -284,20 +300,29 @@ class PaymentRecordViewContent extends StatelessWidget {
               ),
               elevation: 3,
             ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Icon(Icons.check_circle),
-                8.horizontalSpace,
-                Text(
-                  S.current.submitPaymentRecord,
-                  style: theme.textTheme.labelLarge?.copyWith(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w600,
+            child: viewModel.isSubmitting
+                ? SizedBox(
+                    height: 20.h,
+                    width: 20.w,
+                    child: CircularProgressIndicator(
+                      color: Colors.white,
+                      strokeWidth: 2.w,
+                    ),
+                  )
+                : Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Icon(Icons.check_circle),
+                      8.horizontalSpace,
+                      Text(
+                        S.current.submitPaymentRecord,
+                        style: theme.textTheme.labelLarge?.copyWith(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ],
                   ),
-                ),
-              ],
-            ),
           ),
         ),
       ),
@@ -336,6 +361,30 @@ class PaymentRecordViewContent extends StatelessWidget {
     PaymentRecordViewModel viewModel,
   ) {
     final textTheme = Theme.of(context).textTheme;
+
+    // Handle empty customers list
+    if (viewModel.customers.isEmpty) {
+      return SizedBox(
+        width: 1.sw,
+        child: Column(
+          children: [
+            Text(
+              S.current.noCustomersFound,
+              style: textTheme.titleMedium,
+              textAlign: TextAlign.center,
+            ),
+            16.verticalSpace,
+            Text(
+              S.current.addNewCustomerBelow,
+              style:
+                  textTheme.bodyMedium?.copyWith(color: Colors.grey.shade600),
+              textAlign: TextAlign.center,
+            ),
+          ],
+        ),
+      );
+    }
+
     return DropdownButtonFormField<CustomerModel>(
       decoration:
           _getInputDecoration(context, S.current.selectCustomer, Icons.person),
@@ -391,11 +440,13 @@ class PaymentRecordViewContent extends StatelessWidget {
           ),
         );
       }).toList(),
-      onChanged: (customer) {
-        if (customer != null) {
-          viewModel.setSelectedCustomer(customer);
-        }
-      },
+      onChanged: viewModel.isSubmitting
+          ? null
+          : (customer) {
+              if (customer != null) {
+                viewModel.setSelectedCustomer(customer);
+              }
+            },
       icon: Icon(Icons.arrow_drop_down, color: Theme.of(context).primaryColor),
       isExpanded: true,
       dropdownColor: Colors.white,
@@ -412,9 +463,9 @@ class PaymentRecordViewContent extends StatelessWidget {
   Widget _buildServiceNameField(
       BuildContext context, PaymentRecordViewModel viewModel) {
     return TextFormField(
+      controller: viewModel.serviceNameController,
       decoration: _getInputDecoration(
           context, S.current.serviceName, Icons.home_repair_service),
-      onChanged: viewModel.setServiceName,
       validator: (value) {
         if (value == null || value.isEmpty) {
           return S.current.errorEmptyField;
@@ -422,20 +473,17 @@ class PaymentRecordViewContent extends StatelessWidget {
         return null;
       },
       autovalidateMode: AutovalidateMode.onUserInteraction,
+      enabled: !viewModel.isSubmitting,
     );
   }
 
   Widget _buildServiceCostField(
       BuildContext context, PaymentRecordViewModel viewModel) {
     return TextFormField(
+      controller: viewModel.serviceCostController,
       decoration: _getInputDecoration(
           context, S.current.serviceCost, Icons.attach_money),
       keyboardType: const TextInputType.numberWithOptions(decimal: true),
-      onChanged: (value) {
-        if (value.isNotEmpty) {
-          viewModel.setServiceCost(double.tryParse(value) ?? 0.0);
-        }
-      },
       validator: (value) {
         if (value == null || value.isEmpty) {
           return S.current.errorEmptyField;
@@ -446,34 +494,37 @@ class PaymentRecordViewContent extends StatelessWidget {
         return null;
       },
       autovalidateMode: AutovalidateMode.onUserInteraction,
+      enabled: !viewModel.isSubmitting,
     );
   }
 
   Widget _buildServiceDateField(
       BuildContext context, PaymentRecordViewModel viewModel) {
     return InkWell(
-      onTap: () async {
-        final selectedDate = await showDatePicker(
-          context: context,
-          initialDate: viewModel.serviceDate,
-          firstDate: DateTime(2020),
-          lastDate: DateTime(2030),
-          builder: (context, child) {
-            return Theme(
-              data: Theme.of(context).copyWith(
-                colorScheme: ColorScheme.light(
-                  primary: Theme.of(context).primaryColor,
-                ),
-                dialogBackgroundColor: Colors.white,
-              ),
-              child: child!,
-            );
-          },
-        );
-        if (selectedDate != null) {
-          viewModel.setServiceDate(selectedDate);
-        }
-      },
+      onTap: viewModel.isSubmitting
+          ? null
+          : () async {
+              final selectedDate = await showDatePicker(
+                context: context,
+                initialDate: viewModel.serviceDate,
+                firstDate: DateTime(2020),
+                lastDate: DateTime(2030),
+                builder: (context, child) {
+                  return Theme(
+                    data: Theme.of(context).copyWith(
+                      colorScheme: ColorScheme.light(
+                        primary: Theme.of(context).primaryColor,
+                      ),
+                      dialogBackgroundColor: Colors.white,
+                    ),
+                    child: child!,
+                  );
+                },
+              );
+              if (selectedDate != null) {
+                viewModel.setServiceDate(selectedDate);
+              }
+            },
       child: FormField<DateTime>(
         initialValue: viewModel.serviceDate,
         validator: (value) {
@@ -513,122 +564,144 @@ class PaymentRecordViewContent extends StatelessWidget {
   Widget _buildNotesField(
       BuildContext context, PaymentRecordViewModel viewModel) {
     return TextFormField(
+      controller: viewModel.notesController,
       decoration:
           _getInputDecoration(context, S.current.notes, Icons.note).copyWith(
         alignLabelWithHint: true,
       ),
+      textInputAction: TextInputAction.done,
       maxLines: 4,
-      onChanged: viewModel.setNotes,
+      enabled: !viewModel.isSubmitting,
     );
   }
 
   void _showAddCustomerDialog(
       BuildContext context, PaymentRecordViewModel viewModel) {
-    String name = '';
-    String phone = '';
     final formKey = GlobalKey<FormState>();
 
     showDialog(
       context: context,
       builder: (context) {
-        return AlertDialog(
-          title: Row(
-            children: [
-              Icon(Icons.person_add, color: Theme.of(context).primaryColor),
-              12.horizontalSpace,
-              Text(S.current.addNewCustomer),
-            ],
-          ),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20.r),
-          ),
-          content: SingleChildScrollView(
-            child: Form(
-              key: formKey,
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
+        return StatefulBuilder(
+          builder: (context, setState) {
+            return AlertDialog(
+              title: Row(
                 children: [
-                  TextFormField(
-                    decoration: InputDecoration(
-                      labelText: S.current.customerName,
-                      prefixIcon: const Icon(Icons.person),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12.r),
-                      ),
-                      contentPadding: EdgeInsets.symmetric(
-                          horizontal: 16.w, vertical: 16.h),
-                    ),
-                    onChanged: (value) {
-                      name = value;
-                    },
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return S.current.customerName;
-                      }
-                      return null;
-                    },
-                    autovalidateMode: AutovalidateMode.onUserInteraction,
-                  ),
-                  32.verticalSpace,
-                  TextFormField(
-                    decoration: InputDecoration(
-                      labelText: S.current.phoneNumber,
-                      prefixIcon: const Icon(Icons.phone),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12.r),
-                      ),
-                      contentPadding: EdgeInsets.symmetric(
-                          horizontal: 16.w, vertical: 16.h),
-                    ),
-                    keyboardType: TextInputType.phone,
-                    onChanged: (value) {
-                      phone = value;
-                    },
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return S.current.phoneNumber;
-                      }
-                      return null;
-                    },
-                    autovalidateMode: AutovalidateMode.onUserInteraction,
-                  ),
+                  Icon(Icons.person_add, color: Theme.of(context).primaryColor),
+                  12.horizontalSpace,
+                  Text(S.current.addNewCustomer),
                 ],
               ),
-            ),
-          ),
-          actions: [
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              child: Text(
-                S.current.cancel,
-                style: TextStyle(color: Colors.grey.shade700),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20.r),
               ),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                if (formKey.currentState!.validate()) {
-                  // Create a new customer
-                  final newCustomer = CustomerModel(
-                    id: DateTime.now().millisecondsSinceEpoch.toString(),
-                    name: name,
-                    phone: phone,
-                  );
-                  viewModel.addCustomer(newCustomer);
-                  viewModel.setSelectedCustomer(newCustomer);
-                  Navigator.of(context).pop();
-                }
-              },
-              style: ElevatedButton.styleFrom(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12.r),
+              content: SingleChildScrollView(
+                child: Form(
+                  key: formKey,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      TextFormField(
+                        controller: viewModel.customerNameController,
+                        decoration: InputDecoration(
+                          labelText: S.current.customerName,
+                          prefixIcon: const Icon(Icons.person),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(12.r),
+                          ),
+                          contentPadding: EdgeInsets.symmetric(
+                              horizontal: 16.w, vertical: 16.h),
+                        ),
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return S.current.errorEmptyField;
+                          }
+                          return null;
+                        },
+                        autovalidateMode: AutovalidateMode.onUserInteraction,
+                        enabled: !viewModel.isAddingCustomer,
+                      ),
+                      32.verticalSpace,
+                      TextFormField(
+                        controller: viewModel.customerPhoneController,
+                        decoration: InputDecoration(
+                          labelText: S.current.phoneNumber,
+                          prefixIcon: const Icon(Icons.phone),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(12.r),
+                          ),
+                          contentPadding: EdgeInsets.symmetric(
+                              horizontal: 16.w, vertical: 16.h),
+                        ),
+                        keyboardType: TextInputType.phone,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return S.current.errorEmptyField;
+                          }
+                          return null;
+                        },
+                        autovalidateMode: AutovalidateMode.onUserInteraction,
+                        enabled: !viewModel.isAddingCustomer,
+                      ),
+                    ],
+                  ),
                 ),
-                backgroundColor: Theme.of(context).primaryColor,
               ),
-              child: Text(S.current.addCustomer),
-            ),
-          ],
+              actions: [
+                TextButton(
+                  onPressed: viewModel.isAddingCustomer
+                      ? null
+                      : () {
+                          Navigator.of(context).pop();
+                        },
+                  child: Text(
+                    S.current.cancel,
+                    style: TextStyle(color: Colors.grey.shade700),
+                  ),
+                ),
+                ElevatedButton(
+                  onPressed: viewModel.isAddingCustomer
+                      ? null
+                      : () async {
+                          if (formKey.currentState!.validate()) {
+                            // Create a new customer
+                            final newCustomer = CustomerModel(
+                              id: '', // ID will be generated by the view model
+                              name: viewModel.customerNameController.text,
+                              phone: viewModel.customerPhoneController.text,
+                            );
+
+                            // Close the dialog first to avoid UI freezing
+                            Navigator.of(context).pop();
+
+                            // Add the customer
+                            await viewModel.addCustomer(newCustomer);
+
+                            // Clear the controllers after adding
+                            viewModel.customerNameController.clear();
+                            viewModel.customerPhoneController.clear();
+                          }
+                        },
+                  style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12.r),
+                    ),
+                    backgroundColor: Theme.of(context).primaryColor,
+                  ),
+                  child: viewModel.isAddingCustomer
+                      ? SizedBox(
+                          height: 20.h,
+                          width: 20.w,
+                          child: CircularProgressIndicator(
+                            color: Colors.white,
+                            strokeWidth: 2.w,
+                          ),
+                        )
+                      : Text(S.current.addCustomer),
+                ),
+              ],
+            );
+          },
         );
       },
     );

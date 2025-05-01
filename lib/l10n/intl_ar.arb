@@ -200,5 +200,10 @@
   "customerName": "اسم العميل",
   "phoneNumber": "رقم الهاتف",
   "addCustomer": "إضافة عميل",
-  "invalidAmount": "يجب أن يكون المبلغ عدداً صحيحاً"
+  "invalidAmount": "يجب أن يكون المبلغ عدداً صحيحاً",
+  "noCustomersFound": "لا يوجد عملاء",
+  "addNewCustomerBelow": "إضافة عميل جديد",
+  "discardChanges": "إلغاء التغييرات",
+  "unsavedChangesConfirmation": "لديك تغييرات غير محفوظة. هل أنت متأكد أنك تريد إلغاءها؟",
+  "discard": "إلغاء"
 }

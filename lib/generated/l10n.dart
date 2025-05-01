@@ -1674,6 +1674,51 @@ class S {
       args: [],
     );
   }
+
+  /// `No customers found`
+  String get noCustomersFound {
+    return Intl.message(
+      'No customers found',
+      name: 'noCustomersFound',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add New Customer Below`
+  String get addNewCustomerBelow {
+    return Intl.message(
+      'Add New Customer Below',
+      name: 'addNewCustomerBelow',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Discard Changes`
+  String get discardChanges {
+    return Intl.message(
+      'Discard Changes',
+      name: 'discardChanges',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You have unsaved changes. Are you sure you want to discard them?`
+  String get unsavedChangesConfirmation {
+    return Intl.message(
+      'You have unsaved changes. Are you sure you want to discard them?',
+      name: 'unsavedChangesConfirmation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Discard`
+  String get discard {
+    return Intl.message('Discard', name: 'discard', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
