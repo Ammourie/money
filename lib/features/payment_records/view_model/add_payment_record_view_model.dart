@@ -5,10 +5,10 @@ import 'package:slim_starter_application/core/common/view_model/base_view_model.
 import 'package:slim_starter_application/core/ui/error_ui/error_viewer/error_viewer.dart';
 import 'package:slim_starter_application/core/ui/snackbars/show_snackbar.dart';
 import 'package:slim_starter_application/core/ui/widgets/success_dialog.dart';
-import 'package:slim_starter_application/features/home/view/app_main_view.dart';
 
 import '../../../core/common/app_config.dart';
 import '../../../core/constants/enums/success_dialog_type.dart';
+import '../../../core/navigation/nav.dart';
 import '../../../di/service_locator.dart';
 import '../../../services/firebase_service.dart';
 import '../model/enums/payment_type.dart';
@@ -183,10 +183,8 @@ class AddPaymentRecordViewModel
               type: SuccessDialogType.type2,
               showConfetti: true,
               onButtonPressed: () {
-                Navigator.popUntil(
-                  AppConfig().appContext!,
-                  ModalRoute.withName(AppMainView.routeName),
-                );
+                Nav.pop();
+                Nav.pop();
               },
             );
             log('Payment record submitted successfully',

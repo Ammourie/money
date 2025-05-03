@@ -73,7 +73,7 @@ class _AddPaymentRecordViewState extends State<AddPaymentRecordView> {
             ),
             TextButton(
               onPressed: () => Navigator.of(context).pop(true), // Allow pop
-              child: Text(S.current.discard),
+              child: Text(S.current.confirm),
             ),
           ],
         );

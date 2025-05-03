@@ -743,7 +743,10 @@ class AddPaymentRecordViewContent extends StatelessWidget {
                             strokeWidth: 2.w,
                           ),
                         )
-                      : Text(S.current.addCustomer),
+                      : Text(
+                          S.current.addCustomer,
+                          style: const TextStyle(color: Colors.white),
+                        ),
                 ),
               ],
             );

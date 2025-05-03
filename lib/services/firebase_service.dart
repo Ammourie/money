@@ -11,6 +11,7 @@ abstract class IFirebaseService {
   Future<Result<AppErrors, CustomerModel>> addCustomer(CustomerModel customer);
   Future<Result<AppErrors, PaymentRecordModel>> submitPaymentRecord(
       PaymentRecordModel paymentRecord);
+  Future<Result<AppErrors, List<PaymentRecordModel>>> getPaymentRecords();
 }
 
 @LazySingleton(as: IFirebaseService)
@@ -48,6 +49,36 @@ class FirebaseService implements IFirebaseService {
       print("Error fetching customers: $e");
       return Result.error(
         CustomError(message: "Error loading customers: $e"),
+      );
+    }
+  }
+
+  @override
+  Future<Result<AppErrors, List<PaymentRecordModel>>>
+      getPaymentRecords() async {
+    if (_userId.isEmpty) {
+      return Result.error(
+        const UnauthorizedError(),
+      );
+    }
+
+    try {
+      final recordsSnapshot = await _firestore
+          .collection('pro_users')
+          .doc(_userId)
+          .collection('payment_records')
+          .orderBy('createdAt', descending: true)
+          .get();
+
+      final records = recordsSnapshot.docs
+          .map((doc) => PaymentRecordModel.fromFirestore(doc))
+          .toList();
+
+      return Result.data(records);
+    } catch (e) {
+      print("Error fetching payment records: $e");
+      return Result.error(
+        CustomError(message: "Error loading payment records: $e"),
       );
     }
   }

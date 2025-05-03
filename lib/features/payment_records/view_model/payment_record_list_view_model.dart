@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 
 import '../../../core/common/view_model/base_view_model.dart';
@@ -138,8 +136,7 @@ class PaymentRecordListViewModel
 
       _customers = await _getCustomers();
 
-      // Generate dummy payment records
-      _paymentRecords = _generateDummyPaymentRecords();
+      _paymentRecords = await _getPaymentRecords();
 
       _setLoading(false);
     } catch (e) {
@@ -161,52 +158,16 @@ class PaymentRecordListViewModel
     return customers;
   }
 
-  List<PaymentRecordModel> _generateDummyPaymentRecords() {
-    final random = Random();
-    final now = DateTime.now();
-    final records = <PaymentRecordModel>[];
+  Future<List<PaymentRecordModel>> _getPaymentRecords() async {
+    List<PaymentRecordModel> records = [];
 
-    // Service names
-    final serviceNames = [
-      'Lawn Mowing',
-      'House Cleaning',
-      'Plumbing Repair',
-      'Electrical Work',
-      'Painting Service',
-      'Furniture Assembly',
-      'Window Cleaning',
-      'Carpet Cleaning',
-      'HVAC Maintenance',
-      'Pest Control'
-    ];
+    final res = await getIt<IFirebaseService>().getPaymentRecords();
+    res.pick(
+      onData: (data) => records = data,
+      onError: (error) => records = [],
+    );
 
-    // Generate 20 random payment records
-    for (int i = 0; i < 20; i++) {
-      final customer = _customers[random.nextInt(_customers.length)];
-      final paymentType =
-          random.nextBool() ? PaymentType.income : PaymentType.outcome;
-      final daysAgo = random.nextInt(60); // Random date within last 60 days
-
-      records.add(
-        PaymentRecordModel(
-          id: 'record_$i',
-          customer: customer,
-          serviceName: serviceNames[random.nextInt(serviceNames.length)],
-          serviceCost: (random.nextInt(50000) / 100) +
-              50, // Random amount between $50 and $550
-          serviceDate: now.subtract(Duration(days: daysAgo)),
-          paymentType: paymentType,
-          notes: random.nextBool()
-              ? 'Notes for service provided to ${customer.name}'
-              : '',
-          createdAt:
-              now.subtract(Duration(days: daysAgo, hours: random.nextInt(24))),
-        ),
-      );
-    }
-
-    // Sort by date (newest first)
-    records.sort((a, b) => b.serviceDate!.compareTo(a.serviceDate!));
+  
 
     return records;
   }

@@ -113,15 +113,15 @@ class _PaymentRecordListViewContentState
         Provider.of<PaymentRecordListViewModel>(context, listen: false);
     final initialDateRange = DateTimeRange(
       start: viewModel.startDate ??
-          DateTime.now().subtract(const Duration(days: 30)),
+          DateTime.now().subtract(const Duration(days: 1)),
       end: viewModel.endDate ?? DateTime.now(),
     );
 
     final pickedDateRange = await showDateRangePicker(
       context: context,
       initialDateRange: initialDateRange,
-      firstDate: DateTime(2020),
-      lastDate: DateTime(2030),
+      firstDate: DateTime.now().subtract(const Duration(days: 10 * 365)),
+      lastDate: DateTime.now().add(const Duration(days: 10 * 365)),
       builder: (context, child) {
         return Theme(
           data: Theme.of(context).copyWith(
@@ -1283,8 +1283,8 @@ class _PaymentRecordListViewContentState
       onTap: () async {
         final dateRange = await showDateRangePicker(
           context: context,
-          firstDate: DateTime(2020),
-          lastDate: DateTime.now(),
+          firstDate: DateTime.now().subtract(const Duration(days: 10 * 365)),
+          lastDate: DateTime.now().add(const Duration(days: 10 * 365)),
           initialDateRange:
               viewModel.startDate != null && viewModel.endDate != null
                   ? DateTimeRange(
@@ -1493,8 +1493,9 @@ class _PaymentRecordListViewContentState
 
     // Group records by date
     for (var record in records) {
-      final dateKey = DateFormat('yyyy-MM-dd', 'en')
-          .format(record.serviceDate ?? DateTime.now());
+      final dateKey = DateFormat('yyyy-MM-dd', 'en').format(
+        record.createdAt ?? record.serviceDate ?? DateTime.now(),
+      );
       if (!groupedRecords.containsKey(dateKey)) {
         groupedRecords[dateKey] = [];
       }
@@ -1522,15 +1523,15 @@ class _PaymentRecordListViewContentState
 
                 // Format date with English locale to ensure consistent parsing
                 final parsedDate = DateTime.parse(dateKey);
-                final formattedDate =
-                    DateFormat('EEEE, MMMM d').format(parsedDate);
+                final formattedDate = DateFormat.yMMMEd().format(parsedDate);
 
                 // Check if this is today's date
                 final bool isToday =
                     DateTime.now().difference(parsedDate).inDays == 0;
-                final String displayDate = isToday
-                    ? '${S.current.today}, $formattedDate'
-                    : formattedDate;
+                final String displayDate = formattedDate;
+                // final String displayDate = isToday
+                //     ? '${S.current.today}, $formattedDate'
+                //     : formattedDate;
 
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -1619,7 +1620,7 @@ class DateHeader extends StatelessWidget {
           if (isToday) ...[
             const SizedBox(width: 8),
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+              padding: EdgeInsets.symmetric(horizontal: 32.w, vertical: 2.h),
               decoration: BoxDecoration(
                 color: brightness == Brightness.dark
                     ? theme.colorScheme.primaryContainer.withOpacity(0.8)
@@ -1680,9 +1681,9 @@ class PaymentRecordCard extends StatelessWidget {
         ? theme.colorScheme.onPrimaryContainer
         : theme.colorScheme.onErrorContainer;
 
-    final timeFormat = DateFormat('h:mm a');
-    final timeString = record.serviceDate != null
-        ? timeFormat.format(record.serviceDate!)
+    final dateFormat = DateFormat.yMMMEd();
+    final dateTimeString = record.serviceDate != null
+        ? dateFormat.format(record.serviceDate!)
         : '';
 
     // Card surface color based on theme brightness
@@ -1748,7 +1749,7 @@ class PaymentRecordCard extends StatelessWidget {
                                 child: Text(
                                   record.serviceName,
                                   style: theme.textTheme.titleMedium?.copyWith(
-                                    fontWeight: FontWeight.w500,
+                                    fontWeight: FontWeight.w600,
                                     color: theme.colorScheme.onSurface,
                                   ),
                                   overflow: TextOverflow.ellipsis,
@@ -1781,10 +1782,10 @@ class PaymentRecordCard extends StatelessWidget {
                                     overflow: TextOverflow.ellipsis,
                                   ),
                                 ),
-                                if (timeString.isNotEmpty) ...[
+                                if (dateTimeString.isNotEmpty) ...[
                                   const SizedBox(width: 8),
                                   Text(
-                                    timeString,
+                                    dateTimeString,
                                     style: theme.textTheme.bodySmall?.copyWith(
                                       color: theme.colorScheme.onSurfaceVariant,
                                     ),
