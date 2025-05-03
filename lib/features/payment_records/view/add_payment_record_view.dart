@@ -3,28 +3,28 @@ import 'package:provider/provider.dart';
 
 import '../../../core/ui/screens/base_view.dart';
 import '../../../generated/l10n.dart';
-import '../view_model/payment_record_view_model.dart';
-import 'payment_record_view_content.dart';
+import '../view_model/add_payment_record_view_model.dart';
+import 'add_payment_record_view_content.dart';
 
-class PaymentRecordViewParam {}
+class AddPaymentRecordViewParam {}
 
-class PaymentRecordView extends BaseView<PaymentRecordViewParam> {
-  static const routeName = "/PaymentRecordView";
+class AddPaymentRecordView extends BaseView<AddPaymentRecordViewParam> {
+  static const routeName = "/AddPaymentRecordView";
 
-  PaymentRecordView({required PaymentRecordViewParam param, Key? key})
+  AddPaymentRecordView({required AddPaymentRecordViewParam param, Key? key})
       : super(param: param, key: key);
 
   @override
-  _PaymentRecordViewState createState() => _PaymentRecordViewState();
+  _AddPaymentRecordViewState createState() => _AddPaymentRecordViewState();
 }
 
-class _PaymentRecordViewState extends State<PaymentRecordView> {
-  late PaymentRecordViewModel paymentRecordModel;
+class _AddPaymentRecordViewState extends State<AddPaymentRecordView> {
+  late AddPaymentRecordViewModel paymentRecordModel;
 
   @override
   void initState() {
     super.initState();
-    paymentRecordModel = PaymentRecordViewModel(widget.param);
+    paymentRecordModel = AddPaymentRecordViewModel(widget.param);
   }
 
   @override
@@ -40,7 +40,7 @@ class _PaymentRecordViewState extends State<PaymentRecordView> {
             }
             return true;
           },
-          child: const PaymentRecordViewContent(),
+          child: const AddPaymentRecordViewContent(),
         );
       },
     );
@@ -49,10 +49,10 @@ class _PaymentRecordViewState extends State<PaymentRecordView> {
   /// Check if there are unsaved changes
   bool _hasUnsavedChanges() {
     // Check if any field has been filled but not submitted
-    return (paymentRecordModel.serviceName.isNotEmpty || 
+    return (paymentRecordModel.serviceName.isNotEmpty ||
             paymentRecordModel.serviceCost > 0 ||
             paymentRecordModel.notes.isNotEmpty) &&
-           paymentRecordModel.selectedCustomer != null;
+        paymentRecordModel.selectedCustomer != null;
   }
 
   /// Show dialog to confirm discarding changes
@@ -67,7 +67,8 @@ class _PaymentRecordViewState extends State<PaymentRecordView> {
           ),
           actions: <Widget>[
             TextButton(
-              onPressed: () => Navigator.of(context).pop(false), // Stay on screen
+              onPressed: () =>
+                  Navigator.of(context).pop(false), // Stay on screen
               child: Text(S.current.cancel),
             ),
             TextButton(

@@ -10,9 +10,9 @@ class PaymentRecordModel extends BaseModel {
   final CustomerModel? customer;
   final String serviceName;
   final double? serviceCost;
-  final DateTime serviceDate;
+  final DateTime? serviceDate;
   final String notes;
-  final DateTime createdAt;
+  final DateTime? createdAt;
   final PaymentType paymentType;
 
   PaymentRecordModel({
@@ -32,9 +32,9 @@ class PaymentRecordModel extends BaseModel {
       'customer': customer?.toMap(),
       'serviceName': serviceName,
       'serviceCost': serviceCost,
-      'serviceDate': Timestamp.fromDate(serviceDate),
+      'serviceDate': serviceDate?.toIso8601String(),
       'notes': notes,
-      'createdAt': Timestamp.fromDate(createdAt),
+      'createdAt': createdAt?.toIso8601String(),
       'paymentType': paymentType.value,
     };
   }
@@ -49,9 +49,9 @@ class PaymentRecordModel extends BaseModel {
           : null,
       serviceName: stringV(data['serviceName']),
       serviceCost: numV(data['serviceCost']),
-      serviceDate: (data['serviceDate'] as Timestamp).toDate(),
+      serviceDate: dateTimeV(data['serviceDate']),
       notes: stringV(data['notes']),
-      createdAt: (data['createdAt'] as Timestamp).toDate(),
+      createdAt: dateTimeV(data['createdAt']),
       paymentType: PaymentType.fromValue(numV(data['paymentType'])),
     );
   }

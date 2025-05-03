@@ -1,27 +1,26 @@
-// lib/core/datasources/firebase/payment_firebase_data_source.dart
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import '../../../features/payment_records/model/response/customer_model.dart';
-import '../../../features/payment_records/model/response/payment_record_model.dart';
+import 'package:injectable/injectable.dart';
+import '../features/payment_records/model/response/customer_model.dart';
+import '../features/payment_records/model/response/payment_record_model.dart';
 import '../core/errors/app_errors.dart';
 import '../core/results/result.dart';
 
-abstract class IPaymentFirebaseDataSource {
+abstract class IFirebaseService {
   Future<Result<AppErrors, List<CustomerModel>>> getCustomers();
   Future<Result<AppErrors, CustomerModel>> addCustomer(CustomerModel customer);
   Future<Result<AppErrors, PaymentRecordModel>> submitPaymentRecord(
       PaymentRecordModel paymentRecord);
 }
 
-class PaymentFirebaseDataSource implements IPaymentFirebaseDataSource {
+@LazySingleton(as: IFirebaseService)
+class FirebaseService implements IFirebaseService {
   final FirebaseFirestore _firestore;
   final FirebaseAuth _auth;
 
-  PaymentFirebaseDataSource({
-    FirebaseFirestore? firestore,
-    FirebaseAuth? auth,
-  })  : _firestore = firestore ?? FirebaseFirestore.instance,
-        _auth = auth ?? FirebaseAuth.instance;
+  FirebaseService()
+      : _firestore = FirebaseFirestore.instance,
+        _auth = FirebaseAuth.instance;
 
   String get _userId => _auth.currentUser?.uid ?? '';
 

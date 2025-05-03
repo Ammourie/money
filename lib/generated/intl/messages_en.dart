@@ -44,10 +44,18 @@ class MessageLookup extends MessageLookupByLibrary {
     "accountNotVerifiedErrorMessage": MessageLookupByLibrary.simpleMessage(
       "Account Not Verified",
     ),
+    "activeFilters": MessageLookupByLibrary.simpleMessage("Active Filters"),
     "addCustomer": MessageLookupByLibrary.simpleMessage("Add Customer"),
+    "addFirstPaymentRecord": MessageLookupByLibrary.simpleMessage(
+      "Add first payment record",
+    ),
     "addNewCustomer": MessageLookupByLibrary.simpleMessage("Add New Customer"),
     "addNewCustomerBelow": MessageLookupByLibrary.simpleMessage(
       "Add New Customer Below",
+    ),
+    "addPayment": MessageLookupByLibrary.simpleMessage("Add payment"),
+    "addPaymentRecord": MessageLookupByLibrary.simpleMessage(
+      "Add Payment Record",
     ),
     "additionalInformation": MessageLookupByLibrary.simpleMessage(
       "Additional Information",
@@ -57,6 +65,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "apply": MessageLookupByLibrary.simpleMessage("Apply"),
     "areYouSure": MessageLookupByLibrary.simpleMessage("Are you sure?"),
     "badRequest": MessageLookupByLibrary.simpleMessage("Bad Request"),
+    "balance": MessageLookupByLibrary.simpleMessage("Balance"),
     "blogs": MessageLookupByLibrary.simpleMessage("Blogs"),
     "cameraPermission": MessageLookupByLibrary.simpleMessage("Camera"),
     "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
@@ -76,6 +85,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "changePhoneNumber": MessageLookupByLibrary.simpleMessage(
       "Change phone number",
     ),
+    "clearAll": MessageLookupByLibrary.simpleMessage("Clear all"),
+    "clearFilters": MessageLookupByLibrary.simpleMessage("Clear filters"),
     "close": MessageLookupByLibrary.simpleMessage("Close"),
     "closeApp": MessageLookupByLibrary.simpleMessage("Close App"),
     "closed": MessageLookupByLibrary.simpleMessage("Closed"),
@@ -99,6 +110,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "customer": MessageLookupByLibrary.simpleMessage("Customer"),
     "customerName": MessageLookupByLibrary.simpleMessage("Customer Name"),
     "dateOfBirth": MessageLookupByLibrary.simpleMessage("Date of birth"),
+    "dateRange": MessageLookupByLibrary.simpleMessage("Date Range"),
     "deleteAccount": MessageLookupByLibrary.simpleMessage("Delete Account"),
     "deposit": MessageLookupByLibrary.simpleMessage("Deposit"),
     "dialogUpdateMessage": MessageLookupByLibrary.simpleMessage(
@@ -141,6 +153,10 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "faqs": MessageLookupByLibrary.simpleMessage("FAQs"),
     "female": MessageLookupByLibrary.simpleMessage("female"),
+    "filterPaymentRecords": MessageLookupByLibrary.simpleMessage(
+      "Filter payment records",
+    ),
+    "filtered": MessageLookupByLibrary.simpleMessage("Filtered"),
     "financialProducts": MessageLookupByLibrary.simpleMessage(
       "Financial Products",
     ),
@@ -214,8 +230,17 @@ class MessageLookup extends MessageLookupByLibrary {
       "No customers found",
     ),
     "noDataRefresher": MessageLookupByLibrary.simpleMessage("No data"),
+    "noMatchingRecords": MessageLookupByLibrary.simpleMessage(
+      "No matching records",
+    ),
     "noNotifications": MessageLookupByLibrary.simpleMessage(
       "No notifications yet",
+    ),
+    "noPaymentRecords": MessageLookupByLibrary.simpleMessage(
+      "No payment records",
+    ),
+    "noPaymentRecordsFound": MessageLookupByLibrary.simpleMessage(
+      "No payment records found",
     ),
     "noResultFound": MessageLookupByLibrary.simpleMessage("No Result Found"),
     "notFound": m1,
@@ -246,10 +271,32 @@ class MessageLookup extends MessageLookupByLibrary {
     "password": MessageLookupByLibrary.simpleMessage("Password"),
     "payBills": MessageLookupByLibrary.simpleMessage("Pay Bills"),
     "payment": MessageLookupByLibrary.simpleMessage("Payment"),
+    "paymentHistoryWillAppearHere": MessageLookupByLibrary.simpleMessage(
+      "Payment history will appear here",
+    ),
     "paymentInformation": MessageLookupByLibrary.simpleMessage(
       "Payment Information",
     ),
     "paymentRecord": MessageLookupByLibrary.simpleMessage("Payment Record"),
+    "paymentRecords": MessageLookupByLibrary.simpleMessage("Payment Records"),
+    "paymentRecordsList": MessageLookupByLibrary.simpleMessage(
+      "Payment Records List",
+    ),
+    "paymentRecordsListDescription": MessageLookupByLibrary.simpleMessage(
+      "Payment Records List",
+    ),
+    "paymentRecordsListFilter": MessageLookupByLibrary.simpleMessage(
+      "Filter payment records",
+    ),
+    "paymentRecordsListSearch": MessageLookupByLibrary.simpleMessage(
+      "Search in payment records",
+    ),
+    "paymentRecordsListSort": MessageLookupByLibrary.simpleMessage(
+      "Sort payment records",
+    ),
+    "paymentRecordsListTitle": MessageLookupByLibrary.simpleMessage(
+      "Payment Records List",
+    ),
     "paymentType": MessageLookupByLibrary.simpleMessage("Payment Type"),
     "pending": MessageLookupByLibrary.simpleMessage("Pending"),
     "permissionRequiredMessage": MessageLookupByLibrary.simpleMessage(
@@ -276,6 +323,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "An error has been occurred, please click send to help us fixing the problem",
     ),
     "resendCode": MessageLookupByLibrary.simpleMessage("Resend Code"),
+    "reset": MessageLookupByLibrary.simpleMessage("Reset"),
     "responseError": MessageLookupByLibrary.simpleMessage(
       "An error happened while connecting to server, please try again later",
     ),
@@ -284,8 +332,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "role": MessageLookupByLibrary.simpleMessage("Role"),
     "salary": MessageLookupByLibrary.simpleMessage("Salary"),
     "search": MessageLookupByLibrary.simpleMessage("Search"),
+    "searchPayments": MessageLookupByLibrary.simpleMessage("Search payments"),
     "seeAll": MessageLookupByLibrary.simpleMessage("See All"),
     "selectCustomer": MessageLookupByLibrary.simpleMessage("Select Customer"),
+    "selectDateRange": MessageLookupByLibrary.simpleMessage(
+      "Select date range",
+    ),
     "selectSubject": MessageLookupByLibrary.simpleMessage("Select subject"),
     "selectYourGender": MessageLookupByLibrary.simpleMessage(
       "Select your gender",
@@ -312,6 +364,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "submitTicket": MessageLookupByLibrary.simpleMessage("Submit Ticket"),
     "submittedAt": MessageLookupByLibrary.simpleMessage("Submitted at"),
     "suggesstion": MessageLookupByLibrary.simpleMessage("Suggesstion"),
+    "summary": MessageLookupByLibrary.simpleMessage("Summary"),
     "surname": MessageLookupByLibrary.simpleMessage("Surname"),
     "switchTheme": MessageLookupByLibrary.simpleMessage("Switch theme"),
     "target": MessageLookupByLibrary.simpleMessage("Target"),
@@ -345,6 +398,10 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "transfer": MessageLookupByLibrary.simpleMessage("Transfer"),
     "translationTest": MessageLookupByLibrary.simpleMessage("Translation Test"),
+    "tryAgain": MessageLookupByLibrary.simpleMessage("Try again"),
+    "tryDifferentFilters": MessageLookupByLibrary.simpleMessage(
+      "Try different filters",
+    ),
     "tryEnablingItFromYourPhoneSettings": MessageLookupByLibrary.simpleMessage(
       "Try enabling it from your phone settings",
     ),
@@ -375,6 +432,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "User Registration",
     ),
     "vacationFund": MessageLookupByLibrary.simpleMessage("Vacation Fund"),
+    "viewDetails": MessageLookupByLibrary.simpleMessage("View Details"),
     "welcome": m4,
     "welcomeback": MessageLookupByLibrary.simpleMessage("Welcome Back"),
     "yesterday": MessageLookupByLibrary.simpleMessage("Yesterday"),

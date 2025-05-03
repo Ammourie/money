@@ -1744,6 +1744,246 @@ class S {
   String get unknown {
     return Intl.message('Unknown', name: 'unknown', desc: '', args: []);
   }
+
+  /// `Add payment`
+  String get addPayment {
+    return Intl.message('Add payment', name: 'addPayment', desc: '', args: []);
+  }
+
+  /// `Payment Records`
+  String get paymentRecords {
+    return Intl.message(
+      'Payment Records',
+      name: 'paymentRecords',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Try again`
+  String get tryAgain {
+    return Intl.message('Try again', name: 'tryAgain', desc: '', args: []);
+  }
+
+  /// `No matching records`
+  String get noMatchingRecords {
+    return Intl.message(
+      'No matching records',
+      name: 'noMatchingRecords',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No payment records`
+  String get noPaymentRecords {
+    return Intl.message(
+      'No payment records',
+      name: 'noPaymentRecords',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Try different filters`
+  String get tryDifferentFilters {
+    return Intl.message(
+      'Try different filters',
+      name: 'tryDifferentFilters',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add first payment record`
+  String get addFirstPaymentRecord {
+    return Intl.message(
+      'Add first payment record',
+      name: 'addFirstPaymentRecord',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Clear filters`
+  String get clearFilters {
+    return Intl.message(
+      'Clear filters',
+      name: 'clearFilters',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Summary`
+  String get summary {
+    return Intl.message('Summary', name: 'summary', desc: '', args: []);
+  }
+
+  /// `Filtered`
+  String get filtered {
+    return Intl.message('Filtered', name: 'filtered', desc: '', args: []);
+  }
+
+  /// `Balance`
+  String get balance {
+    return Intl.message('Balance', name: 'balance', desc: '', args: []);
+  }
+
+  /// `Clear all`
+  String get clearAll {
+    return Intl.message('Clear all', name: 'clearAll', desc: '', args: []);
+  }
+
+  /// `Search payments`
+  String get searchPayments {
+    return Intl.message(
+      'Search payments',
+      name: 'searchPayments',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Payment Records List`
+  String get paymentRecordsList {
+    return Intl.message(
+      'Payment Records List',
+      name: 'paymentRecordsList',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Payment Records List`
+  String get paymentRecordsListTitle {
+    return Intl.message(
+      'Payment Records List',
+      name: 'paymentRecordsListTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Payment Records List`
+  String get paymentRecordsListDescription {
+    return Intl.message(
+      'Payment Records List',
+      name: 'paymentRecordsListDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Search in payment records`
+  String get paymentRecordsListSearch {
+    return Intl.message(
+      'Search in payment records',
+      name: 'paymentRecordsListSearch',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Filter payment records`
+  String get paymentRecordsListFilter {
+    return Intl.message(
+      'Filter payment records',
+      name: 'paymentRecordsListFilter',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sort payment records`
+  String get paymentRecordsListSort {
+    return Intl.message(
+      'Sort payment records',
+      name: 'paymentRecordsListSort',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Filter payment records`
+  String get filterPaymentRecords {
+    return Intl.message(
+      'Filter payment records',
+      name: 'filterPaymentRecords',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Reset`
+  String get reset {
+    return Intl.message('Reset', name: 'reset', desc: '', args: []);
+  }
+
+  /// `Date Range`
+  String get dateRange {
+    return Intl.message('Date Range', name: 'dateRange', desc: '', args: []);
+  }
+
+  /// `Select date range`
+  String get selectDateRange {
+    return Intl.message(
+      'Select date range',
+      name: 'selectDateRange',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Active Filters`
+  String get activeFilters {
+    return Intl.message(
+      'Active Filters',
+      name: 'activeFilters',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add Payment Record`
+  String get addPaymentRecord {
+    return Intl.message(
+      'Add Payment Record',
+      name: 'addPaymentRecord',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `View Details`
+  String get viewDetails {
+    return Intl.message(
+      'View Details',
+      name: 'viewDetails',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No payment records found`
+  String get noPaymentRecordsFound {
+    return Intl.message(
+      'No payment records found',
+      name: 'noPaymentRecordsFound',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Payment history will appear here`
+  String get paymentHistoryWillAppearHere {
+    return Intl.message(
+      'Payment history will appear here',
+      name: 'paymentHistoryWillAppearHere',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

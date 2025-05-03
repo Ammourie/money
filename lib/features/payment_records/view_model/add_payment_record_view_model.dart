@@ -9,15 +9,16 @@ import 'package:slim_starter_application/features/home/view/app_main_view.dart';
 
 import '../../../core/common/app_config.dart';
 import '../../../core/constants/enums/success_dialog_type.dart';
+import '../../../di/service_locator.dart';
 import '../../../services/firebase_service.dart';
 import '../model/enums/payment_type.dart';
 import '../model/response/customer_model.dart';
 import '../model/response/payment_record_model.dart';
-import '../view/payment_record_view.dart';
+import '../view/add_payment_record_view.dart';
 
-class PaymentRecordViewModel extends BaseViewModel<PaymentRecordViewParam> {
-  final PaymentRecordViewParam param;
-  final PaymentFirebaseDataSource _firebaseDataSource;
+class AddPaymentRecordViewModel
+    extends BaseViewModel<AddPaymentRecordViewParam> {
+  final AddPaymentRecordViewParam param;
 
   List<CustomerModel> _customers = [];
   bool _isLoadingCustomers = false;
@@ -36,9 +37,7 @@ class PaymentRecordViewModel extends BaseViewModel<PaymentRecordViewParam> {
   final TextEditingController customerNameController = TextEditingController();
   final TextEditingController customerPhoneController = TextEditingController();
 
-  PaymentRecordViewModel(this.param)
-      : _firebaseDataSource = PaymentFirebaseDataSource(),
-        super(param) {
+  AddPaymentRecordViewModel(this.param) : super(param) {
     _init();
   }
 
@@ -95,7 +94,7 @@ class PaymentRecordViewModel extends BaseViewModel<PaymentRecordViewParam> {
   }
 
   Future<void> fetchCustomers() async {
-    final result = await _firebaseDataSource.getCustomers();
+    final result = await getIt<IFirebaseService>().getCustomers();
 
     result.pick(
       onData: (customers) {
@@ -121,7 +120,7 @@ class PaymentRecordViewModel extends BaseViewModel<PaymentRecordViewParam> {
     _isAddingCustomer = true;
     notifyListeners();
 
-    final result = await _firebaseDataSource.addCustomer(customer);
+    final result = await getIt<IFirebaseService>().addCustomer(customer);
 
     result.pick(
       onData: (customerWithId) {
@@ -173,7 +172,7 @@ class PaymentRecordViewModel extends BaseViewModel<PaymentRecordViewParam> {
         log('Created payment record model', name: 'submitPaymentRecord');
 
         final result =
-            await _firebaseDataSource.submitPaymentRecord(paymentRecord);
+            await getIt<IFirebaseService>().submitPaymentRecord(paymentRecord);
 
         result.pick(
           onData: (updatedRecord) {

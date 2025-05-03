@@ -6,7 +6,7 @@ import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:provider/provider.dart';
 import 'package:slim_starter_application/core/ui/show_toast.dart';
 import 'package:slim_starter_application/features/home/view/widgets/profile_image.dart';
-import 'package:slim_starter_application/features/payment_records/view/payment_record_view.dart';
+import 'package:slim_starter_application/features/payment_records/view/add_payment_record_view.dart';
 
 import '../../../../core/ui/clippers/theme_circle_clipper.dart';
 import '../../../../generated/l10n.dart';
@@ -16,6 +16,7 @@ import '../../../core/ui/error_ui/error_viewer/error_viewer.dart';
 import '../../../core/ui/widgets/custom_scaffold.dart';
 import '../../../core/ui/widgets/custom_switch.dart';
 import '../../../services/api_cubit/api_cubit.dart';
+import '../../payment_records/view/payment_record_list_view.dart';
 import '../view_model/home_view_model.dart';
 
 class HomeViewContent extends StatefulWidget {
@@ -225,8 +226,8 @@ class _HomeViewContentState extends State<HomeViewContent> {
                 label: S.current.paymentRecord,
                 onTap: () {
                   Nav.to(
-                    PaymentRecordView.routeName,
-                    arguments: PaymentRecordViewParam(),
+                    AddPaymentRecordView.routeName,
+                    arguments: AddPaymentRecordViewParam(),
                   );
                 },
               ),
@@ -345,7 +346,12 @@ class _HomeViewContentState extends State<HomeViewContent> {
                     ),
               ),
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Nav.to(
+                    PaymentRecordListView.routeName,
+                    arguments: PaymentRecordListViewParam(),
+                  );
+                },
                 child: Text(S.current.seeAll),
               ),
             ],

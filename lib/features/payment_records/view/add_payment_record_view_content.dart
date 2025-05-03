@@ -1,19 +1,19 @@
-import 'dart:math' as math;
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:intl/intl.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../generated/l10n.dart';
-import '../view_model/payment_record_view_model.dart';
-import '../model/response/customer_model.dart';
-import '../model/enums/payment_type.dart';
+import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
 
-class PaymentRecordViewContent extends StatelessWidget {
-  const PaymentRecordViewContent({Key? key}) : super(key: key);
+import '../../../generated/l10n.dart';
+import '../model/enums/payment_type.dart';
+import '../model/response/customer_model.dart';
+import '../view_model/add_payment_record_view_model.dart';
+
+class AddPaymentRecordViewContent extends StatelessWidget {
+  const AddPaymentRecordViewContent({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final viewModel = Provider.of<PaymentRecordViewModel>(context);
+    final viewModel = Provider.of<AddPaymentRecordViewModel>(context);
     final theme = Theme.of(context);
 
     return Scaffold(
@@ -83,8 +83,8 @@ class PaymentRecordViewContent extends StatelessWidget {
     );
   }
 
-  Widget _buildAmountCard(
-      BuildContext context, PaymentRecordViewModel viewModel, ThemeData theme) {
+  Widget _buildAmountCard(BuildContext context,
+      AddPaymentRecordViewModel viewModel, ThemeData theme) {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 16.w),
       child: Card(
@@ -157,8 +157,8 @@ class PaymentRecordViewContent extends StatelessWidget {
     );
   }
 
-  Widget _buildCustomerSection(
-      BuildContext context, PaymentRecordViewModel viewModel, ThemeData theme) {
+  Widget _buildCustomerSection(BuildContext context,
+      AddPaymentRecordViewModel viewModel, ThemeData theme) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -209,8 +209,8 @@ class PaymentRecordViewContent extends StatelessWidget {
     );
   }
 
-  Widget _buildServiceDetailsSection(
-      BuildContext context, PaymentRecordViewModel viewModel, ThemeData theme) {
+  Widget _buildServiceDetailsSection(BuildContext context,
+      AddPaymentRecordViewModel viewModel, ThemeData theme) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -246,8 +246,8 @@ class PaymentRecordViewContent extends StatelessWidget {
     );
   }
 
-  Widget _buildAdditionalInfoSection(
-      BuildContext context, PaymentRecordViewModel viewModel, ThemeData theme) {
+  Widget _buildAdditionalInfoSection(BuildContext context,
+      AddPaymentRecordViewModel viewModel, ThemeData theme) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -273,8 +273,8 @@ class PaymentRecordViewContent extends StatelessWidget {
     );
   }
 
-  Widget _buildBottomActionButton(
-      BuildContext context, PaymentRecordViewModel viewModel, ThemeData theme) {
+  Widget _buildBottomActionButton(BuildContext context,
+      AddPaymentRecordViewModel viewModel, ThemeData theme) {
     return Positioned(
       bottom: 0,
       left: 0,
@@ -362,7 +362,7 @@ class PaymentRecordViewContent extends StatelessWidget {
 
   Widget _buildCustomerDropdown(
     BuildContext context,
-    PaymentRecordViewModel viewModel,
+    AddPaymentRecordViewModel viewModel,
   ) {
     final textTheme = Theme.of(context).textTheme;
 
@@ -465,7 +465,7 @@ class PaymentRecordViewContent extends StatelessWidget {
   }
 
   Widget _buildServiceNameField(
-      BuildContext context, PaymentRecordViewModel viewModel) {
+      BuildContext context, AddPaymentRecordViewModel viewModel) {
     return TextFormField(
       controller: viewModel.serviceNameController,
       decoration: _getInputDecoration(
@@ -482,7 +482,7 @@ class PaymentRecordViewContent extends StatelessWidget {
   }
 
   Widget _buildServiceCostField(
-      BuildContext context, PaymentRecordViewModel viewModel) {
+      BuildContext context, AddPaymentRecordViewModel viewModel) {
     return TextFormField(
       controller: viewModel.serviceCostController,
       decoration: _getInputDecoration(
@@ -503,7 +503,7 @@ class PaymentRecordViewContent extends StatelessWidget {
   }
 
   Widget _buildServiceDateField(
-      BuildContext context, PaymentRecordViewModel viewModel) {
+      BuildContext context, AddPaymentRecordViewModel viewModel) {
     return InkWell(
       onTap: viewModel.isSubmitting
           ? null
@@ -566,7 +566,7 @@ class PaymentRecordViewContent extends StatelessWidget {
   }
 
   Widget _buildNotesField(
-      BuildContext context, PaymentRecordViewModel viewModel) {
+      BuildContext context, AddPaymentRecordViewModel viewModel) {
     return TextFormField(
       controller: viewModel.notesController,
       decoration:
@@ -580,24 +580,23 @@ class PaymentRecordViewContent extends StatelessWidget {
   }
 
   Widget _buildPaymentTypeDropdown(
-      BuildContext context, PaymentRecordViewModel viewModel) {
+      BuildContext context, AddPaymentRecordViewModel viewModel) {
     return DropdownButtonFormField<PaymentType>(
-      decoration: _getInputDecoration(
-          context, S.current.paymentType, Icons.payments),
+      decoration:
+          _getInputDecoration(context, S.current.paymentType, Icons.payments),
       value: viewModel.paymentType,
-      items: PaymentType.values.map((type) {
+      items: PaymentType.values
+          .where((type) => type != PaymentType.unknown)
+          .map((type) {
         return DropdownMenuItem<PaymentType>(
           value: type,
           child: Row(
             children: [
-              Transform.rotate(
-                angle: type == PaymentType.income ? math.pi : 0,
-                child: Icon(
-                   Icons.arrow_outward,
-                  color: type == PaymentType.income
-                      ? Colors.green
-                      : Colors.red,
-                ),
+              Icon(
+                type == PaymentType.income
+                    ? Icons.arrow_downward_rounded
+                    : Icons.arrow_upward_rounded,
+                color: type == PaymentType.income ? Colors.green : Colors.red,
               ),
               8.horizontalSpace,
               Text(type.displayName),
@@ -623,7 +622,7 @@ class PaymentRecordViewContent extends StatelessWidget {
   }
 
   void _showAddCustomerDialog(
-      BuildContext context, PaymentRecordViewModel viewModel) {
+      BuildContext context, AddPaymentRecordViewModel viewModel) {
     final formKey = GlobalKey<FormState>();
 
     showDialog(

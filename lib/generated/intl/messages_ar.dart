@@ -45,11 +45,17 @@ class MessageLookup extends MessageLookupByLibrary {
     "accountNotVerifiedErrorMessage": MessageLookupByLibrary.simpleMessage(
       "لم يتم التحقق من الحساب",
     ),
+    "activeFilters": MessageLookupByLibrary.simpleMessage("الفلاتر النشطة"),
     "addCustomer": MessageLookupByLibrary.simpleMessage("إضافة عميل"),
+    "addFirstPaymentRecord": MessageLookupByLibrary.simpleMessage(
+      "أضف أول سجل دفع",
+    ),
     "addNewCustomer": MessageLookupByLibrary.simpleMessage("إضافة عميل جديد"),
     "addNewCustomerBelow": MessageLookupByLibrary.simpleMessage(
       "إضافة عميل جديد",
     ),
+    "addPayment": MessageLookupByLibrary.simpleMessage("إضافة دفعة"),
+    "addPaymentRecord": MessageLookupByLibrary.simpleMessage("إضافة سجل دفع"),
     "additionalInformation": MessageLookupByLibrary.simpleMessage(
       "معلومات إضافية",
     ),
@@ -58,6 +64,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "apply": MessageLookupByLibrary.simpleMessage("تغيير"),
     "areYouSure": MessageLookupByLibrary.simpleMessage("هل انت متأكد؟"),
     "badRequest": MessageLookupByLibrary.simpleMessage("إرسال خاطئ"),
+    "balance": MessageLookupByLibrary.simpleMessage("الرصيد"),
     "blogs": MessageLookupByLibrary.simpleMessage("المدونات"),
     "cameraPermission": MessageLookupByLibrary.simpleMessage("كاميرا"),
     "cancel": MessageLookupByLibrary.simpleMessage("إلغاء"),
@@ -77,6 +84,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "changePhoneNumber": MessageLookupByLibrary.simpleMessage(
       "تغيير رقم الهاتف",
     ),
+    "clearAll": MessageLookupByLibrary.simpleMessage("مسح الكل"),
+    "clearFilters": MessageLookupByLibrary.simpleMessage("مسح الفلاتر"),
     "close": MessageLookupByLibrary.simpleMessage("إغلاق"),
     "closeApp": MessageLookupByLibrary.simpleMessage("إغلاق التطبيق"),
     "closed": MessageLookupByLibrary.simpleMessage("مغلق"),
@@ -102,6 +111,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "customer": MessageLookupByLibrary.simpleMessage("العميل"),
     "customerName": MessageLookupByLibrary.simpleMessage("اسم العميل"),
     "dateOfBirth": MessageLookupByLibrary.simpleMessage("تاريخ الميلاد"),
+    "dateRange": MessageLookupByLibrary.simpleMessage("المدى الزمني"),
     "deleteAccount": MessageLookupByLibrary.simpleMessage("حذف الحساب"),
     "deposit": MessageLookupByLibrary.simpleMessage("إيداع"),
     "dialogUpdateMessage": MessageLookupByLibrary.simpleMessage(
@@ -142,6 +152,10 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "faqs": MessageLookupByLibrary.simpleMessage("الأسئلة الشائعة"),
     "female": MessageLookupByLibrary.simpleMessage("انثى"),
+    "filterPaymentRecords": MessageLookupByLibrary.simpleMessage(
+      "تصفية سجلات الدفع",
+    ),
+    "filtered": MessageLookupByLibrary.simpleMessage("تمت التصفية"),
     "financialProducts": MessageLookupByLibrary.simpleMessage(
       "المنتجات المالية",
     ),
@@ -217,7 +231,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "noDataRefresher": MessageLookupByLibrary.simpleMessage(
       "لم يعد يوجد بيانات",
     ),
+    "noMatchingRecords": MessageLookupByLibrary.simpleMessage(
+      "لا توجد سجلات مطابقة",
+    ),
     "noNotifications": MessageLookupByLibrary.simpleMessage("لا يوجد إشعارات"),
+    "noPaymentRecords": MessageLookupByLibrary.simpleMessage(
+      "لا توجد سجلات دفع",
+    ),
+    "noPaymentRecordsFound": MessageLookupByLibrary.simpleMessage(
+      "لا يوجد سجلات دفع",
+    ),
     "noResultFound": MessageLookupByLibrary.simpleMessage("لا يوجد نتائج"),
     "notFound": m1,
     "notValidEmail": MessageLookupByLibrary.simpleMessage("إيميل غير صالح"),
@@ -245,8 +268,30 @@ class MessageLookup extends MessageLookupByLibrary {
     "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
     "payBills": MessageLookupByLibrary.simpleMessage("دفع الفواتير"),
     "payment": MessageLookupByLibrary.simpleMessage("الدفع"),
+    "paymentHistoryWillAppearHere": MessageLookupByLibrary.simpleMessage(
+      "سيظهر السجل المالي هنا",
+    ),
     "paymentInformation": MessageLookupByLibrary.simpleMessage("معلومات الدفع"),
     "paymentRecord": MessageLookupByLibrary.simpleMessage("تسجيل الدفع"),
+    "paymentRecords": MessageLookupByLibrary.simpleMessage("سجلات الدفع"),
+    "paymentRecordsList": MessageLookupByLibrary.simpleMessage(
+      "قائمة سجلات الدفع",
+    ),
+    "paymentRecordsListDescription": MessageLookupByLibrary.simpleMessage(
+      "قائمة سجلات الدفع",
+    ),
+    "paymentRecordsListFilter": MessageLookupByLibrary.simpleMessage(
+      "تصفية سجلات الدفع",
+    ),
+    "paymentRecordsListSearch": MessageLookupByLibrary.simpleMessage(
+      "ابحث في سجلات الدفع",
+    ),
+    "paymentRecordsListSort": MessageLookupByLibrary.simpleMessage(
+      "ترتيب سجلات الدفع",
+    ),
+    "paymentRecordsListTitle": MessageLookupByLibrary.simpleMessage(
+      "قائمة سجلات الدفع",
+    ),
     "paymentType": MessageLookupByLibrary.simpleMessage("نوع الدفع"),
     "pending": MessageLookupByLibrary.simpleMessage("بانتظار الموافقة"),
     "permissionRequiredMessage": MessageLookupByLibrary.simpleMessage(
@@ -273,6 +318,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "حدث خطأ ما، الرجاء الضغط على إرسال لمساعدتنا بحل المشكلة",
     ),
     "resendCode": MessageLookupByLibrary.simpleMessage("إعادة إرسال الرمز"),
+    "reset": MessageLookupByLibrary.simpleMessage("إعادة تعيين"),
     "responseError": MessageLookupByLibrary.simpleMessage(
       "حدث خطأ أثناء الاتصال بالخادم ، يرجى المحاولة لاحقًا",
     ),
@@ -281,8 +327,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "role": MessageLookupByLibrary.simpleMessage("الدور"),
     "salary": MessageLookupByLibrary.simpleMessage("راتب"),
     "search": MessageLookupByLibrary.simpleMessage("بحث"),
+    "searchPayments": MessageLookupByLibrary.simpleMessage(
+      "البحث في المدفوعات",
+    ),
     "seeAll": MessageLookupByLibrary.simpleMessage("عرض الكل"),
     "selectCustomer": MessageLookupByLibrary.simpleMessage("اختيار العميل"),
+    "selectDateRange": MessageLookupByLibrary.simpleMessage(
+      "اختر المدى الزمني",
+    ),
     "selectSubject": MessageLookupByLibrary.simpleMessage("اختر الموضوع"),
     "selectYourGender": MessageLookupByLibrary.simpleMessage("اختر جنسك"),
     "send": MessageLookupByLibrary.simpleMessage("إرسال"),
@@ -307,6 +359,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "submitTicket": MessageLookupByLibrary.simpleMessage("إرسال التذكرة"),
     "submittedAt": MessageLookupByLibrary.simpleMessage("تم الإرسال في"),
     "suggesstion": MessageLookupByLibrary.simpleMessage("اقتراح"),
+    "summary": MessageLookupByLibrary.simpleMessage("ملخص"),
     "surname": MessageLookupByLibrary.simpleMessage("الكنية"),
     "switchTheme": MessageLookupByLibrary.simpleMessage("تغيير وضع الالوان"),
     "target": MessageLookupByLibrary.simpleMessage("الهدف"),
@@ -340,6 +393,10 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "transfer": MessageLookupByLibrary.simpleMessage("تحويل"),
     "translationTest": MessageLookupByLibrary.simpleMessage("اختبار الترجمة"),
+    "tryAgain": MessageLookupByLibrary.simpleMessage("حاول مرة أخرى"),
+    "tryDifferentFilters": MessageLookupByLibrary.simpleMessage(
+      "جرب مرشحات مختلفة",
+    ),
     "tryEnablingItFromYourPhoneSettings": MessageLookupByLibrary.simpleMessage(
       "حاول تشغيلها من إعدادات جهازك",
     ),
@@ -367,6 +424,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "userName": MessageLookupByLibrary.simpleMessage("اسم المستخدم"),
     "userRegisteration": MessageLookupByLibrary.simpleMessage("تسجيل المستخدم"),
     "vacationFund": MessageLookupByLibrary.simpleMessage("صندوق الإجازات"),
+    "viewDetails": MessageLookupByLibrary.simpleMessage("عرض التفاصيل"),
     "welcome": m4,
     "welcomeback": MessageLookupByLibrary.simpleMessage("مرحباً بك"),
     "yesterday": MessageLookupByLibrary.simpleMessage("الأمس"),

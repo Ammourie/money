@@ -17,7 +17,8 @@ import '../../features/more/view/faqs_view.dart';
 import '../../features/more/view/privacy_policy_view.dart';
 import '../../features/more/view/terms_and_conditions_view.dart';
 import '../../features/notification/view/notification_list_view.dart';
-import '../../features/payment_records/view/payment_record_view.dart';
+import '../../features/payment_records/view/add_payment_record_view.dart';
+import '../../features/payment_records/view/payment_record_list_view.dart';
 import '../../features/tickets/view/ticket_details_view.dart';
 import '../../features/tickets/view/ticket_list_view.dart';
 import '../constants/enums/route_type.dart';
@@ -33,15 +34,20 @@ class NavigationRoute {
     // final args = settings.arguments;
 
     switch (settings.name) {
-      case LoginView.routeName:
-        return _getRoute<LoginViewParam>(
+        case LoginView.routeName:
+          return _getRoute<LoginViewParam>(
+            settings: settings,
+            createScreen: (param) => LoginView(param: param),
+          );
+      case AddPaymentRecordView.routeName:
+        return _getRoute<AddPaymentRecordViewParam>(
           settings: settings,
-          createScreen: (param) => LoginView(param: param),
+          createScreen: (param) => AddPaymentRecordView(param: param),
         );
-      case PaymentRecordView.routeName:
-        return _getRoute<PaymentRecordViewParam>(
+      case PaymentRecordListView.routeName:
+        return _getRoute<PaymentRecordListViewParam>(
           settings: settings,
-          createScreen: (param) => PaymentRecordView(param: param),
+          createScreen: (param) => PaymentRecordListView(param: param),
         );
       case AuthView.routeName:
         return _getRoute<AuthViewParam>(
